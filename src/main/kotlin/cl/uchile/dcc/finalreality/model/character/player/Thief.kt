@@ -23,7 +23,7 @@ import java.util.concurrent.BlockingQueue
  * @property currentHp The current HP of the character.
  *
  * @author <a href="https://www.github.com/r8vnhill">R8V</a>
- * @author ~Your name~
+ * @author <a href="https://www.github.com/johnny-godoy">R8V</a>
  */
 class Thief(name: String, maxHp: Int, defense: Int, turnsQueue: BlockingQueue<GameCharacter>) :
   AbstractPlayerCharacter(name, maxHp, defense, turnsQueue) {
@@ -39,7 +39,4 @@ class Thief(name: String, maxHp: Int, defense: Int, turnsQueue: BlockingQueue<Ga
     }
 
     override fun hashCode() = Objects.hash(Thief::class, name, maxHp, defense)
-
-    override fun toString() =
-      "Thief{maxHp=$maxHp, currentHp=$currentHp, defense=$defense, name='$name'}"
 }

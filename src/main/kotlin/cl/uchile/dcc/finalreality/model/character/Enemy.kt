@@ -17,7 +17,7 @@ import java.util.concurrent.BlockingQueue
  *  play.
  *
  * @author <a href="https://github.com/r8vnhill">R8V</a>
- * @author ~Your name~
+ * @author <a href="https://www.github.com/johnny-godoy">R8V</a>
  */
 class Enemy(
     name: String,
@@ -40,4 +40,8 @@ class Enemy(
     }
 
     override fun hashCode() = Objects.hash(Enemy::class, name, weight, maxHp, defense)
+    override fun toString(): String {
+        val superString = super.toString().dropLast(1)
+        return "$superString, weight=$weight)"
+    }
 }
