@@ -10,17 +10,17 @@ import java.util.concurrent.TimeUnit
 /**
  * An abstract class that holds the common behaviour of all the characters in the game.
  *
- * @param name
+ * @property name
  *    The name of the character.
- * @param maxHp
+ * @property maxHp
  *    The maximum health points of the character.
- * @param defense
+ * @property defense
  *    The defense of the character.
  * @property turnsQueue
  *    The queue with the characters waiting for their turn.
  *
  * @author <a href="https://www.github.com/r8vnhill">R8V</a>
- * @author <a href="https://www.github.com/johnny-godoy">R8V</a>
+ * @author ~Your name~
  */
 abstract class AbstractCharacter(
     override val name: String,
@@ -64,10 +64,5 @@ abstract class AbstractCharacter(
     private fun addToQueue() {
         turnsQueue.put(this)
         scheduledExecutor.shutdown()
-    }
-
-    override fun toString(): String {
-        val className = this.javaClass.simpleName
-        return "$className(name='$name', maxHp=$maxHp, defense=$defense, currentHp=$currentHp)"
     }
 }

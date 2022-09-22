@@ -26,7 +26,7 @@ import java.util.concurrent.BlockingQueue
  * @property currentHp The current HP of the character.
  *
  * @author <a href="https://www.github.com/r8vnhill">R8V</a>
- * @author <a href="https://www.github.com/johnny-godoy">R8V</a>
+ * @author ~Your name~
  */
 class WhiteMage(
   name: String,
@@ -53,4 +53,8 @@ class WhiteMage(
     }
 
     override fun hashCode() = Objects.hash(WhiteMage::class, name, maxHp, maxMp, defense)
+
+    override fun toString() =
+      "WhiteMage(currentMp=$currentMp, maxMp=$maxMp, maxHp=$maxHp, currentHp=$currentHp, " +
+        "defense=$defense, name='$name')"
 }

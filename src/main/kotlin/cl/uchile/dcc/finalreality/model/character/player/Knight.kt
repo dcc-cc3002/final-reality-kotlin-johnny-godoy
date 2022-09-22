@@ -24,7 +24,7 @@ import java.util.concurrent.BlockingQueue
  * @property currentHp The current HP of the character.
  *
  * @author <a href="https://www.github.com/r8vnhill">R8V</a>
- * @author <a href="https://www.github.com/johnny-godoy">R8V</a>
+ * @author ~Your name~
  */
 class Knight(
     name: String, maxHp: Int, defense: Int,
@@ -42,4 +42,10 @@ class Knight(
 
     override fun hashCode() = Objects.hash(Knight::class, name, maxHp, defense)
 
+    override fun toString() = "Knight { " +
+      "name: '$name', " +
+      "maxHp: $maxHp, " +
+      "defense: $defense, " +
+      "currentHp: $currentHp " +
+      "}"
 }
