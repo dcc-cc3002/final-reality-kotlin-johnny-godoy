@@ -37,10 +37,7 @@ class Weapon(
 
     override fun hashCode() = Objects.hash(Weapon::class, name, damage, weight, type)
 
-    override fun toString(): String {
-        val className = this.javaClass.simpleName
-        return "$className(name='$name', damage=$damage, weight=$weight, type='$type')"
-    }
+    override fun toString() = "Weapon(name: $name, damage: $damage, weight: $weight, type: $type)"
 }
 
 /**
