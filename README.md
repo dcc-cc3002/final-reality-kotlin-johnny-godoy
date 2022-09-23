@@ -16,4 +16,6 @@ enemies controlled by the computer.
 
 ---
 
-**The rest of the documentation is left for the users of this template to complete**
+Code changes:
+* Created an `AbstractMagicWielder` class to generalize `Mages` and `Black Mages`.
+* Modified `toString` methods in child classes to reuse the code from parents. It gets the class name at runtime to improve 
