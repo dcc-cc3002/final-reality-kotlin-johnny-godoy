@@ -7,12 +7,12 @@
  */
 package cl.uchile.dcc.finalreality.model.character.player
 
-import cl.uchile.dcc.finalreality.model.character.GameCharacter
+import cl.uchile.dcc.finalreality.model.character.IGameCharacter
 import java.util.*
 import java.util.concurrent.BlockingQueue
 
 /**
- * A `Thief` is a type of [PlayerCharacter] that can equip `Sword`s, `Knife`s and `Bow`s.
+ * A `Thief` is a type of [IPlayerCharacter] that can equip `Sword`s, `Knife`s and `Bow`s.
  *
  * @param name        the character's name
  * @param maxHp       the character's maximum health points
@@ -23,10 +23,10 @@ import java.util.concurrent.BlockingQueue
  * @property currentHp The current HP of the character.
  *
  * @author <a href="https://www.github.com/r8vnhill">R8V</a>
- * @author <a href="https://www.github.com/johnny-godoy">R8V</a>
+ * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  */
-class Thief(name: String, maxHp: Int, defense: Int, turnsQueue: BlockingQueue<GameCharacter>) :
-  AbstractPlayerCharacter(name, maxHp, defense, turnsQueue) {
+class Thief(name: String, maxHp: Int, defense: Int, turnsQueue: BlockingQueue<IGameCharacter>) :
+  AbstractIPlayerCharacter(name, maxHp, defense, turnsQueue) {
 
     override fun equals(other: Any?) = when {
         this === other                 -> true

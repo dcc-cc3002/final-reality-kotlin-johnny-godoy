@@ -1,7 +1,7 @@
 package cl.uchile.dcc.finalreality.model.character
 
 import cl.uchile.dcc.finalreality.exceptions.Require
-import cl.uchile.dcc.finalreality.model.character.player.PlayerCharacter
+import cl.uchile.dcc.finalreality.model.character.player.IPlayerCharacter
 import java.util.concurrent.BlockingQueue
 import java.util.concurrent.Executors
 import java.util.concurrent.ScheduledExecutorService
@@ -20,14 +20,14 @@ import java.util.concurrent.TimeUnit
  *    The queue with the characters waiting for their turn.
  *
  * @author <a href="https://www.github.com/r8vnhill">R8V</a>
- * @author <a href="https://www.github.com/johnny-godoy">R8V</a>
+ * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  */
 abstract class AbstractCharacter(
     override val name: String,
     maxHp: Int,
     defense: Int,
-    private val turnsQueue: BlockingQueue<GameCharacter>,
-) : GameCharacter {
+    private val turnsQueue: BlockingQueue<IGameCharacter>,
+) : IGameCharacter {
 
     private lateinit var scheduledExecutor: ScheduledExecutorService
     override val maxHp = Require.Stat(maxHp, "Max Hp") atLeast 1
@@ -40,7 +40,7 @@ abstract class AbstractCharacter(
     override fun waitTurn() {
         scheduledExecutor = Executors.newSingleThreadScheduledExecutor()
         when (this) {
-            is PlayerCharacter -> {
+            is IPlayerCharacter -> {
                 scheduledExecutor.schedule(
                     /* command = */ ::addToQueue,
                     /* delay = */ (this.equippedWeapon.weight / 10).toLong(),

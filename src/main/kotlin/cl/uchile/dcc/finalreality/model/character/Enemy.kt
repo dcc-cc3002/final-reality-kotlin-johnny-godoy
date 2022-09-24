@@ -17,14 +17,14 @@ import java.util.concurrent.BlockingQueue
  *  play.
  *
  * @author <a href="https://github.com/r8vnhill">R8V</a>
- * @author <a href="https://www.github.com/johnny-godoy">R8V</a>
+ * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  */
 class Enemy(
     name: String,
     weight: Int,
     maxHp: Int,
     defense: Int,
-    turnsQueue: BlockingQueue<GameCharacter>
+    turnsQueue: BlockingQueue<IGameCharacter>
 ) : AbstractCharacter(name, maxHp, defense, turnsQueue) {
     val weight = Require.Stat(weight, "Weight") atLeast 1
 

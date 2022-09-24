@@ -7,12 +7,12 @@
  */
 package cl.uchile.dcc.finalreality.model.character.player
 
-import cl.uchile.dcc.finalreality.model.character.GameCharacter
+import cl.uchile.dcc.finalreality.model.character.IGameCharacter
 import java.util.*
 import java.util.concurrent.BlockingQueue
 
 /**
- * A `Knight` is a type of [PlayerCharacter] that can equip `Sword`s, `Axe`s and
+ * A `Knight` is a type of [IPlayerCharacter] that can equip `Sword`s, `Axe`s and
  * `Knife`s.
  *
  * @param name        the character's name
@@ -24,12 +24,12 @@ import java.util.concurrent.BlockingQueue
  * @property currentHp The current HP of the character.
  *
  * @author <a href="https://www.github.com/r8vnhill">R8V</a>
- * @author <a href="https://www.github.com/johnny-godoy">R8V</a>
+ * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  */
 class Knight(
     name: String, maxHp: Int, defense: Int,
-    turnsQueue: BlockingQueue<GameCharacter>
-) : AbstractPlayerCharacter(name, maxHp, defense, turnsQueue) {
+    turnsQueue: BlockingQueue<IGameCharacter>
+) : AbstractIPlayerCharacter(name, maxHp, defense, turnsQueue) {
     override fun equals(other: Any?) = when {
         this === other                 -> true
         other !is Knight               -> false

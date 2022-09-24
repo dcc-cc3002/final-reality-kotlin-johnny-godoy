@@ -8,12 +8,12 @@
 package cl.uchile.dcc.finalreality.model.character.player
 
 import cl.uchile.dcc.finalreality.exceptions.Require
-import cl.uchile.dcc.finalreality.model.character.GameCharacter
+import cl.uchile.dcc.finalreality.model.character.IGameCharacter
 import java.util.*
 import java.util.concurrent.BlockingQueue
 
 /**
- * A White Mage is a type of [PlayerCharacter] that can cast white magic.
+ * A White Mage is a type of [IPlayerCharacter] that can cast white magic.
  *
  * @param name        the character's name
  * @param maxHp       the character's maximum health points
@@ -26,15 +26,15 @@ import java.util.concurrent.BlockingQueue
  * @property currentHp The current HP of the character.
  *
  * @author <a href="https://www.github.com/r8vnhill">R8V</a>
- * @author <a href="https://www.github.com/johnny-godoy">R8V</a>
+ * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  */
 class WhiteMage(
   name: String,
   maxHp: Int,
   maxMp: Int,
   defense: Int,
-  turnsQueue: BlockingQueue<GameCharacter>
-) : AbstractPlayerCharacter(name, maxHp, defense, turnsQueue) {
+  turnsQueue: BlockingQueue<IGameCharacter>
+) : AbstractIPlayerCharacter(name, maxHp, defense, turnsQueue) {
     val maxMp = Require.Stat(maxMp, "Max MP") atLeast 0
     var currentMp: Int = maxMp
         set(value) {

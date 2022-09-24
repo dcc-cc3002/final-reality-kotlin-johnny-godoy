@@ -7,12 +7,12 @@
  */
 package cl.uchile.dcc.finalreality.model.character.player
 
-import cl.uchile.dcc.finalreality.model.character.GameCharacter
+import cl.uchile.dcc.finalreality.model.character.IGameCharacter
 import java.util.Objects
 import java.util.concurrent.BlockingQueue
 
 /**
- * An `Engineer` is a type of [PlayerCharacter] that can equip `Axe`s and
+ * An `Engineer` is a type of [IPlayerCharacter] that can equip `Axe`s and
  * `Bow`s.
  *
  * @param name        the character's name
@@ -24,13 +24,13 @@ import java.util.concurrent.BlockingQueue
  * @property currentHp The current HP of the character.
  *
  * @author <a href="https://www.github.com/r8vnhill">R8V</a>
- * @author <a href="https://www.github.com/johnny-godoy">R8V</a>
+ * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  */
 class Engineer(
     name: String, maxHp: Int, defense: Int,
-    turnsQueue: BlockingQueue<GameCharacter>
+    turnsQueue: BlockingQueue<IGameCharacter>
 ) :
-    AbstractPlayerCharacter(name, maxHp, defense, turnsQueue) {
+    AbstractIPlayerCharacter(name, maxHp, defense, turnsQueue) {
 
     override fun equals(other: Any?) = when {
         this === other -> true

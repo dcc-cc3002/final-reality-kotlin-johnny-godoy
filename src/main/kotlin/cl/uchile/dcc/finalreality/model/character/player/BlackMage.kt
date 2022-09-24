@@ -7,8 +7,7 @@
  */
 package cl.uchile.dcc.finalreality.model.character.player
 
-import cl.uchile.dcc.finalreality.exceptions.Require
-import cl.uchile.dcc.finalreality.model.character.GameCharacter
+import cl.uchile.dcc.finalreality.model.character.IGameCharacter
 import java.util.*
 import java.util.concurrent.BlockingQueue
 
@@ -26,14 +25,14 @@ import java.util.concurrent.BlockingQueue
  * @property currentHp The current HP of the character.
  *
  * @author <a href="https://www.github.com/r8vnhill">R8V</a>
- * @author <a href="https://www.github.com/johnny-godoy">R8V</a>
+ * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  */
 class BlackMage(
     name: String,
     maxHp: Int,
     maxMp: Int,
     defense: Int,
-    turnsQueue: BlockingQueue<GameCharacter>
+    turnsQueue: BlockingQueue<IGameCharacter>
 ) : AbstractMagicWielder(name, maxHp, maxMp, defense, turnsQueue) {
 
     override fun equals(other: Any?) = when {

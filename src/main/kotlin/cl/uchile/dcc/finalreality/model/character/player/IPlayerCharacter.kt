@@ -10,8 +10,7 @@ package cl.uchile.dcc.finalreality.model.character.player
 import cl.uchile.dcc.finalreality.exceptions.Require
 import cl.uchile.dcc.finalreality.model.Weapon
 import cl.uchile.dcc.finalreality.model.character.AbstractCharacter
-import cl.uchile.dcc.finalreality.model.character.GameCharacter
-import java.util.Objects
+import cl.uchile.dcc.finalreality.model.character.IGameCharacter
 import java.util.concurrent.BlockingQueue
 
 /**
@@ -20,8 +19,9 @@ import java.util.concurrent.BlockingQueue
  * @property equippedWeapon
  *    the weapon that the character is currently using
  * @author <a href="https://www.github.com/r8vnhill">R8V</a>
+ * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  */
-interface PlayerCharacter {
+interface IPlayerCharacter {
   val equippedWeapon: Weapon
 
   /**
@@ -40,14 +40,14 @@ interface PlayerCharacter {
  * @constructor Creates a new playable character.
  *
  * @author <a href="https://www.github.com/r8vnhill">R8V</a>
- * @author <a href="https://www.github.com/johnny-godoy">R8V</a>
+ * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  */
-abstract class AbstractPlayerCharacter(
+abstract class AbstractIPlayerCharacter(
   name: String,
   maxHp: Int,
   defense: Int,
-  turnsQueue: BlockingQueue<GameCharacter>
-) : AbstractCharacter(name, maxHp, defense, turnsQueue), PlayerCharacter {
+  turnsQueue: BlockingQueue<IGameCharacter>
+) : AbstractCharacter(name, maxHp, defense, turnsQueue), IPlayerCharacter {
 
   private lateinit var _equippedWeapon: Weapon
   override val equippedWeapon: Weapon
@@ -72,15 +72,15 @@ abstract class AbstractPlayerCharacter(
  * @property currentMp The current MP of the character.
  * @property currentHp The current HP of the character.
  *
- * @author <a href="https://www.github.com/johnny-godoy">R8V</a>
+ * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  */
 abstract class AbstractMagicWielder(
   name: String,
   maxHp: Int,
   maxMp: Int,
   defense: Int,
-  turnsQueue: BlockingQueue<GameCharacter>
-) : AbstractPlayerCharacter(name, maxHp, defense, turnsQueue) {
+  turnsQueue: BlockingQueue<IGameCharacter>
+) : AbstractIPlayerCharacter(name, maxHp, defense, turnsQueue) {
   val maxMp = Require.Stat(maxMp, "Max MP") atLeast 0
   var currentMp: Int = maxMp
     set(value) {
