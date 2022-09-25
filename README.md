@@ -29,10 +29,10 @@ We are asked to study the base code from this repository (in `master`), find des
 Design problems have been fixed like such:
 
 * Fix class structure: create an `AbstractMagicWielder` class to generalize `Mages` and `Black Mages`.
-* Fix `moveTurn` method: create `delay` abstract method implemented by `Enemy` and `AbstractPlayerCharacter` instead of checking which class the object belongs to - as to comply with the *Dependency Inversion Principle*.
+* Fix `moveTurn` method: create `delay` abstract method implemented by `Enemy` and `AbstractPlayerCharacter` instead of checking which class the object belongs to - as to adhere to the *Dependency Inversion Principle*.
 
 Also, I implemented some less important refactoring:
 
 * Modify `toString` methods in child classes to reuse the code from parents.
-* Refactor interfaces to have an `I` prefix.
+* Rename interfaces to have an `I` prefix.
 * `PlayerCharacter.kt` is split into more files such that each class has a unique file
