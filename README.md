@@ -26,5 +26,6 @@ We were asked to create a UML diagram given the problem specification (without t
 ## Partial homework 2
 We are asked to study the base code from this repository (in `master`), find design problems and fix them. Currently, the following code changes have been implemented:
 
-* Created an `AbstractMagicWielder` class to generalize `Mages` and `Black Mages`.
-* Modified `toString` methods in child classes to reuse the code from parents. Now it gets the class name at runtime.
+* Create an `AbstractMagicWielder` class to generalize `Mages` and `Black Mages`.
+* Modify `toString` methods in child classes to reuse the code from parents.
+* Refactor interfaces to have an `I` prefix.
