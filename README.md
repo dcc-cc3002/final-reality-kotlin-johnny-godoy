@@ -29,3 +29,4 @@ We are asked to study the base code from this repository (in `master`), find des
 * Create an `AbstractMagicWielder` class to generalize `Mages` and `Black Mages`.
 * Modify `toString` methods in child classes to reuse the code from parents.
 * Refactor interfaces to have an `I` prefix.
+* `PlayerCharacter.kt` is split into more files such that each class has a unique file
