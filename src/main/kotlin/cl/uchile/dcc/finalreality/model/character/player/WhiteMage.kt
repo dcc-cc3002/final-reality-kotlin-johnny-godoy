@@ -35,11 +35,6 @@ class WhiteMage(
   defense: Int,
   turnsQueue: BlockingQueue<IGameCharacter>
 ) : AbstractMagicWielder(name, maxHp, maxMp, defense, turnsQueue) {
-    val maxMp = Require.Stat(maxMp, "Max MP") atLeast 0
-    var currentMp: Int = maxMp
-        set(value) {
-            field = Require.Stat(value, "Current MP") inRange 0..maxMp
-        }
 
     override fun equals(other: Any?) = when {
         this === other                 -> true
