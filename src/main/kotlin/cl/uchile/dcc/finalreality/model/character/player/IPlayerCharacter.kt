@@ -42,7 +42,7 @@ interface IPlayerCharacter {
  * @author <a href="https://www.github.com/r8vnhill">R8V</a>
  * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  */
-abstract class AbstractIPlayerCharacter(
+abstract class AbstractPlayerCharacter(
   name: String,
   maxHp: Int,
   defense: Int,
@@ -80,7 +80,7 @@ abstract class AbstractMagicWielder(
   maxMp: Int,
   defense: Int,
   turnsQueue: BlockingQueue<IGameCharacter>
-) : AbstractIPlayerCharacter(name, maxHp, defense, turnsQueue) {
+) : AbstractPlayerCharacter(name, maxHp, defense, turnsQueue) {
   val maxMp = Require.Stat(maxMp, "Max MP") atLeast 0
   var currentMp: Int = maxMp
     set(value) {

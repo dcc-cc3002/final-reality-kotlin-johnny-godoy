@@ -30,7 +30,7 @@ class Engineer(
     name: String, maxHp: Int, defense: Int,
     turnsQueue: BlockingQueue<IGameCharacter>
 ) :
-    AbstractIPlayerCharacter(name, maxHp, defense, turnsQueue) {
+    AbstractPlayerCharacter(name, maxHp, defense, turnsQueue) {
 
     override fun equals(other: Any?) = when {
         this === other -> true

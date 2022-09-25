@@ -26,7 +26,7 @@ import java.util.concurrent.BlockingQueue
  * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  */
 class Thief(name: String, maxHp: Int, defense: Int, turnsQueue: BlockingQueue<IGameCharacter>) :
-  AbstractIPlayerCharacter(name, maxHp, defense, turnsQueue) {
+  AbstractPlayerCharacter(name, maxHp, defense, turnsQueue) {
 
     override fun equals(other: Any?) = when {
         this === other                 -> true
