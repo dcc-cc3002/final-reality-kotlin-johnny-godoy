@@ -13,6 +13,7 @@ package cl.uchile.dcc.finalreality.model.character
  * @property currentHp
  *    The current health points of the character.
  *
+ * @author <a href="https://github.com/r8vnhill">R8V</a>
  * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  */
 interface IGameCharacter {
