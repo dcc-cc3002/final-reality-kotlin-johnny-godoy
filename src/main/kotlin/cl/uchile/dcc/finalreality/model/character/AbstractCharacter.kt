@@ -54,5 +54,8 @@ abstract class AbstractCharacter(
         return "$className(name='$name', maxHp=$maxHp, defense=$defense, currentHp=$currentHp)"
     }
 
-    abstract fun delay(): Int
+    /**
+     * Gets the correct delay for the character.
+     */
+    protected abstract fun delay(): Int
 }

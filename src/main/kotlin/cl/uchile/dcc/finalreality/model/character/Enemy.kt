@@ -45,6 +45,6 @@ class Enemy(
         return "$superString, weight=$weight)"
     }
 
-    override fun delay(): Int = weight / 10
+    override fun delay() = weight / 10
 
 }
