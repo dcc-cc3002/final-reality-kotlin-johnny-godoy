@@ -1,7 +1,6 @@
 package cl.uchile.dcc.finalreality.model.character
 
 import cl.uchile.dcc.finalreality.exceptions.Require
-import cl.uchile.dcc.finalreality.model.character.player.IPlayerCharacter
 import java.util.concurrent.BlockingQueue
 import java.util.concurrent.Executors
 import java.util.concurrent.ScheduledExecutorService
@@ -39,23 +38,7 @@ abstract class AbstractCharacter(
 
     override fun waitTurn() {
         scheduledExecutor = Executors.newSingleThreadScheduledExecutor()
-        when (this) {
-            is IPlayerCharacter -> {
-                scheduledExecutor.schedule(
-                    /* command = */ ::addToQueue,
-                    /* delay = */ (this.equippedWeapon.weight / 10).toLong(),
-                    /* unit = */ TimeUnit.SECONDS
-                )
-            }
-
-            is Enemy -> {
-                scheduledExecutor.schedule(
-                    /* command = */ ::addToQueue,
-                    /* delay = */ (this.weight / 10).toLong(),
-                    /* unit = */ TimeUnit.SECONDS
-                )
-            }
-        }
+        scheduledExecutor.schedule(this::addToQueue, this.delay().toLong(), TimeUnit.SECONDS)
     }
 
     /**
@@ -70,4 +53,6 @@ abstract class AbstractCharacter(
         val className = this.javaClass.simpleName
         return "$className(name='$name', maxHp=$maxHp, defense=$defense, currentHp=$currentHp)"
     }
+
+    abstract fun delay(): Int
 }

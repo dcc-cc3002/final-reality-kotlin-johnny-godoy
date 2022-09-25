@@ -44,4 +44,7 @@ class Enemy(
         val superString = super.toString().dropLast(1)
         return "$superString, weight=$weight)"
     }
+
+    override fun delay(): Int = weight / 10
+
 }

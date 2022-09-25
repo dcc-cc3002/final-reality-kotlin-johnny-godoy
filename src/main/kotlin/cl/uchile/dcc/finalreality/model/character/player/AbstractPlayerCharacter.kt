@@ -39,4 +39,6 @@ abstract class AbstractPlayerCharacter(
     override fun equip(weapon: Weapon) {
         _equippedWeapon = weapon
     }
+
+    override fun delay(): Int = equippedWeapon.weight / 10
 }
