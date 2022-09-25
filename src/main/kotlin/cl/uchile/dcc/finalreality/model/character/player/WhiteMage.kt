@@ -34,7 +34,7 @@ class WhiteMage(
   maxMp: Int,
   defense: Int,
   turnsQueue: BlockingQueue<IGameCharacter>
-) : AbstractPlayerCharacter(name, maxHp, defense, turnsQueue) {
+) : AbstractMagicWielder(name, maxHp, maxMp, defense, turnsQueue) {
     val maxMp = Require.Stat(maxMp, "Max MP") atLeast 0
     var currentMp: Int = maxMp
         set(value) {
