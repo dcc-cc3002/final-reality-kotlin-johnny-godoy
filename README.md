@@ -36,3 +36,5 @@ Also, I implemented some less important refactoring:
 * Modify `toString` methods in child classes to reuse the code from parents.
 * Rename interfaces to have an `I` prefix.
 * `PlayerCharacter.kt` is split into more files such that each class has a unique file
+
+I also noticed a *potential* problem which is yet to be fixed: Staffs work different than other weapons, because they have magic damage.
