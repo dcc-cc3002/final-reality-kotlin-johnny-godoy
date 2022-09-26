@@ -1,10 +1,9 @@
 package cl.uchile.dcc.finalreality.model.weapons
 
-import cl.uchile.dcc.finalreality.exceptions.Require
 import java.util.Objects
 
 /**
- * A class that implements staffs.
+ * A class that implements knife.
  *
  * @property name String
  *     The name of the weapon.
@@ -13,22 +12,20 @@ import java.util.Objects
  * @property weight Int
  *     The weight of the weapon.
  *
- * @constructor Creates a staff with a name, a base damage, and a weight value.
+ * @constructor Creates a weapon with a name, a base damage, and a weight value.
  *
  * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  */
-class Staff(name: String, damage: Int, weight: Int, magicDamage: Int) : Weapon(name, damage, weight) {
-    val magicDamage = Require.Stat(damage, "Magic Damage") atLeast 0
+class Knife(name: String, damage: Int, weight: Int) : Weapon(name, damage, weight) {
     override fun equals(other: Any?) = when {
         this === other                   -> true
-        other !is Staff                  -> false
+        other !is Knife                  -> false
         hashCode() != other.hashCode()   -> false
         name != other.name               -> false
         damage != other.damage           -> false
         weight != other.weight           -> false
-        magicDamage != other.magicDamage -> false
         else                             -> true
     }
 
-    override fun hashCode() = Objects.hash(Staff::class, name, damage, weight, magicDamage)
+    override fun hashCode() = Objects.hash(Knife::class, name, damage, weight)
 }

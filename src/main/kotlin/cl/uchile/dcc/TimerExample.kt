@@ -2,8 +2,7 @@ package cl.uchile.dcc
 
 import cl.uchile.dcc.finalreality.model.character.IGameCharacter
 import cl.uchile.dcc.finalreality.model.character.player.Thief
-import cl.uchile.dcc.finalreality.model.weapons.CommonWeapon
-import cl.uchile.dcc.finalreality.model.weapons.CommonWeaponTypes
+import cl.uchile.dcc.finalreality.model.weapons.Knife
 import java.util.concurrent.LinkedBlockingQueue
 import kotlin.random.Random
 
@@ -11,7 +10,7 @@ fun main() {
     val queue = LinkedBlockingQueue<IGameCharacter>()
     for (i in 0 until 10) {
         // Gives a random speed to each character to generate different waiting times
-        val weapon = CommonWeapon("", 0, Random.nextInt(1, 50), CommonWeaponTypes.KNIFE)
+        val weapon = Knife("", 0, Random.nextInt(1, 50))
         val character = Thief("$i", 10, 10, queue)
         character.equip(weapon)
         character.waitTurn()

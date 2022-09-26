@@ -4,7 +4,7 @@ import cl.uchile.dcc.finalreality.exceptions.Require
 import java.util.Objects
 
 /**
- * An abstract class that holds the common behaviour of all the weapons in the game.
+ * A class that holds the common behaviour of all the weapons in the game.
  *
  * @property name String
  *     The name of the weapon.
@@ -17,13 +17,13 @@ import java.util.Objects
  *
  * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  */
-abstract class AbstractWeapon(override val name: String, damage: Int, weight: Int) : IWeapon {
+open class Weapon(override val name: String, damage: Int, weight: Int) : IWeapon {
     override val damage = Require.Stat(damage, "Damage") atLeast 0
     override val weight = Require.Stat(weight, "Weight") atLeast 0
 
     override fun equals(other: Any?) = when {
         this === other                 -> true
-        other !is AbstractWeapon       -> false
+        other !is Weapon               -> false
         hashCode() != other.hashCode() -> false
         name != other.name             -> false
         damage != other.damage         -> false
@@ -31,7 +31,7 @@ abstract class AbstractWeapon(override val name: String, damage: Int, weight: In
         else                           -> true
     }
 
-    override fun hashCode() = Objects.hash(AbstractWeapon::class, name, damage, weight)
+    override fun hashCode() = Objects.hash(Weapon::class, name, damage, weight)
 
     override fun toString(): String {
         val className = this.javaClass.simpleName
