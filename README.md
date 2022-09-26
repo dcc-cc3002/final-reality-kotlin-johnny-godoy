@@ -36,3 +36,11 @@ Also, I did some refactoring:
 * Modify `toString` methods in child classes to reuse the code from parents.
 * Rename interfaces to have an `I` prefix.
 * `PlayerCharacter.kt` is split into more files such that each class has a unique file.
+
+## Final version
+With the changes from the previous partial homework, we have the following UML diagrams:
+
+![Second version for weapons](/reports/uml_weapons_final_1.png)
+![Second version for characters](/reports/uml_characters_final_1.png)
+
+Which corrects the first partial homework. I also added tests for the second partial homework at `src/kotlin/main.kt`.
