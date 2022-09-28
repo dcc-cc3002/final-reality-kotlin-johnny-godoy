@@ -44,3 +44,4 @@ With the changes from the previous partial homework, we have the following UML d
 ![Second version for characters](/reports/uml_characters_final_1.png)
 
 Which corrects the first partial homework. I also added tests for the second partial homework at `src/kotlin/main.kt`.
+Just run this file to see the results.
