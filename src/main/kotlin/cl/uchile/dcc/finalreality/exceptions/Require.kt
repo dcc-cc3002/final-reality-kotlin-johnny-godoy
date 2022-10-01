@@ -31,7 +31,7 @@ object Require {
          * Checks if the stat is greater than or equal to the given value.
          * If the condition is met, the stat value is returned.
          */
-        infix fun atLeast(i: Int) = if (stat >= i) {
+        infix fun atLeast(i: Int): Int = if (stat >= i) {
             stat
         } else {
             throw InvalidStatValueException("'$name' ($stat must be at least $i)")
@@ -41,7 +41,7 @@ object Require {
          * Checks if the stat is in the given range.
          * If the condition is met, the stat value is returned.
          */
-        infix fun inRange(range: IntRange) = if (stat in range) {
+        infix fun inRange(range: IntRange): Int = if (stat in range) {
             stat
         } else {
             throw InvalidStatValueException("'$name' ($stat must be in range $range)")

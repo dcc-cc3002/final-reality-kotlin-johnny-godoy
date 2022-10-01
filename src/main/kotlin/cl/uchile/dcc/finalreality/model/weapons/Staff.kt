@@ -12,14 +12,16 @@ import java.util.Objects
  *     The base damage done by the weapon.
  * @property weight Int
  *     The weight of the weapon.
+ * @property magicDamage Int
+ *    The base magic damage done by the weapon.
  *
  * @constructor Creates a staff with a name, a base damage, and a weight value.
  *
  * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  */
 class Staff(name: String, damage: Int, weight: Int, magicDamage: Int) : Weapon(name, damage, weight) {
-    val magicDamage = Require.Stat(damage, "Magic Damage") atLeast 0
-    override fun equals(other: Any?) = when {
+    val magicDamage: Int = Require.Stat(magicDamage, "Magic Damage") atLeast 0
+    override fun equals(other: Any?): Boolean = when {
         this === other                   -> true
         other !is Staff                  -> false
         hashCode() != other.hashCode()   -> false
@@ -30,5 +32,5 @@ class Staff(name: String, damage: Int, weight: Int, magicDamage: Int) : Weapon(n
         else                             -> true
     }
 
-    override fun hashCode() = Objects.hash(Staff::class, name, damage, weight, magicDamage)
+    override fun hashCode(): Int = Objects.hash(Staff::class, name, damage, weight, magicDamage)
 }

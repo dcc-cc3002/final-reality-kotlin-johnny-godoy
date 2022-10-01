@@ -35,7 +35,7 @@ class WhiteMage(
   turnsQueue: BlockingQueue<IGameCharacter>
 ) : AbstractMagicWielder(name, maxHp, maxMp, defense, turnsQueue) {
 
-    override fun equals(other: Any?) = when {
+    override fun equals(other: Any?): Boolean = when {
         this === other                 -> true
         other !is WhiteMage            -> false
         hashCode() != other.hashCode() -> false
@@ -46,5 +46,5 @@ class WhiteMage(
         else                           -> true
     }
 
-    override fun hashCode() = Objects.hash(WhiteMage::class, name, maxHp, maxMp, defense)
+    override fun hashCode(): Int = Objects.hash(WhiteMage::class, name, maxHp, maxMp, defense)
 }

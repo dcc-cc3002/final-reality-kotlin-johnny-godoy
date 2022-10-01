@@ -32,7 +32,7 @@ class Engineer(
 ) :
     AbstractPlayerCharacter(name, maxHp, defense, turnsQueue) {
 
-    override fun equals(other: Any?) = when {
+    override fun equals(other: Any?): Boolean = when {
         this === other -> true
         other !is Engineer -> false
         hashCode() != other.hashCode() -> false
@@ -42,6 +42,6 @@ class Engineer(
         else -> true
     }
 
-    override fun hashCode() =
+    override fun hashCode(): Int =
         Objects.hash(Engineer::class, name, maxHp, defense)
 }

@@ -17,7 +17,7 @@ import java.util.Objects
  * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  */
 class Sword(name: String, damage: Int, weight: Int) : Weapon(name, damage, weight) {
-    override fun equals(other: Any?) = when {
+    override fun equals(other: Any?): Boolean = when {
         this === other                   -> true
         other !is Sword                  -> false
         hashCode() != other.hashCode()   -> false
@@ -27,5 +27,5 @@ class Sword(name: String, damage: Int, weight: Int) : Weapon(name, damage, weigh
         else                             -> true
     }
 
-    override fun hashCode() = Objects.hash(Sword::class, name, damage, weight)
+    override fun hashCode(): Int = Objects.hash(Sword::class, name, damage, weight)
 }

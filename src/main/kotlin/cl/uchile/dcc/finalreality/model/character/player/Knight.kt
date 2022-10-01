@@ -30,7 +30,7 @@ class Knight(
     name: String, maxHp: Int, defense: Int,
     turnsQueue: BlockingQueue<IGameCharacter>
 ) : AbstractPlayerCharacter(name, maxHp, defense, turnsQueue) {
-    override fun equals(other: Any?) = when {
+    override fun equals(other: Any?): Boolean = when {
         this === other                 -> true
         other !is Knight               -> false
         hashCode() != other.hashCode() -> false
@@ -40,6 +40,6 @@ class Knight(
         else                           -> true
     }
 
-    override fun hashCode() = Objects.hash(Knight::class, name, maxHp, defense)
+    override fun hashCode(): Int = Objects.hash(Knight::class, name, maxHp, defense)
 
 }

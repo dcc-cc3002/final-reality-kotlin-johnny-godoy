@@ -15,6 +15,10 @@ import cl.uchile.dcc.finalreality.model.weapons.Staff
 import cl.uchile.dcc.finalreality.model.weapons.Sword
 import java.util.concurrent.LinkedBlockingQueue
 
+/**
+ * A function for preliminar testing for the grading assistants.
+ * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
+ */
 fun main() {
     // Testing each weapon's constructor
     println("Creating an example for each weapon type...")

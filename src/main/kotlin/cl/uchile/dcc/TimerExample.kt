@@ -6,6 +6,10 @@ import cl.uchile.dcc.finalreality.model.weapons.Knife
 import java.util.concurrent.LinkedBlockingQueue
 import kotlin.random.Random
 
+/**
+ * An example function for checking how the queue works.
+ * @author <a href="https://www.github.com/R8V">R8V</a>
+ */
 fun main() {
     val queue = LinkedBlockingQueue<IGameCharacter>()
     for (i in 0 until 10) {

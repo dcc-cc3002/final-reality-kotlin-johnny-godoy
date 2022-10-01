@@ -16,11 +16,12 @@ import java.util.concurrent.BlockingQueue
  *
  * @param name        the character's name
  * @param maxHp       the character's maximum health points
- * @param maxMp       the character's maximum magic points
+ * @param maxMp       the character's maximum mana points
  * @param defense     the character's defense
  * @param turnsQueue  the queue with the characters waiting for their turn
  * @constructor Creates a new magic wielder.
  *
+ * @property maxMp the character's maximum mana points
  * @property currentMp The current MP of the character.
  * @property currentHp The current HP of the character.
  *
@@ -33,7 +34,7 @@ abstract class AbstractMagicWielder(
     defense: Int,
     turnsQueue: BlockingQueue<IGameCharacter>
 ) : AbstractPlayerCharacter(name, maxHp, defense, turnsQueue) {
-    val maxMp = Require.Stat(maxMp, "Max MP") atLeast 0
+    val maxMp: Int = Require.Stat(maxMp, "Max MP") atLeast 0
     var currentMp: Int = maxMp
         set(value) {
             field = Require.Stat(value, "Current MP") inRange 0..maxMp
