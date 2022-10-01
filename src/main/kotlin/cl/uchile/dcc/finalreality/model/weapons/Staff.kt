@@ -22,14 +22,14 @@ import java.util.Objects
 class Staff(name: String, damage: Int, weight: Int, magicDamage: Int) : Weapon(name, damage, weight) {
     val magicDamage: Int = Require.Stat(magicDamage, "Magic Damage") atLeast 0
     override fun equals(other: Any?): Boolean = when {
-        this === other                   -> true
-        other !is Staff                  -> false
-        hashCode() != other.hashCode()   -> false
-        name != other.name               -> false
-        damage != other.damage           -> false
-        weight != other.weight           -> false
+        this === other -> true
+        other !is Staff -> false
+        hashCode() != other.hashCode() -> false
+        name != other.name -> false
+        damage != other.damage -> false
+        weight != other.weight -> false
         magicDamage != other.magicDamage -> false
-        else                             -> true
+        else -> true
     }
 
     override fun hashCode(): Int = Objects.hash(Staff::class, name, damage, weight, magicDamage)

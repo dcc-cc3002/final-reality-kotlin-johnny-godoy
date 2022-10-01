@@ -27,7 +27,7 @@ We were asked to create a UML diagram given the problem specification (without t
 We are asked to study the base code from this repository (in `master`), find design problems and fix them. When looking at the differences between the UML diagrams, I noticed that:
 
 * `Mages` and `Black Mages` may be generalized by an `AbstractMagicWielder`. This has been added to reduce future code replication.
-* It is necessary to model `Staffs` in a different way from other weapons, because the wielder shouldn't have to checkwhat it has equipped to do spells. Thus, every weapon has been added as its own class to avoid future violations of encapsulation.
+* It is necessary to model `Staffs` in a different way from other weapons, because the wielder shouldn't have to check what it has equipped to do spells. Thus, every weapon has been added as its own class to avoid future violations of encapsulation.
 
 Also, the abstract method `moveTurn` violates the *Dependency Inversion Principle* because it depends on specific implementations of the abstract class. Thus, we create the `delay` abstract method, which is implemented by `Enemy` and `AbstractPlayerCharacter`, and is then used by `moveTurn`.
 

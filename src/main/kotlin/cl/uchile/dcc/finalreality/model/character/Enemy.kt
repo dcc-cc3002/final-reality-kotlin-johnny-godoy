@@ -1,7 +1,7 @@
 package cl.uchile.dcc.finalreality.model.character
 
 import cl.uchile.dcc.finalreality.exceptions.Require
-import java.util.*
+import java.util.Objects
 import java.util.concurrent.BlockingQueue
 
 /**
@@ -29,14 +29,14 @@ class Enemy(
     val weight: Int = Require.Stat(weight, "Weight") atLeast 1
 
     override fun equals(other: Any?): Boolean = when {
-        this === other                 -> true
-        other !is Enemy                -> false
+        this === other -> true
+        other !is Enemy -> false
         hashCode() != other.hashCode() -> false
-        name != other.name             -> false
-        weight != other.weight         -> false
-        maxHp != other.maxHp           -> false
-        defense != other.defense       -> false
-        else                           -> true
+        name != other.name -> false
+        weight != other.weight -> false
+        maxHp != other.maxHp -> false
+        defense != other.defense -> false
+        else -> true
     }
 
     override fun hashCode(): Int = Objects.hash(Enemy::class, name, weight, maxHp, defense)
@@ -46,5 +46,4 @@ class Enemy(
     }
 
     override fun delay(): Int = weight / 10
-
 }

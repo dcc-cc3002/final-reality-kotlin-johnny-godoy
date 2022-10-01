@@ -12,7 +12,6 @@ import cl.uchile.dcc.finalreality.model.character.IGameCharacter
 import cl.uchile.dcc.finalreality.model.weapons.IWeapon
 import java.util.concurrent.BlockingQueue
 
-
 /**
  * A class that holds all the information of a player-controlled character in the game.
  *

@@ -8,7 +8,7 @@
 package cl.uchile.dcc.finalreality.model.character.player
 
 import cl.uchile.dcc.finalreality.model.character.IGameCharacter
-import java.util.*
+import java.util.Objects
 import java.util.concurrent.BlockingQueue
 
 /**
@@ -27,19 +27,20 @@ import java.util.concurrent.BlockingQueue
  * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  */
 class Knight(
-    name: String, maxHp: Int, defense: Int,
+    name: String,
+    maxHp: Int,
+    defense: Int,
     turnsQueue: BlockingQueue<IGameCharacter>
 ) : AbstractPlayerCharacter(name, maxHp, defense, turnsQueue) {
     override fun equals(other: Any?): Boolean = when {
-        this === other                 -> true
-        other !is Knight               -> false
+        this === other -> true
+        other !is Knight -> false
         hashCode() != other.hashCode() -> false
-        name != other.name             -> false
-        maxHp != other.maxHp           -> false
-        defense != other.defense       -> false
-        else                           -> true
+        name != other.name -> false
+        maxHp != other.maxHp -> false
+        defense != other.defense -> false
+        else -> true
     }
 
     override fun hashCode(): Int = Objects.hash(Knight::class, name, maxHp, defense)
-
 }

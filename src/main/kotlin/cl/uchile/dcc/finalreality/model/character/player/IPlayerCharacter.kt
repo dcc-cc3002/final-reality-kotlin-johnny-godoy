@@ -18,10 +18,10 @@ import cl.uchile.dcc.finalreality.model.weapons.IWeapon
  * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  */
 interface IPlayerCharacter {
-  val equippedWeapon: IWeapon
+    val equippedWeapon: IWeapon
 
-  /**
-   * Equips a weapon to the character.
-   */
-  fun equip(weapon: IWeapon)
+    /**
+     * Equips a weapon to the character.
+     */
+    fun equip(weapon: IWeapon)
 }

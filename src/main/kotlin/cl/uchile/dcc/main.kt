@@ -89,8 +89,7 @@ fun main() {
         println("Character: $character.")
         if (character is AbstractPlayerCharacter) { // Only player characters have equipped weapons.
             println("Equipped weapon: ${character.equippedWeapon}.")
-        }
-        else {
+        } else {
             println("Equipped weapon: None.")
         }
     }

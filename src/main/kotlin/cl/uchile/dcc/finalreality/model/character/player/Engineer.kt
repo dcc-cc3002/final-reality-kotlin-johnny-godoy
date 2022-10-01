@@ -27,7 +27,9 @@ import java.util.concurrent.BlockingQueue
  * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  */
 class Engineer(
-    name: String, maxHp: Int, defense: Int,
+    name: String,
+    maxHp: Int,
+    defense: Int,
     turnsQueue: BlockingQueue<IGameCharacter>
 ) :
     AbstractPlayerCharacter(name, maxHp, defense, turnsQueue) {
