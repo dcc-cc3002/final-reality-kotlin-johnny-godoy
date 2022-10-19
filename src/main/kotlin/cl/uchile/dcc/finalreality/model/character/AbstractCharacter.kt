@@ -57,5 +57,5 @@ abstract class AbstractCharacter(
     /**
      * Gets the correct delay for the character.
      */
-    protected abstract fun delay(): Int
+    abstract fun delay(): Int
 }
