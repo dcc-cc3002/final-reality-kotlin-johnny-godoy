@@ -44,16 +44,6 @@ abstract class AbstractCharacterTest {
     }
 
     @Test
-    fun waitTurn() {
-        firstCharacterTest.waitTurn()
-        sameCharacterTest.waitTurn()
-        differentCharacterTest.waitTurn()
-        assertEquals(firstCharacterTest, turns.take())
-        assertEquals(sameCharacterTest, turns.take())
-        assertEquals(differentCharacterTest, turns.take())
-    }
-
-    @Test
     fun getName() {
         assertEquals("Test", firstCharacterTest.name)
         assertEquals("Test", sameCharacterTest.name)

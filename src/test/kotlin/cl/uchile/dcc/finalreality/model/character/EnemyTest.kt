@@ -28,4 +28,14 @@ internal class EnemyTest : AbstractCharacterTest() {
         assertEquals(1/10, sameCharacterTest.delay())
         assertEquals(1, differentCharacterTest.delay())
     }
+
+    @Test
+    fun waitTurn() {
+        firstCharacterTest.waitTurn()
+        sameCharacterTest.waitTurn()
+        differentCharacterTest.waitTurn()
+        assertEquals(firstCharacterTest, turns.take())
+        assertEquals(sameCharacterTest, turns.take())
+        assertEquals(differentCharacterTest, turns.take())
+    }
 }

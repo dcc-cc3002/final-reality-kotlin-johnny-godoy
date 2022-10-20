@@ -7,6 +7,7 @@
  */
 package cl.uchile.dcc.finalreality.model.character.player
 
+import cl.uchile.dcc.finalreality.model.character.IGameCharacter
 import cl.uchile.dcc.finalreality.model.weapons.IWeapon
 
 /**
@@ -17,11 +18,15 @@ import cl.uchile.dcc.finalreality.model.weapons.IWeapon
  * @author <a href="https://www.github.com/r8vnhill">R8V</a>
  * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  */
-interface IPlayerCharacter {
+interface IPlayerCharacter : IGameCharacter {
     val equippedWeapon: IWeapon
 
     /**
      * Equips a weapon to the character.
      */
     fun equip(weapon: IWeapon)
+    /**
+     * Returns the delay of the character.
+     */
+    fun delay(): Int
 }
