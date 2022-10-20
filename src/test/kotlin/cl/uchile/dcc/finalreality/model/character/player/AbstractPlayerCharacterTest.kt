@@ -15,11 +15,10 @@ abstract class AbstractPlayerCharacterTest : AbstractCharacterTest() {
     abstract override val firstCharacterTest: IPlayerCharacter
     abstract override val sameCharacterTest: IPlayerCharacter
     abstract override val differentCharacterTest: IPlayerCharacter
-    private val knife: Knife = Knife("Knife", 10, 1)
-    private val axe: Axe = Axe("Axe", 10, 2)
-    private val bow: Bow = Bow("Bow", 10, 3)
-    private val staff: Staff = Staff("Staff", 10, 4, 5)
-    private val sword: Sword = Sword("Sword", 10, 5)
+    private val knife: Knife = Knife("Knife", 10, 20)
+    private val axe: Axe = Axe("Axe", 10, 20)
+    private val bow: Bow = Bow("Bow", 10, 30)
+    private val sword: Sword = Sword("Sword", 10, 40)
 
     @BeforeEach
     fun setup() {
@@ -51,9 +50,9 @@ abstract class AbstractPlayerCharacterTest : AbstractCharacterTest() {
 
     @Test
     fun delay() {
-        assertEquals(1/10, firstCharacterTest.delay())
-        assertEquals(2/10, sameCharacterTest.delay())
-        assertEquals(3/10, differentCharacterTest.delay())
+        assertEquals(2, firstCharacterTest.delay())
+        assertEquals(2, sameCharacterTest.delay())
+        assertEquals(3, differentCharacterTest.delay())
     }
 
     @Test

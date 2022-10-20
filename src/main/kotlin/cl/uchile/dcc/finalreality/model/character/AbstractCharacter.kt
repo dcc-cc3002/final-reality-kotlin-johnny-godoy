@@ -38,7 +38,7 @@ abstract class AbstractCharacter(
 
     override fun waitTurn() {
         scheduledExecutor = Executors.newSingleThreadScheduledExecutor()
-        scheduledExecutor.schedule(this::addToQueue, this.delay().toLong(), TimeUnit.SECONDS)
+        scheduledExecutor.schedule(this::addToQueue, this.delay(), TimeUnit.SECONDS)
     }
 
     /**
@@ -53,9 +53,4 @@ abstract class AbstractCharacter(
         val className = this.javaClass.simpleName
         return "$className(name='$name', maxHp=$maxHp, defense=$defense, currentHp=$currentHp)"
     }
-
-    /**
-     * Gets the correct delay for the character.
-     */
-    abstract fun delay(): Int
 }

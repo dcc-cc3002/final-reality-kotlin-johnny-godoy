@@ -28,5 +28,4 @@ interface IPlayerCharacter : IGameCharacter {
     /**
      * Returns the delay of the character.
      */
-    fun delay(): Int
 }

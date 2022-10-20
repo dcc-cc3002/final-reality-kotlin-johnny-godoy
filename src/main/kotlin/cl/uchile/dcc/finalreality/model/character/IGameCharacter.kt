@@ -27,4 +27,8 @@ interface IGameCharacter {
      * seconds before adding the character to the queue.
      */
     fun waitTurn()
+    /**
+     * Gets the correct delay for the character.
+     */
+    fun delay(): Long
 }
