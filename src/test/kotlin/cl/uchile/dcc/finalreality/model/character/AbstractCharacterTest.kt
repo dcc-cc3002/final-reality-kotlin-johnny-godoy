@@ -59,4 +59,25 @@ abstract class AbstractCharacterTest {
         assertEquals("Test", sameCharacterTest.name)
         assertEquals("Different", differentCharacterTest.name)
     }
+
+    @Test
+    fun testConstructor() {
+        assertEquals(firstCharacterTest, sameCharacterTest)
+        assertNotEquals(firstCharacterTest, differentCharacterTest)
+        assertNotEquals(sameCharacterTest, differentCharacterTest)
+    }
+
+    @Test
+    fun testEquals() {
+        assertEquals(true, firstCharacterTest == firstCharacterTest)
+        assertEquals(true, firstCharacterTest == sameCharacterTest)
+        assertEquals(false, firstCharacterTest == differentCharacterTest)
+    }
+
+    @Test
+    fun testHashCode() {
+        assertEquals(firstCharacterTest.hashCode(), sameCharacterTest.hashCode())
+        assertNotEquals(firstCharacterTest.hashCode(), differentCharacterTest.hashCode())
+        assertNotEquals(sameCharacterTest.hashCode(), differentCharacterTest.hashCode())
+    }
 }

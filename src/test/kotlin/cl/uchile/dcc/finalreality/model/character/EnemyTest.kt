@@ -23,20 +23,6 @@ internal class EnemyTest : AbstractCharacterTest() {
     }
 
     @Test
-    fun testEquals() {
-        assertEquals(firstCharacterTest, sameCharacterTest)
-        assertNotEquals(firstCharacterTest, differentCharacterTest)
-        assertNotEquals(sameCharacterTest, differentCharacterTest)
-    }
-
-    @Test
-    fun testHashCode() {
-        assertEquals(firstCharacterTest.hashCode(), sameCharacterTest.hashCode())
-        assertNotEquals(firstCharacterTest.hashCode(), differentCharacterTest.hashCode())
-        assertNotEquals(sameCharacterTest.hashCode(), differentCharacterTest.hashCode())
-    }
-
-    @Test
     fun delay() {
         assertEquals(1/10, firstCharacterTest.delay())
         assertEquals(1/10, sameCharacterTest.delay())
