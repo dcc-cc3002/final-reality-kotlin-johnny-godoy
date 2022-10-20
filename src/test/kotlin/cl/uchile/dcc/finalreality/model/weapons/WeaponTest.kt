@@ -23,10 +23,17 @@ abstract class WeaponTest {
     }
 
     @Test
-    fun testEquals() {
+    fun testConstructor() {
         assertEquals(firstWeaponTest, sameWeaponTest)
         assertNotEquals(firstWeaponTest, differentWeaponTest)
         assertNotEquals(sameWeaponTest, differentWeaponTest)
+    }
+
+    @Test
+    fun testEquals() {
+        assertEquals(true, firstWeaponTest == firstWeaponTest)
+        assertEquals(true, firstWeaponTest == sameWeaponTest)
+        assertEquals(false, firstWeaponTest == differentWeaponTest)
     }
 
     @Test

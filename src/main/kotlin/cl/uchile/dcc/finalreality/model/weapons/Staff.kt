@@ -33,4 +33,9 @@ class Staff(name: String, damage: Int, weight: Int, magicDamage: Int) : Weapon(n
     }
 
     override fun hashCode(): Int = Objects.hash(Staff::class, name, damage, weight, magicDamage)
+
+    override fun toString(): String{
+        val superString = super.toString().dropLast(1)
+        return "$superString, magicDamage=$magicDamage)"
+    }
 }
