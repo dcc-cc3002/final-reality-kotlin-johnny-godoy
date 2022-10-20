@@ -28,7 +28,7 @@ abstract class AbstractPlayerCharacterTest : AbstractCharacterTest() {
     }
 
     @AfterEach
-    fun cleanup() {
+    open fun cleanup() {
         firstCharacterTest.equip(knife)
         sameCharacterTest.equip(axe)
         differentCharacterTest.equip(bow)
