@@ -2,7 +2,6 @@ package cl.uchile.dcc.finalreality.model.weapons
 
 /**
  * This represents a weapon in the game.
- * A character can be controlled by the player or by the CPU (an enemy).
  *
  * @property name String
  *     The weapon's name
