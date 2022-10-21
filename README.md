@@ -43,5 +43,21 @@ With the changes from the previous partial homework, we have the following UML d
 ![Second version for weapons](/reports/uml_weapons_final_1.png)
 ![Second version for characters](/reports/uml_characters_final_1.png)
 
-Which corrects the first partial homework. I also added tests for the second partial homework at `src/kotlin/main.kt`.
+Which corrects the first partial homework. I also added tests for the second partial homework at `test/kotlin/main.kt`.
 Just run this file to see the results.
+
+---
+
+# Homework 2
+## Partial homework 3
+At this point, we implement tests for every class with JUnit, reaching 98% test coverage. These are all available in the `test/kotlin/` directory.
+
+When doing this, I noticed a few improvements to the character modelling, such as:
+
+* The `delay` method is now public and a part of the `IGameCharacter` interface
+* `IPlayerCharacter` now inherits from `IGameCharacter`
+* Create the `IMagicWielder` interface, which inherits from `IPlayerCharacter`, and is implemented by `AbstractMagicWielder`
+
+Giving us the updated UML diagram:
+
+![Third version for characters](/reports/uml_characters_partial_3.png)
