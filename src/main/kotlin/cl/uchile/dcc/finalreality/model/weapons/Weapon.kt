@@ -1,8 +1,6 @@
 package cl.uchile.dcc.finalreality.model.weapons
 
 import cl.uchile.dcc.finalreality.exceptions.Require
-import java.util.Objects
-
 /**
  * A class that holds the common behaviour of all the weapons in the game.
  *

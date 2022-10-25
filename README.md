@@ -50,7 +50,7 @@ Just run this file to see the results.
 
 # Homework 2
 ## Partial homework 3
-At this point, we implement tests for every class with JUnit, reaching 98% test coverage. These are all available in the `test/kotlin/` directory.
+At this point, we implement tests for every class with JUnit, reaching 99% test coverage. These are all available in the `test/kotlin/` directory.
 
 When doing this, I noticed a few improvements to the character modelling, such as:
 

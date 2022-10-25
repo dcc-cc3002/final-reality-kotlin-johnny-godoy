@@ -1,9 +1,8 @@
 package cl.uchile.dcc.finalreality.model.character.player
 
 import org.junit.jupiter.api.AfterEach
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-
-import org.junit.jupiter.api.Assertions.*
 
 abstract class AbstractMagicWielderTest : AbstractPlayerCharacterTest() {
     abstract override val firstCharacterTest: IMagicWielder

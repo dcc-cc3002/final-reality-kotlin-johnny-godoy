@@ -1,8 +1,8 @@
 package cl.uchile.dcc.finalreality.model.weapons
 
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertNotEquals
 import org.junit.jupiter.api.Test
-
-import org.junit.jupiter.api.Assertions.*
 
 abstract class WeaponTest {
     abstract val firstWeaponTest: IWeapon

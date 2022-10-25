@@ -33,7 +33,7 @@ abstract class AbstractMagicWielder(
     maxMp: Int,
     defense: Int,
     turnsQueue: BlockingQueue<IGameCharacter>
-) : AbstractPlayerCharacter(name, maxHp, defense, turnsQueue), IMagicWielder{
+) : AbstractPlayerCharacter(name, maxHp, defense, turnsQueue), IMagicWielder {
     override val maxMp: Int = Require.Stat(maxMp, "Max MP") atLeast 0
     override var currentMp: Int = maxMp
         set(value) {

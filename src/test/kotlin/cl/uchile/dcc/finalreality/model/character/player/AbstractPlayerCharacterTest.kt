@@ -4,12 +4,11 @@ import cl.uchile.dcc.finalreality.model.character.AbstractCharacterTest
 import cl.uchile.dcc.finalreality.model.weapons.Axe
 import cl.uchile.dcc.finalreality.model.weapons.Bow
 import cl.uchile.dcc.finalreality.model.weapons.Knife
-import cl.uchile.dcc.finalreality.model.weapons.Staff
 import cl.uchile.dcc.finalreality.model.weapons.Sword
 import org.junit.jupiter.api.AfterEach
-import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 
 abstract class AbstractPlayerCharacterTest : AbstractCharacterTest() {
     abstract override val firstCharacterTest: IPlayerCharacter

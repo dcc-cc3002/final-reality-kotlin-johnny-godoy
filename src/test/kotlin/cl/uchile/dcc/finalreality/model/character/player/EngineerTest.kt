@@ -1,9 +1,7 @@
 package cl.uchile.dcc.finalreality.model.character.player
 
-import cl.uchile.dcc.finalreality.model.character.AbstractCharacterTest
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-
-import org.junit.jupiter.api.Assertions.*
 
 internal class EngineerTest : AbstractPlayerCharacterTest() {
     override val firstCharacterTest = Engineer("Test", 5, 0, turns)
