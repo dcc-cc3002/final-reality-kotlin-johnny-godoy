@@ -8,6 +8,7 @@
 package cl.uchile.dcc.finalreality.model.character.player
 
 import cl.uchile.dcc.finalreality.model.character.IGameCharacter
+import cl.uchile.dcc.finalreality.model.weapons.IWeapon
 import java.util.Objects
 import java.util.concurrent.BlockingQueue
 
@@ -38,4 +39,7 @@ class Thief(name: String, maxHp: Int, defense: Int, turnsQueue: BlockingQueue<IG
     }
     override fun hashCode(): Int =
         Objects.hash(Thief::class, name, maxHp, defense)
+    override fun equip(weapon: IWeapon) {
+        super.equip(weapon)
+    }
 }

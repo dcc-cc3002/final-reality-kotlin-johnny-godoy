@@ -33,6 +33,9 @@ abstract class AbstractPlayerCharacter(
     private lateinit var _equippedWeapon: IWeapon
     override val equippedWeapon: IWeapon
         get() = _equippedWeapon
+    /**
+     * Equips a weapon to the character.
+     */
     override fun equip(weapon: IWeapon) {
         _equippedWeapon = weapon
     }
