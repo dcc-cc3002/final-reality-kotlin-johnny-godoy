@@ -10,21 +10,18 @@ abstract class AbstractCharacterTest {
     abstract val firstCharacterTest: IGameCharacter
     abstract val sameCharacterTest: IGameCharacter
     abstract val differentCharacterTest: IGameCharacter
-
     @Test
     fun getMaxHp() {
         assertEquals(5, firstCharacterTest.maxHp)
         assertEquals(5, sameCharacterTest.maxHp)
         assertEquals(10, differentCharacterTest.maxHp)
     }
-
     @Test
     fun getCurrentHp() {
         assertEquals(5, firstCharacterTest.currentHp)
         assertEquals(5, sameCharacterTest.currentHp)
         assertEquals(10, differentCharacterTest.currentHp)
     }
-
     @Test
     fun setCurrentHp() {
         firstCharacterTest.currentHp = 0
@@ -34,35 +31,30 @@ abstract class AbstractCharacterTest {
         firstCharacterTest.currentHp = 2
         assertEquals(2, firstCharacterTest.currentHp)
     }
-
     @Test
     fun getDefense() {
         assertEquals(0, firstCharacterTest.defense)
         assertEquals(0, sameCharacterTest.defense)
         assertEquals(10, differentCharacterTest.defense)
     }
-
     @Test
     fun getName() {
         assertEquals("Test", firstCharacterTest.name)
         assertEquals("Test", sameCharacterTest.name)
         assertEquals("Different", differentCharacterTest.name)
     }
-
     @Test
     fun testConstructor() {
         assertEquals(firstCharacterTest, sameCharacterTest)
         assertNotEquals(firstCharacterTest, differentCharacterTest)
         assertNotEquals(sameCharacterTest, differentCharacterTest)
     }
-
     @Test
     fun testEquals() {
         assertEquals(true, firstCharacterTest == firstCharacterTest)
         assertEquals(true, firstCharacterTest == sameCharacterTest)
         assertEquals(false, firstCharacterTest == differentCharacterTest)
     }
-
     @Test
     fun testHashCode() {
         assertEquals(firstCharacterTest.hashCode(), sameCharacterTest.hashCode())

@@ -18,42 +18,36 @@ abstract class AbstractPlayerCharacterTest : AbstractCharacterTest() {
     private val axe: Axe = Axe("Axe", 10, 20)
     private val bow: Bow = Bow("Bow", 10, 30)
     private val sword: Sword = Sword("Sword", 10, 40)
-
     @BeforeEach
     fun setup() {
         firstCharacterTest.equip(knife)
         sameCharacterTest.equip(axe)
         differentCharacterTest.equip(bow)
     }
-
     @AfterEach
     open fun cleanup() {
         firstCharacterTest.equip(knife)
         sameCharacterTest.equip(axe)
         differentCharacterTest.equip(bow)
     }
-
     @Test
     fun equip() {
         assertEquals(knife, firstCharacterTest.equippedWeapon)
         firstCharacterTest.equip(sword)
         assertEquals(sword, firstCharacterTest.equippedWeapon)
     }
-
     @Test
     fun getEquippedWeapon() {
         assertEquals(knife, firstCharacterTest.equippedWeapon)
         assertEquals(axe, sameCharacterTest.equippedWeapon)
         assertEquals(bow, differentCharacterTest.equippedWeapon)
     }
-
     @Test
     fun delay() {
         assertEquals(2, firstCharacterTest.delay())
         assertEquals(2, sameCharacterTest.delay())
         assertEquals(3, differentCharacterTest.delay())
     }
-
     @Test
     fun waitTurn() {
         firstCharacterTest.waitTurn()

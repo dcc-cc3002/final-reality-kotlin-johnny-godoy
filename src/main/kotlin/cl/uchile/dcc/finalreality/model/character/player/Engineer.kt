@@ -33,7 +33,6 @@ class Engineer(
     turnsQueue: BlockingQueue<IGameCharacter>
 ) :
     AbstractPlayerCharacter(name, maxHp, defense, turnsQueue) {
-
     override fun equals(other: Any?): Boolean = when {
         this === other -> true
         other !is Engineer -> false
@@ -43,7 +42,6 @@ class Engineer(
         defense != other.defense -> false
         else -> true
     }
-
     override fun hashCode(): Int =
         Objects.hash(Engineer::class, name, maxHp, defense)
 }

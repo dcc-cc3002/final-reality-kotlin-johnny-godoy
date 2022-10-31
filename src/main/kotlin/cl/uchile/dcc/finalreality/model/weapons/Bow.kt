@@ -26,6 +26,6 @@ class Bow(name: String, damage: Int, weight: Int) : Weapon(name, damage, weight)
         weight != other.weight -> false
         else -> true
     }
-
-    override fun hashCode(): Int = Objects.hash(Bow::class, name, damage, weight)
+    override fun hashCode(): Int =
+        Objects.hash(Bow::class, name, damage, weight)
 }

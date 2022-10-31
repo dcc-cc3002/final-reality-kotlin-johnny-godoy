@@ -13,7 +13,6 @@ internal class StaffTest : WeaponTest() {
         assertEquals("Staff(name='Test', damage=5, weight=5, magicDamage=5)", sameWeaponTest.toString())
         assertEquals("Staff(name='Different', damage=10, weight=10, magicDamage=10)", differentWeaponTest.toString())
     }
-
     @Test
     fun getMagicDamage() {
         assertEquals(5, firstWeaponTest.magicDamage)

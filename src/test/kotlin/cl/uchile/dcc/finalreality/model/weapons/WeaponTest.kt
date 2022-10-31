@@ -14,35 +14,30 @@ abstract class WeaponTest {
         assertEquals(5, sameWeaponTest.damage)
         assertEquals(10, differentWeaponTest.damage)
     }
-
     @Test
     fun getWeight() {
         assertEquals(5, firstWeaponTest.weight)
         assertEquals(5, sameWeaponTest.weight)
         assertEquals(10, differentWeaponTest.weight)
     }
-
     @Test
     fun testConstructor() {
         assertEquals(firstWeaponTest, sameWeaponTest)
         assertNotEquals(firstWeaponTest, differentWeaponTest)
         assertNotEquals(sameWeaponTest, differentWeaponTest)
     }
-
     @Test
     fun testEquals() {
         assertEquals(true, firstWeaponTest == firstWeaponTest)
         assertEquals(true, firstWeaponTest == sameWeaponTest)
         assertEquals(false, firstWeaponTest == differentWeaponTest)
     }
-
     @Test
     fun testHashCode() {
         assertEquals(firstWeaponTest.hashCode(), sameWeaponTest.hashCode())
         assertNotEquals(firstWeaponTest.hashCode(), differentWeaponTest.hashCode())
         assertNotEquals(sameWeaponTest.hashCode(), differentWeaponTest.hashCode())
     }
-
     @Test
     fun getName() {
         assertEquals("Test", firstWeaponTest.name)

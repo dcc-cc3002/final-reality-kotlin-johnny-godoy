@@ -27,7 +27,6 @@ import java.util.concurrent.BlockingQueue
  */
 class Thief(name: String, maxHp: Int, defense: Int, turnsQueue: BlockingQueue<IGameCharacter>) :
     AbstractPlayerCharacter(name, maxHp, defense, turnsQueue) {
-
     override fun equals(other: Any?): Boolean = when {
         this === other -> true
         other !is Thief -> false
@@ -37,6 +36,6 @@ class Thief(name: String, maxHp: Int, defense: Int, turnsQueue: BlockingQueue<IG
         defense != other.defense -> false
         else -> true
     }
-
-    override fun hashCode(): Int = Objects.hash(Thief::class, name, maxHp, defense)
+    override fun hashCode(): Int =
+        Objects.hash(Thief::class, name, maxHp, defense)
 }

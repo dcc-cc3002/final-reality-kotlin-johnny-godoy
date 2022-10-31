@@ -18,7 +18,6 @@ import cl.uchile.dcc.finalreality.exceptions.Require
 abstract class Weapon(override val name: String, damage: Int, weight: Int) : IWeapon {
     override val damage: Int = Require.Stat(damage, "Damage") atLeast 0
     override val weight: Int = Require.Stat(weight, "Weight") atLeast 0
-
     override fun toString(): String {
         val className = this.javaClass.simpleName
         return "$className(name='$name', damage=$damage, weight=$weight)"

@@ -7,7 +7,6 @@ internal class BlackMageTest : AbstractMagicWielderTest() {
     override val firstCharacterTest = BlackMage("Test", 5, 10, 0, turns)
     override val sameCharacterTest = BlackMage("Test", 5, 10, 0, turns)
     override val differentCharacterTest = BlackMage("Different", 10, 20, 10, turns)
-
     @Test
     fun testToString() {
         assertEquals("BlackMage(name='Test', maxHp=5, defense=0, currentHp=5, maxMp=10, currentMp=10)", firstCharacterTest.toString())

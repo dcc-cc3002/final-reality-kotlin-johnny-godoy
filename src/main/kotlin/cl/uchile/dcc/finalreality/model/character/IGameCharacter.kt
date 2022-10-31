@@ -21,7 +21,6 @@ interface IGameCharacter {
     val maxHp: Int
     var currentHp: Int
     val defense: Int
-
     /**
      * Sets a scheduled executor to make this character (thread) wait for `speed / 10`
      * seconds before adding the character to the queue.

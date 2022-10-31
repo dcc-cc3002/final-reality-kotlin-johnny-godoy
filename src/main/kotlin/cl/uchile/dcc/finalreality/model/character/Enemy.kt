@@ -27,7 +27,6 @@ class Enemy(
     turnsQueue: BlockingQueue<IGameCharacter>
 ) : AbstractCharacter(name, maxHp, defense, turnsQueue) {
     val weight: Int = Require.Stat(weight, "Weight") atLeast 1
-
     override fun equals(other: Any?): Boolean = when {
         this === other -> true
         other !is Enemy -> false
@@ -38,12 +37,12 @@ class Enemy(
         defense != other.defense -> false
         else -> true
     }
-
-    override fun hashCode(): Int = Objects.hash(Enemy::class, name, weight, maxHp, defense)
+    override fun hashCode(): Int =
+        Objects.hash(Enemy::class, name, weight, maxHp, defense)
     override fun toString(): String {
         val superString = super.toString().dropLast(1)
         return "$superString, weight=$weight)"
     }
-
-    override fun delay(): Long = (weight / 10).toLong()
+    override fun delay(): Long =
+        (weight / 10).toLong()
 }

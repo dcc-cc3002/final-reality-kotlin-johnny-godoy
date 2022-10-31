@@ -26,6 +26,6 @@ class Knife(name: String, damage: Int, weight: Int) : Weapon(name, damage, weigh
         weight != other.weight -> false
         else -> true
     }
-
-    override fun hashCode(): Int = Objects.hash(Knife::class, name, damage, weight)
+    override fun hashCode(): Int =
+        Objects.hash(Knife::class, name, damage, weight)
 }

@@ -41,6 +41,5 @@ class Knight(
         defense != other.defense -> false
         else -> true
     }
-
     override fun hashCode(): Int = Objects.hash(Knight::class, name, maxHp, defense)
 }

@@ -8,7 +8,6 @@ abstract class AbstractMagicWielderTest : AbstractPlayerCharacterTest() {
     abstract override val firstCharacterTest: IMagicWielder
     abstract override val sameCharacterTest: IMagicWielder
     abstract override val differentCharacterTest: IMagicWielder
-
     @AfterEach
     override fun cleanup() {
         super.cleanup()
@@ -22,14 +21,12 @@ abstract class AbstractMagicWielderTest : AbstractPlayerCharacterTest() {
         assertEquals(10, sameCharacterTest.maxMp)
         assertEquals(20, differentCharacterTest.maxMp)
     }
-
     @Test
     fun getCurrentMp() {
         assertEquals(10, firstCharacterTest.currentMp)
         assertEquals(10, sameCharacterTest.currentMp)
         assertEquals(20, differentCharacterTest.currentMp)
     }
-
     @Test
     fun setCurrentMp() {
         firstCharacterTest.currentMp = 5

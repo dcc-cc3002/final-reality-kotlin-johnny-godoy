@@ -30,14 +30,11 @@ abstract class AbstractPlayerCharacter(
     defense: Int,
     turnsQueue: BlockingQueue<IGameCharacter>
 ) : AbstractCharacter(name, maxHp, defense, turnsQueue), IPlayerCharacter {
-
     private lateinit var _equippedWeapon: IWeapon
     override val equippedWeapon: IWeapon
         get() = _equippedWeapon
-
     override fun equip(weapon: IWeapon) {
         _equippedWeapon = weapon
     }
-
     override fun delay(): Long = (equippedWeapon.weight / 10).toLong()
 }
