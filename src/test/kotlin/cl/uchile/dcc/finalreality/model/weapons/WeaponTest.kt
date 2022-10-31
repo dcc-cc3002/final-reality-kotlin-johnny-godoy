@@ -1,10 +1,13 @@
 package cl.uchile.dcc.finalreality.model.weapons
 
+import cl.uchile.dcc.finalreality.model.character.IGameCharacter
+import java.util.concurrent.LinkedBlockingDeque
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotEquals
 import org.junit.jupiter.api.Test
 
 abstract class WeaponTest {
+    val turns: LinkedBlockingDeque<IGameCharacter> = LinkedBlockingDeque<IGameCharacter>()
     abstract val firstWeaponTest: IWeapon
     abstract val sameWeaponTest: IWeapon
     abstract val differentWeaponTest: IWeapon

@@ -8,6 +8,7 @@
 package cl.uchile.dcc.finalreality.model.character.player
 
 import cl.uchile.dcc.finalreality.model.character.IGameCharacter
+import cl.uchile.dcc.finalreality.model.weapons.EquippableToKnight
 import cl.uchile.dcc.finalreality.model.weapons.IWeapon
 import java.util.Objects
 import java.util.concurrent.BlockingQueue
@@ -44,7 +45,10 @@ class Knight(
     }
     override fun hashCode(): Int =
         Objects.hash(Knight::class, name, maxHp, defense)
-    override fun equip(weapon: IWeapon) {
+    /**
+     * Equips a valid weapon to this knight.
+     */
+    fun equip(weapon: EquippableToKnight) {
         super.equip(weapon)
     }
 }

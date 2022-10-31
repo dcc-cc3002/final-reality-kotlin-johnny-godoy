@@ -3,8 +3,8 @@ package cl.uchile.dcc.finalreality.model.character.player
 import cl.uchile.dcc.finalreality.model.character.AbstractCharacterTest
 import cl.uchile.dcc.finalreality.model.weapons.Axe
 import cl.uchile.dcc.finalreality.model.weapons.Bow
+import cl.uchile.dcc.finalreality.model.weapons.IWeapon
 import cl.uchile.dcc.finalreality.model.weapons.Knife
-import cl.uchile.dcc.finalreality.model.weapons.Sword
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
@@ -14,33 +14,32 @@ abstract class AbstractPlayerCharacterTest : AbstractCharacterTest() {
     abstract override val firstCharacterTest: IPlayerCharacter
     abstract override val sameCharacterTest: IPlayerCharacter
     abstract override val differentCharacterTest: IPlayerCharacter
-    private val knife: Knife = Knife("Knife", 10, 20)
-    private val axe: Axe = Axe("Axe", 10, 20)
-    private val bow: Bow = Bow("Bow", 10, 30)
-    private val sword: Sword = Sword("Sword", 10, 40)
+    private val lightWeapon: IWeapon = Knife("Knife", 10, 20)
+    private val lightWeapon2: IWeapon = Axe("Axe", 10, 20)
+    private val heavyWeapon: IWeapon = Bow("Bow", 10, 30)
     @BeforeEach
     fun setup() {
-        firstCharacterTest.equip(knife)
-        sameCharacterTest.equip(axe)
-        differentCharacterTest.equip(bow)
+        firstCharacterTest.equip(lightWeapon)
+        sameCharacterTest.equip(lightWeapon2)
+        differentCharacterTest.equip(heavyWeapon)
     }
     @AfterEach
     open fun cleanup() {
-        firstCharacterTest.equip(knife)
-        sameCharacterTest.equip(axe)
-        differentCharacterTest.equip(bow)
+        firstCharacterTest.equip(lightWeapon)
+        sameCharacterTest.equip(lightWeapon2)
+        differentCharacterTest.equip(heavyWeapon)
     }
     @Test
     fun equip() {
-        assertEquals(knife, firstCharacterTest.equippedWeapon)
-        firstCharacterTest.equip(sword)
-        assertEquals(sword, firstCharacterTest.equippedWeapon)
+        assertEquals(lightWeapon, firstCharacterTest.equippedWeapon)
+        firstCharacterTest.equip(heavyWeapon)
+        assertEquals(heavyWeapon, firstCharacterTest.equippedWeapon)
     }
     @Test
     fun getEquippedWeapon() {
-        assertEquals(knife, firstCharacterTest.equippedWeapon)
-        assertEquals(axe, sameCharacterTest.equippedWeapon)
-        assertEquals(bow, differentCharacterTest.equippedWeapon)
+        assertEquals(lightWeapon, firstCharacterTest.equippedWeapon)
+        assertEquals(lightWeapon2, sameCharacterTest.equippedWeapon)
+        assertEquals(heavyWeapon, differentCharacterTest.equippedWeapon)
     }
     @Test
     fun delay() {

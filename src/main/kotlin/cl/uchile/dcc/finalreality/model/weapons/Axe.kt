@@ -1,5 +1,6 @@
 package cl.uchile.dcc.finalreality.model.weapons
 
+import cl.uchile.dcc.finalreality.model.character.player.Knight
 import java.util.Objects
 
 /**
@@ -16,7 +17,10 @@ import java.util.Objects
  *
  * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  */
-class Axe(name: String, damage: Int, weight: Int) : Weapon(name, damage, weight) {
+class Axe(name: String,
+          damage: Int,
+          weight: Int
+) : Weapon(name, damage, weight), EquippableToKnight {
     override fun equals(other: Any?): Boolean = when {
         this === other -> true
         other !is Axe -> false
@@ -28,4 +32,10 @@ class Axe(name: String, damage: Int, weight: Int) : Weapon(name, damage, weight)
     }
     override fun hashCode(): Int =
         Objects.hash(Axe::class, name, damage, weight)
+    /**
+     * Equips this axe to a knight.
+     */
+    override fun equipToKnight(knight: Knight) {
+        knight.equip(this)
+    }
 }
