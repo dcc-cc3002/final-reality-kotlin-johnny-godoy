@@ -3,6 +3,7 @@ package cl.uchile.dcc.finalreality.exceptions
 import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
 import cl.uchile.dcc.finalreality.model.character.player.Engineer
 import cl.uchile.dcc.finalreality.model.character.player.Knight
+import cl.uchile.dcc.finalreality.model.character.player.Thief
 import cl.uchile.dcc.finalreality.model.weapons.Bow
 import cl.uchile.dcc.finalreality.model.weapons.Knife
 import cl.uchile.dcc.finalreality.model.weapons.Staff
@@ -30,5 +31,15 @@ internal class UnequippableWeaponExceptionTest{
         assertThrows(UnequippableWeaponException::class.java) { engineer.equip(staff) }
         assertThrows(UnequippableWeaponException::class.java) { engineer.equip(sword) }
         assertThrows(UnequippableWeaponException::class.java) { engineer.equip(knife) }
+    }
+    @Test
+    fun testThief() {
+        val thief = Thief("Test", 5, 0, turns)
+        val staff = Staff("Staff", 10, 10, 10)
+        val sword = Sword("Sword", 10, 10)
+        val knife = Knife("Knife", 10, 10)
+        assertThrows(UnequippableWeaponException::class.java) { thief.equip(staff) }
+        assertThrows(UnequippableWeaponException::class.java) { thief.equip(sword) }
+        assertThrows(UnequippableWeaponException::class.java) { thief.equip(knife) }
     }
 }
