@@ -1,6 +1,7 @@
 package cl.uchile.dcc.finalreality.model.weapons
 
 import cl.uchile.dcc.finalreality.model.character.player.Knight
+import cl.uchile.dcc.finalreality.model.weapons.interfaces.EquippableByKnight
 import java.util.Objects
 
 /**
@@ -20,7 +21,7 @@ import java.util.Objects
 class Axe(name: String,
           damage: Int,
           weight: Int
-) : Weapon(name, damage, weight), EquippableToKnight {
+) : Weapon(name, damage, weight), EquippableByKnight {
     override fun equals(other: Any?): Boolean = when {
         this === other -> true
         other !is Axe -> false

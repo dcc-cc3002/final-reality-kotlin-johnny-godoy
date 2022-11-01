@@ -1,7 +1,7 @@
 package cl.uchile.dcc.finalreality.model.character.player
 
 import cl.uchile.dcc.finalreality.model.weapons.Axe
-import cl.uchile.dcc.finalreality.model.weapons.IWeapon
+import cl.uchile.dcc.finalreality.model.weapons.interfaces.IWeapon
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 

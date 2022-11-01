@@ -3,7 +3,7 @@ package cl.uchile.dcc.finalreality.model.character.player
 import cl.uchile.dcc.finalreality.model.character.AbstractCharacterTest
 import cl.uchile.dcc.finalreality.model.weapons.Axe
 import cl.uchile.dcc.finalreality.model.weapons.Bow
-import cl.uchile.dcc.finalreality.model.weapons.IWeapon
+import cl.uchile.dcc.finalreality.model.weapons.interfaces.IWeapon
 import cl.uchile.dcc.finalreality.model.weapons.Knife
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertEquals

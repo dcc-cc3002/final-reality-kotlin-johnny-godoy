@@ -1,6 +1,7 @@
 package cl.uchile.dcc.finalreality.model.weapons
 
 import cl.uchile.dcc.finalreality.model.character.IGameCharacter
+import cl.uchile.dcc.finalreality.model.weapons.interfaces.IWeapon
 import java.util.concurrent.LinkedBlockingDeque
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotEquals

@@ -1,6 +1,8 @@
 package cl.uchile.dcc.finalreality.model.weapons
 
 import cl.uchile.dcc.finalreality.exceptions.Require
+import cl.uchile.dcc.finalreality.model.weapons.interfaces.IWeapon
+
 /**
  * A class that holds the common behaviour of all the weapons in the game.
  *

@@ -8,7 +8,7 @@
 package cl.uchile.dcc.finalreality.model.character.player
 
 import cl.uchile.dcc.finalreality.model.character.IGameCharacter
-import cl.uchile.dcc.finalreality.model.weapons.IWeapon
+import cl.uchile.dcc.finalreality.model.weapons.interfaces.IWeapon
 import java.util.Objects
 import java.util.concurrent.BlockingQueue
 

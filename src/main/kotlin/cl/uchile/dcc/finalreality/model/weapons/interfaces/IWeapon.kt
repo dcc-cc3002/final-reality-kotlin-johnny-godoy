@@ -1,4 +1,4 @@
-package cl.uchile.dcc.finalreality.model.weapons
+package cl.uchile.dcc.finalreality.model.weapons.interfaces
 
 /**
  * This represents a weapon in the game.

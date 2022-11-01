@@ -8,8 +8,7 @@
 package cl.uchile.dcc.finalreality.model.character.player
 
 import cl.uchile.dcc.finalreality.model.character.IGameCharacter
-import cl.uchile.dcc.finalreality.model.weapons.EquippableToKnight
-import cl.uchile.dcc.finalreality.model.weapons.IWeapon
+import cl.uchile.dcc.finalreality.model.weapons.interfaces.EquippableByKnight
 import java.util.Objects
 import java.util.concurrent.BlockingQueue
 
@@ -48,7 +47,7 @@ class Knight(
     /**
      * Equips a valid weapon to this knight.
      */
-    fun equip(weapon: EquippableToKnight) {
+    fun equip(weapon: EquippableByKnight) {
         super.equip(weapon)
     }
 }
