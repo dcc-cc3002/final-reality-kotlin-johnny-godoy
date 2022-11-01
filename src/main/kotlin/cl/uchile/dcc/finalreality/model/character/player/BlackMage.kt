@@ -53,6 +53,6 @@ class BlackMage(
      * Equips a valid weapon to this black mage.
      */
     fun equip(weapon: EquippableByBlackMage) {
-        super.equip(weapon)
+        super.validEquip(weapon)
     }
 }

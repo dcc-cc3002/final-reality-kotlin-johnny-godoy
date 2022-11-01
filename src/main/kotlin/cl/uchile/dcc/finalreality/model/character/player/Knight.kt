@@ -49,6 +49,6 @@ class Knight(
      * Equips a valid weapon to this knight.
      */
     fun equip(weapon: EquippableByKnight) {
-        super.equip(weapon)
+        super.validEquip(weapon)
     }
 }

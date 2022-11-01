@@ -51,6 +51,6 @@ class Engineer(
      * Equips a valid weapon to this engineer.
      */
     fun equip(weapon: EquippableByEngineer) {
-        super.equip(weapon)
+        super.validEquip(weapon)
     }
 }

@@ -53,6 +53,6 @@ class WhiteMage(
      * Equips a valid weapon to this white mage.
      */
     fun equip(weapon: EquippableByWhiteMage) {
-        super.equip(weapon)
+        super.validEquip(weapon)
     }
 }

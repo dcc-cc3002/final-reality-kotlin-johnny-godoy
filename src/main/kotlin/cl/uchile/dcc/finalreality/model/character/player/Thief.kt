@@ -45,6 +45,6 @@ class Thief(name: String, maxHp: Int, defense: Int, turnsQueue: BlockingQueue<IG
      * Equips a valid weapon to this thief.
      */
     fun equip(weapon: EquippableByThief) {
-        super.equip(weapon)
+        super.validEquip(weapon)
     }
 }
