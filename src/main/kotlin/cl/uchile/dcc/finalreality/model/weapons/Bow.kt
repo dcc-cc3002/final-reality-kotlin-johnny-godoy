@@ -1,6 +1,10 @@
 package cl.uchile.dcc.finalreality.model.weapons
 
+import cl.uchile.dcc.finalreality.model.character.player.Engineer
+import cl.uchile.dcc.finalreality.model.character.player.Thief
 import cl.uchile.dcc.finalreality.model.weapons.abstract_classes.AbstractWeapon
+import cl.uchile.dcc.finalreality.model.weapons.interfaces.EquippableByEngineer
+import cl.uchile.dcc.finalreality.model.weapons.interfaces.EquippableByThief
 import java.util.Objects
 
 /**
@@ -17,7 +21,10 @@ import java.util.Objects
  *
  * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  */
-class Bow(name: String, damage: Int, weight: Int) : AbstractWeapon(name, damage, weight) {
+class Bow(name: String,
+          damage: Int,
+          weight: Int
+) : AbstractWeapon(name, damage, weight), EquippableByEngineer, EquippableByThief {
     override fun equals(other: Any?): Boolean = when {
         this === other -> true
         other !is Bow -> false
@@ -29,4 +36,10 @@ class Bow(name: String, damage: Int, weight: Int) : AbstractWeapon(name, damage,
     }
     override fun hashCode(): Int =
         Objects.hash(Bow::class, name, damage, weight)
+    override fun equipToEngineer(engineer: Engineer) {
+        engineer.equip(this)
+    }
+    override fun equipToThief(thief: Thief) {
+        thief.equip(this)
+    }
 }
