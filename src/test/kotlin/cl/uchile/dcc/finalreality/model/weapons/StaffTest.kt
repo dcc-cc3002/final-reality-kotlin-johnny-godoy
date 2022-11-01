@@ -1,6 +1,8 @@
 package cl.uchile.dcc.finalreality.model.weapons
 
 import cl.uchile.dcc.cl.uchile.dcc.finalreality.model.weapons.abstract_classes.AbstractWeaponTest
+import cl.uchile.dcc.finalreality.model.character.player.BlackMage
+import cl.uchile.dcc.finalreality.model.character.player.WhiteMage
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
@@ -19,5 +21,17 @@ internal class StaffTest : AbstractWeaponTest() {
         assertEquals(5, firstWeaponTest.magicDamage)
         assertEquals(5, sameWeaponTest.magicDamage)
         assertEquals(10, differentWeaponTest.magicDamage)
+    }
+    @Test
+    fun equipToBlackMage() {
+        val blackMage = BlackMage("Test", 10, 10, 10, turns)
+        firstWeaponTest.equipToBlackMage(blackMage)
+        assertEquals(firstWeaponTest, blackMage.equippedWeapon)
+    }
+    @Test
+    fun equipToWhiteMage() {
+        val whiteMage = WhiteMage("Test", 10, 10, 10, turns)
+        firstWeaponTest.equipToWhiteMage(whiteMage)
+        assertEquals(firstWeaponTest, whiteMage.equippedWeapon)
     }
 }
