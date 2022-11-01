@@ -62,4 +62,19 @@ abstract class AbstractCharacterTest {
         assertNotEquals(firstCharacterTest.hashCode(), differentCharacterTest.hashCode())
         assertNotEquals(sameCharacterTest.hashCode(), differentCharacterTest.hashCode())
     }
+    @Test
+    fun delay() {
+        assertEquals(2, firstCharacterTest.delay())
+        assertEquals(2, sameCharacterTest.delay())
+        assertEquals(3, differentCharacterTest.delay())
+    }
+    @Test
+    fun waitTurn() {
+        firstCharacterTest.waitTurn()
+        sameCharacterTest.waitTurn()
+        differentCharacterTest.waitTurn()
+        assertEquals(firstCharacterTest, turns.take())
+        assertEquals(sameCharacterTest, turns.take())
+        assertEquals(differentCharacterTest, turns.take())
+    }
 }

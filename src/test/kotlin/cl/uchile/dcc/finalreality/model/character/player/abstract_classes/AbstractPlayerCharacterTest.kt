@@ -18,19 +18,4 @@ abstract class AbstractPlayerCharacterTest : AbstractCharacterTest() {
     abstract val lightWeapon: IWeapon
     abstract val lightWeapon2: IWeapon
     abstract val heavyWeapon: IWeapon
-    @Test
-    fun delay() {
-        assertEquals(2, firstCharacterTest.delay())
-        assertEquals(2, sameCharacterTest.delay())
-        assertEquals(3, differentCharacterTest.delay())
-    }
-    @Test
-    fun waitTurn() {
-        firstCharacterTest.waitTurn()
-        sameCharacterTest.waitTurn()
-        differentCharacterTest.waitTurn()
-        assertEquals(firstCharacterTest, turns.take())
-        assertEquals(sameCharacterTest, turns.take())
-        assertEquals(differentCharacterTest, turns.take())
-    }
 }
