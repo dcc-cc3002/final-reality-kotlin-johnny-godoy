@@ -5,6 +5,7 @@ import cl.uchile.dcc.finalreality.model.character.player.BlackMage
 import cl.uchile.dcc.finalreality.model.character.player.Engineer
 import cl.uchile.dcc.finalreality.model.character.player.Knight
 import cl.uchile.dcc.finalreality.model.character.player.Thief
+import cl.uchile.dcc.finalreality.model.character.player.WhiteMage
 import cl.uchile.dcc.finalreality.model.weapons.Axe
 import cl.uchile.dcc.finalreality.model.weapons.Bow
 import cl.uchile.dcc.finalreality.model.weapons.Knife
@@ -39,5 +40,13 @@ internal class UnequippableWeaponExceptionTest{
         val thief = Thief("Test", 5, 0, turns)
         assertThrows(UnequippableWeaponException::class.java) { thief.equip(axe) }
         assertThrows(UnequippableWeaponException::class.java) { thief.equip(staff) }
+    }
+    @Test
+    fun testWhiteMage(){
+        val whiteMage = WhiteMage("Test", 5, 10, 5, turns)
+        assertThrows(UnequippableWeaponException::class.java, {whiteMage.equip(sword)}, "A sword was equipped to a white mage.")
+        assertThrows(UnequippableWeaponException::class.java, {whiteMage.equip(knife)}, "A knife was equipped to an white mage.")
+        assertThrows(UnequippableWeaponException::class.java, {whiteMage.equip(bow)}, "A bow was equipped to a white mage.")
+        assertThrows(UnequippableWeaponException::class.java, {whiteMage.equip(axe)}, "An axe was equipped to a white mage.")
     }
 }
