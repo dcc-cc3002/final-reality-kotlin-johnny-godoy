@@ -61,3 +61,12 @@ When doing this, I noticed a few improvements to the character modelling, such a
 Giving us the updated UML diagram:
 
 ![Third version for characters](/reports/uml_characters_partial_3.png)
+## Partial homework 4
+We are asked to implement restrictions to which weapons can be equipped to a character. 
+To do this, the `equip` method of the `AbstractPlayerCharacter` takes an `IWeapon` parameter and throws an `UnequippableWeaponException` exception.
+Then, each character of type `X` overloads the `equip` method to take a weapon which implements the `EquippableByX` interface, and properly equips it.
+This guarantees that only the correct weapons can be equipped to a character, while `playerCharacter.equip(weapon)` always compiles.
+
+All new features have been tested in the `test/kotlin/` directory, holding 99% test coverage. The updated UML diagram is:
+![Fourth version for characters](/reports/uml_characters_partial_4.png)
+![Fourth version for weapons](/reports/uml_weapons_partial_4.png)
