@@ -8,7 +8,6 @@
 package cl.uchile.dcc.finalreality.model.weapons.abstract_classes
 
 import cl.uchile.dcc.finalreality.exceptions.Require
-import cl.uchile.dcc.finalreality.model.character.player.interfaces.IPlayerCharacter
 import cl.uchile.dcc.finalreality.model.weapons.interfaces.IWeapon
 
 /**

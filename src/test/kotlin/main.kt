@@ -2,12 +2,12 @@ package cl.uchile.dcc
 
 import cl.uchile.dcc.finalreality.model.character.Enemy
 import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
-import cl.uchile.dcc.finalreality.model.character.player.abstract_classes.AbstractPlayerCharacter
 import cl.uchile.dcc.finalreality.model.character.player.BlackMage
 import cl.uchile.dcc.finalreality.model.character.player.Engineer
 import cl.uchile.dcc.finalreality.model.character.player.Knight
 import cl.uchile.dcc.finalreality.model.character.player.Thief
 import cl.uchile.dcc.finalreality.model.character.player.WhiteMage
+import cl.uchile.dcc.finalreality.model.character.player.abstract_classes.AbstractPlayerCharacter
 import cl.uchile.dcc.finalreality.model.weapons.Axe
 import cl.uchile.dcc.finalreality.model.weapons.Bow
 import cl.uchile.dcc.finalreality.model.weapons.Knife

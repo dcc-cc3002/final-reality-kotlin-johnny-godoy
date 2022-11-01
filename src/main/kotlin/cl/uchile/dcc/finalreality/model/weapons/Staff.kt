@@ -31,10 +31,11 @@ import java.util.Objects
  *
  * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  */
-class Staff(name: String,
-            damage: Int,
-            weight: Int,
-            magicDamage: Int
+class Staff(
+    name: String,
+    damage: Int,
+    weight: Int,
+    magicDamage: Int
 ) : AbstractWeapon(name, damage, weight), EquippableByWhiteMage, EquippableByBlackMage {
     val magicDamage: Int = Require.Stat(magicDamage, "Magic Damage") atLeast 0
     override fun equals(other: Any?): Boolean = when {

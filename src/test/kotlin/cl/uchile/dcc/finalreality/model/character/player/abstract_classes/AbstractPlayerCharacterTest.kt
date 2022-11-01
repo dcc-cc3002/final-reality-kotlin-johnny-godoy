@@ -2,14 +2,7 @@ package cl.uchile.dcc.cl.uchile.dcc.finalreality.model.character.player.abstract
 
 import cl.uchile.dcc.cl.uchile.dcc.finalreality.model.character.abstract_classes.AbstractCharacterTest
 import cl.uchile.dcc.finalreality.model.character.player.interfaces.IPlayerCharacter
-import cl.uchile.dcc.finalreality.model.weapons.Axe
-import cl.uchile.dcc.finalreality.model.weapons.Bow
 import cl.uchile.dcc.finalreality.model.weapons.interfaces.IWeapon
-import cl.uchile.dcc.finalreality.model.weapons.Knife
-import org.junit.jupiter.api.AfterEach
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Test
 
 abstract class AbstractPlayerCharacterTest : AbstractCharacterTest() {
     abstract override val firstCharacterTest: IPlayerCharacter

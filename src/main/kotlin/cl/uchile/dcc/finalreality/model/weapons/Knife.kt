@@ -30,10 +30,13 @@ import java.util.Objects
  *
  * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  */
-class Knife(name: String,
-            damage: Int,
-            weight: Int
-) : AbstractWeapon(name, damage, weight), EquippableByKnight, EquippableByThief,
+class Knife(
+    name: String,
+    damage: Int,
+    weight: Int
+) : AbstractWeapon(name, damage, weight),
+    EquippableByKnight,
+    EquippableByThief,
     EquippableByBlackMage {
     override fun equals(other: Any?): Boolean = when {
         this === other -> true

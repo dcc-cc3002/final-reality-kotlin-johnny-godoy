@@ -28,9 +28,10 @@ import java.util.Objects
  *
  * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  */
-class Sword(name: String,
-            damage: Int,
-            weight: Int
+class Sword(
+    name: String,
+    damage: Int,
+    weight: Int
 ) : AbstractWeapon(name, damage, weight), EquippableByKnight, EquippableByThief {
     override fun equals(other: Any?): Boolean = when {
         this === other -> true
