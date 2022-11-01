@@ -4,7 +4,9 @@ import cl.uchile.dcc.finalreality.model.character.player.WhiteMage
 
 /**
  * A class that represents a weapon that can be equipped by a white mage.
- * */
+ *
+ * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
+ */
 interface EquippableByWhiteMage : IWeapon {
     /**
      * Equips this weapon to a white mage.
