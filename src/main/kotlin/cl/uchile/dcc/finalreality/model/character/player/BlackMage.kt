@@ -9,6 +9,7 @@ package cl.uchile.dcc.finalreality.model.character.player
 
 import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
 import cl.uchile.dcc.finalreality.model.character.player.abstract_classes.AbstractMagicWielder
+import cl.uchile.dcc.finalreality.model.weapons.interfaces.EquippableByBlackMage
 import cl.uchile.dcc.finalreality.model.weapons.interfaces.IWeapon
 import java.util.Objects
 import java.util.concurrent.BlockingQueue
@@ -48,7 +49,10 @@ class BlackMage(
     }
     override fun hashCode(): Int =
         Objects.hash(BlackMage::class, name, maxHp, maxMp, defense)
-    override fun equip(weapon: IWeapon) {
+    /**
+     * Equips a valid weapon to this black mage.
+     */
+    fun equip(weapon: EquippableByBlackMage) {
         super.equip(weapon)
     }
 }
