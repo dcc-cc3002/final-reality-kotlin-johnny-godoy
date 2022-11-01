@@ -7,6 +7,7 @@
  */
 package cl.uchile.dcc.finalreality.model.character.player.abstract_classes
 
+import cl.uchile.dcc.finalreality.exceptions.UnequippableWeaponException
 import cl.uchile.dcc.finalreality.model.character.abstract_classes.AbstractCharacter
 import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
 import cl.uchile.dcc.finalreality.model.character.player.interfaces.IPlayerCharacter
@@ -39,6 +40,9 @@ abstract class AbstractPlayerCharacter(
      */
     protected fun validEquip(weapon: IWeapon) {
         _equippedWeapon = weapon
+    }
+    override fun equip(weapon: IWeapon) {
+        throw UnequippableWeaponException("$this cannot equip $weapon.")
     }
     override fun delay(): Long =
         (equippedWeapon.weight / 10).toLong()
