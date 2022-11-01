@@ -38,8 +38,8 @@ internal class UnequippableWeaponExceptionTest{
     @Test
     fun testThief() {
         val thief = Thief("Test", 5, 0, turns)
-        assertThrows(UnequippableWeaponException::class.java) { thief.equip(axe) }
-        assertThrows(UnequippableWeaponException::class.java) { thief.equip(staff) }
+        assertThrows(UnequippableWeaponException::class.java, {thief.equip(axe)}, "An axe was equipped to a thief.")
+        assertThrows(UnequippableWeaponException::class.java, {thief.equip(staff)}, "A staff was equipped to a thief.")
     }
     @Test
     fun testWhiteMage(){
@@ -48,5 +48,12 @@ internal class UnequippableWeaponExceptionTest{
         assertThrows(UnequippableWeaponException::class.java, {whiteMage.equip(knife)}, "A knife was equipped to an white mage.")
         assertThrows(UnequippableWeaponException::class.java, {whiteMage.equip(bow)}, "A bow was equipped to a white mage.")
         assertThrows(UnequippableWeaponException::class.java, {whiteMage.equip(axe)}, "An axe was equipped to a white mage.")
+    }
+    @Test
+    fun testBlackMage(){
+        val blackMage = BlackMage("Test", 5, 10, 5, turns)
+        assertThrows(UnequippableWeaponException::class.java, {blackMage.equip(sword)}, "A sword was equipped to a black mage.")
+        assertThrows(UnequippableWeaponException::class.java, {blackMage.equip(bow)}, "A bow was equipped to a black mage.")
+        assertThrows(UnequippableWeaponException::class.java, {blackMage.equip(axe)}, "An axe was equipped to a black mage.")
     }
 }
