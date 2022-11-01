@@ -1,6 +1,7 @@
 package cl.uchile.dcc.finalreality.model.weapons
 
 import cl.uchile.dcc.finalreality.exceptions.Require
+import cl.uchile.dcc.finalreality.model.weapons.abstract_classes.AbstractWeapon
 import java.util.Objects
 
 /**
@@ -19,7 +20,7 @@ import java.util.Objects
  *
  * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  */
-class Staff(name: String, damage: Int, weight: Int, magicDamage: Int) : Weapon(name, damage, weight) {
+class Staff(name: String, damage: Int, weight: Int, magicDamage: Int) : AbstractWeapon(name, damage, weight) {
     val magicDamage: Int = Require.Stat(magicDamage, "Magic Damage") atLeast 0
     override fun equals(other: Any?): Boolean = when {
         this === other -> true

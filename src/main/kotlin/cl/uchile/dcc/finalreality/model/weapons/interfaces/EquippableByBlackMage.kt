@@ -5,7 +5,7 @@ import cl.uchile.dcc.finalreality.model.character.player.BlackMage
 /**
  * A class that represents a weapon that can be equipped by a black mage.
  * */
-interface EquippableByBlackMage {
+interface EquippableByBlackMage : EquippableByWhiteMage {
     /**
      * Equips this weapon to a black mage.
      */

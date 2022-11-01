@@ -7,7 +7,8 @@
  */
 package cl.uchile.dcc.finalreality.model.character.player
 
-import cl.uchile.dcc.finalreality.model.character.IGameCharacter
+import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
+import cl.uchile.dcc.finalreality.model.character.player.abstract_classes.AbstractPlayerCharacter
 import cl.uchile.dcc.finalreality.model.weapons.interfaces.EquippableByKnight
 import java.util.Objects
 import java.util.concurrent.BlockingQueue

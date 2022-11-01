@@ -1,8 +1,8 @@
 package cl.uchile.dcc
 
 import cl.uchile.dcc.finalreality.model.character.Enemy
-import cl.uchile.dcc.finalreality.model.character.IGameCharacter
-import cl.uchile.dcc.finalreality.model.character.player.AbstractPlayerCharacter
+import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
+import cl.uchile.dcc.finalreality.model.character.player.abstract_classes.AbstractPlayerCharacter
 import cl.uchile.dcc.finalreality.model.character.player.BlackMage
 import cl.uchile.dcc.finalreality.model.character.player.Engineer
 import cl.uchile.dcc.finalreality.model.character.player.Knight

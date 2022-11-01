@@ -1,4 +1,4 @@
-package cl.uchile.dcc.finalreality.model.character.player
+package cl.uchile.dcc.finalreality.model.character.player.interfaces
 
 /**
  * A character controlled by the user which has the ability to wield magic.

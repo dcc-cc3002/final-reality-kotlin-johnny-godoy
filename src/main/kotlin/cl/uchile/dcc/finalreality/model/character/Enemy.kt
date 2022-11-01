@@ -1,6 +1,8 @@
 package cl.uchile.dcc.finalreality.model.character
 
 import cl.uchile.dcc.finalreality.exceptions.Require
+import cl.uchile.dcc.finalreality.model.character.abstract_classes.AbstractCharacter
+import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
 import java.util.Objects
 import java.util.concurrent.BlockingQueue
 

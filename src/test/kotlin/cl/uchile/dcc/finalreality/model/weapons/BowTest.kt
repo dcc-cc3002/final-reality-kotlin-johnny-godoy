@@ -3,7 +3,7 @@ package cl.uchile.dcc.finalreality.model.weapons
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-internal class BowTest : WeaponTest() {
+internal class BowTest : AbstractWeaponTest() {
     override val firstWeaponTest = Bow("Test", 5, 5)
     override val sameWeaponTest = Bow("Test", 5, 5)
     override val differentWeaponTest = Bow("Different", 10, 10)

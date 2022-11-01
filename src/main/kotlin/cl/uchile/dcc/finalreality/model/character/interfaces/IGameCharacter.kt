@@ -1,4 +1,4 @@
-package cl.uchile.dcc.finalreality.model.character
+package cl.uchile.dcc.finalreality.model.character.interfaces
 
 /**
  * This represents a character from the game.

@@ -1,4 +1,4 @@
-package cl.uchile.dcc.finalreality.model.weapons
+package cl.uchile.dcc.finalreality.model.weapons.abstract_classes
 
 import cl.uchile.dcc.finalreality.exceptions.Require
 import cl.uchile.dcc.finalreality.model.weapons.interfaces.IWeapon
@@ -17,7 +17,7 @@ import cl.uchile.dcc.finalreality.model.weapons.interfaces.IWeapon
  *
  * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  */
-abstract class Weapon(override val name: String, damage: Int, weight: Int) : IWeapon {
+abstract class AbstractWeapon(override val name: String, damage: Int, weight: Int) : IWeapon {
     override val damage: Int = Require.Stat(damage, "Damage") atLeast 0
     override val weight: Int = Require.Stat(weight, "Weight") atLeast 0
     override fun toString(): String {
