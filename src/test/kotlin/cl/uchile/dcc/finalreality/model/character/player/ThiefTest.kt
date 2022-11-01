@@ -6,6 +6,7 @@ import cl.uchile.dcc.finalreality.model.weapons.Knife
 import cl.uchile.dcc.finalreality.model.weapons.Sword
 import cl.uchile.dcc.finalreality.model.weapons.interfaces.IWeapon
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
 internal class ThiefTest : AbstractPlayerCharacterTest() {
@@ -15,6 +16,12 @@ internal class ThiefTest : AbstractPlayerCharacterTest() {
     override val lightWeapon = Sword("Light", 10, 20)
     override val lightWeapon2 = Knife("Light", 10, 20)
     override val heavyWeapon = Bow("Heavy", 10, 30)
+    @BeforeEach
+    fun setup() {
+        firstCharacterTest.equip(lightWeapon)
+        sameCharacterTest.equip(lightWeapon2)
+        differentCharacterTest.equip(heavyWeapon)
+    }
     @Test
     fun testToString() {
         assertEquals("Thief(name='Test', maxHp=5, defense=0, currentHp=5)", firstCharacterTest.toString())

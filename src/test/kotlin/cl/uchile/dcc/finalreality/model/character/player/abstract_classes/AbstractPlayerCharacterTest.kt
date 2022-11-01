@@ -18,12 +18,6 @@ abstract class AbstractPlayerCharacterTest : AbstractCharacterTest() {
     abstract val lightWeapon: IWeapon
     abstract val lightWeapon2: IWeapon
     abstract val heavyWeapon: IWeapon
-    @BeforeEach
-    fun setup() {
-        firstCharacterTest.equip(lightWeapon)
-        sameCharacterTest.equip(lightWeapon2)
-        differentCharacterTest.equip(heavyWeapon)
-    }
     @Test
     fun delay() {
         assertEquals(2, firstCharacterTest.delay())

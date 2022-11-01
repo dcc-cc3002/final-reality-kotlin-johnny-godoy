@@ -37,8 +37,9 @@ abstract class AbstractPlayerCharacter(
     /**
      * Equips a weapon to the character.
      */
-    override fun equip(weapon: IWeapon) {
+    protected fun equip(weapon: IWeapon) {
         _equippedWeapon = weapon
     }
-    override fun delay(): Long = (equippedWeapon.weight / 10).toLong()
+    override fun delay(): Long =
+        (equippedWeapon.weight / 10).toLong()
 }

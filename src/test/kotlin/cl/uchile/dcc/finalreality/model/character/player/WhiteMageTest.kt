@@ -4,6 +4,7 @@ import cl.uchile.dcc.cl.uchile.dcc.finalreality.model.character.player.abstract_
 import cl.uchile.dcc.finalreality.model.weapons.Staff
 import cl.uchile.dcc.finalreality.model.weapons.interfaces.IWeapon
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
 internal class WhiteMageTest : AbstractMagicWielderTest() {
@@ -13,6 +14,12 @@ internal class WhiteMageTest : AbstractMagicWielderTest() {
     override val lightWeapon = Staff("Light", 10, 20, 10)
     override val lightWeapon2 = Staff("Light", 10, 20, 10)
     override val heavyWeapon = Staff("Heavy", 10, 30, 20)
+    @BeforeEach
+    fun setup() {
+        firstCharacterTest.equip(lightWeapon)
+        sameCharacterTest.equip(lightWeapon2)
+        differentCharacterTest.equip(heavyWeapon)
+    }
     @Test
     fun testToString() {
         assertEquals("WhiteMage(name='Test', maxHp=5, defense=0, currentHp=5, maxMp=10, currentMp=10)", firstCharacterTest.toString())

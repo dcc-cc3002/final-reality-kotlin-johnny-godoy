@@ -20,8 +20,4 @@ import cl.uchile.dcc.finalreality.model.weapons.interfaces.IWeapon
  */
 interface IPlayerCharacter : IGameCharacter {
     val equippedWeapon: IWeapon
-    /**
-     * Equips a weapon to the character.
-     */
-    fun equip(weapon: IWeapon)
 }
