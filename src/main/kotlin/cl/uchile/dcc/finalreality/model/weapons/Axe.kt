@@ -36,9 +36,6 @@ class Axe(name: String,
     }
     override fun hashCode(): Int =
         Objects.hash(Axe::class, name, damage, weight)
-    /**
-     * Equips this axe to a knight.
-     */
     override fun equipToKnight(knight: Knight) {
         knight.equip(this)
     }
