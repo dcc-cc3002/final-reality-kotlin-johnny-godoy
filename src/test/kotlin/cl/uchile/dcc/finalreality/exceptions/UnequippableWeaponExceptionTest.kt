@@ -13,6 +13,7 @@ import cl.uchile.dcc.finalreality.model.weapons.Staff
 import cl.uchile.dcc.finalreality.model.weapons.Sword
 import org.junit.jupiter.api.Test
 import java.util.concurrent.LinkedBlockingDeque
+import org.junit.jupiter.api.Assertions.assertThrows
 
 internal class UnequippableWeaponExceptionTest {
     val turns: LinkedBlockingDeque<IGameCharacter> = LinkedBlockingDeque<IGameCharacter>()
