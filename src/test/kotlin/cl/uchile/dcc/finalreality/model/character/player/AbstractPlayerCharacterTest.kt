@@ -14,9 +14,9 @@ abstract class AbstractPlayerCharacterTest : AbstractCharacterTest() {
     abstract override val firstCharacterTest: IPlayerCharacter
     abstract override val sameCharacterTest: IPlayerCharacter
     abstract override val differentCharacterTest: IPlayerCharacter
-    private val lightWeapon: IWeapon = Knife("Knife", 10, 20)
-    private val lightWeapon2: IWeapon = Axe("Axe", 10, 20)
-    private val heavyWeapon: IWeapon = Bow("Bow", 10, 30)
+    open var lightWeapon: IWeapon = Knife("Knife", 10, 20)
+    open var lightWeapon2: IWeapon = Axe("Axe", 10, 20)
+    open var heavyWeapon: IWeapon = Bow("Bow", 10, 30)
     @BeforeEach
     fun setup() {
         firstCharacterTest.equip(lightWeapon)
