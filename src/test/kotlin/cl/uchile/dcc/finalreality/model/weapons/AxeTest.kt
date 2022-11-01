@@ -1,6 +1,7 @@
 package cl.uchile.dcc.finalreality.model.weapons
 
 import cl.uchile.dcc.cl.uchile.dcc.finalreality.model.weapons.abstract_classes.AbstractWeaponTest
+import cl.uchile.dcc.finalreality.model.character.player.Engineer
 import cl.uchile.dcc.finalreality.model.character.player.Knight
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
@@ -20,5 +21,11 @@ internal class AxeTest : AbstractWeaponTest() {
         val knight = Knight("Test", 10, 10, turns)
         firstWeaponTest.equipToKnight(knight)
         assertEquals(firstWeaponTest, knight.equippedWeapon)
+    }
+    @Test
+    fun equipToEngineer() {
+        val engineer = Engineer("Test", 10, 10, turns)
+        firstWeaponTest.equipToEngineer(engineer)
+        assertEquals(firstWeaponTest, engineer.equippedWeapon)
     }
 }

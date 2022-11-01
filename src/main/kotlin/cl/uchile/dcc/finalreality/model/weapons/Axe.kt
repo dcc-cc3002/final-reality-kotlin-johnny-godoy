@@ -1,7 +1,9 @@
 package cl.uchile.dcc.finalreality.model.weapons
 
+import cl.uchile.dcc.finalreality.model.character.player.Engineer
 import cl.uchile.dcc.finalreality.model.character.player.Knight
 import cl.uchile.dcc.finalreality.model.weapons.abstract_classes.AbstractWeapon
+import cl.uchile.dcc.finalreality.model.weapons.interfaces.EquippableByEngineer
 import cl.uchile.dcc.finalreality.model.weapons.interfaces.EquippableByKnight
 import java.util.Objects
 
@@ -22,7 +24,7 @@ import java.util.Objects
 class Axe(name: String,
           damage: Int,
           weight: Int
-) : AbstractWeapon(name, damage, weight), EquippableByKnight {
+) : AbstractWeapon(name, damage, weight), EquippableByKnight, EquippableByEngineer {
     override fun equals(other: Any?): Boolean = when {
         this === other -> true
         other !is Axe -> false
@@ -39,5 +41,8 @@ class Axe(name: String,
      */
     override fun equipToKnight(knight: Knight) {
         knight.equip(this)
+    }
+    override fun equipToEngineer(engineer: Engineer) {
+        engineer.equip(this)
     }
 }
