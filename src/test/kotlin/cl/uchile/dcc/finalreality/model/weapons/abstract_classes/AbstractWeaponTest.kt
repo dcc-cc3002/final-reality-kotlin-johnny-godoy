@@ -1,4 +1,4 @@
-package cl.uchile.dcc.finalreality.model.weapons
+package cl.uchile.dcc.cl.uchile.dcc.finalreality.model.weapons.abstract_classes
 
 import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
 import cl.uchile.dcc.finalreality.model.weapons.interfaces.IWeapon

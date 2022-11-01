@@ -1,4 +1,4 @@
-package cl.uchile.dcc.finalreality.model.character
+package cl.uchile.dcc.cl.uchile.dcc.finalreality.model.character.abstract_classes
 
 import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
 import org.junit.jupiter.api.Assertions.assertEquals

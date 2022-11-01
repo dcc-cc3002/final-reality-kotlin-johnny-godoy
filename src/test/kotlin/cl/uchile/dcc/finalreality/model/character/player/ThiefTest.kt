@@ -1,5 +1,6 @@
 package cl.uchile.dcc.finalreality.model.character.player
 
+import cl.uchile.dcc.cl.uchile.dcc.finalreality.model.character.player.abstract_classes.AbstractPlayerCharacterTest
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 

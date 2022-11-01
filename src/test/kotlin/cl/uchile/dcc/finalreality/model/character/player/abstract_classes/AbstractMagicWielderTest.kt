@@ -1,4 +1,4 @@
-package cl.uchile.dcc.finalreality.model.character.player
+package cl.uchile.dcc.cl.uchile.dcc.finalreality.model.character.player.abstract_classes
 
 import cl.uchile.dcc.finalreality.model.character.player.interfaces.IMagicWielder
 import org.junit.jupiter.api.AfterEach

@@ -1,6 +1,6 @@
-package cl.uchile.dcc.finalreality.model.character.player
+package cl.uchile.dcc.cl.uchile.dcc.finalreality.model.character.player.abstract_classes
 
-import cl.uchile.dcc.finalreality.model.character.AbstractCharacterTest
+import cl.uchile.dcc.cl.uchile.dcc.finalreality.model.character.abstract_classes.AbstractCharacterTest
 import cl.uchile.dcc.finalreality.model.character.player.interfaces.IPlayerCharacter
 import cl.uchile.dcc.finalreality.model.weapons.Axe
 import cl.uchile.dcc.finalreality.model.weapons.Bow
