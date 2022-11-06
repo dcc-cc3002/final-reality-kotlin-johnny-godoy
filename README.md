@@ -70,3 +70,6 @@ This guarantees that only the correct weapons can be equipped to a character, wh
 All new features have been tested in the `test/kotlin/` directory, holding 99% test coverage. The updated UML diagram is:
 ![Fourth version for characters](/reports/uml_characters_partial_4.png)
 ![Fourth version for weapons](/reports/uml_weapons_partial_4.png)
+
+## Final version
+Nothing is added, as the requirements are met from the partial versions.
