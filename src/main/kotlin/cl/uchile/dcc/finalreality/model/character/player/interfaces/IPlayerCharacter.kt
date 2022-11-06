@@ -21,8 +21,8 @@ import cl.uchile.dcc.finalreality.model.weapons.interfaces.IWeapon
 interface IPlayerCharacter : IGameCharacter {
     val equippedWeapon: IWeapon
     /**
-     * This method just throws an exception,
-     * and is meant to be overloaded by the concrete subclasses with an appropriate weapon type.
+     * This method just throws an exception for every weapon that is not valid for the character,
+     * and each character class must overload this method for its own equippable weapons.
      * @param weapon IWeapon
      * @throws UnequippableWeaponException always
      */
