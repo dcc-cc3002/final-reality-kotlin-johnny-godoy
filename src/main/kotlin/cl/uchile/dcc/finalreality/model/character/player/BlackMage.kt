@@ -50,6 +50,7 @@ class BlackMage(
         Objects.hash(BlackMage::class, name, maxHp, maxMp, defense)
     /**
      * Equips a valid weapon to this black mage.
+     * This overloads the equip method of [AbstractPlayerCharacter].
      */
     fun equip(weapon: EquippableByBlackMage) {
         super.validEquip(weapon)

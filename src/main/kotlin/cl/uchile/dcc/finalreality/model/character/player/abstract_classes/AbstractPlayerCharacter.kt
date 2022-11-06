@@ -37,6 +37,8 @@ abstract class AbstractPlayerCharacter(
         get() = _equippedWeapon
     /**
      * Equips a weapon to the character.
+     * It works for any weapon type, so it is protected to avoid misuse with invalid weapons.
+     * @param weapon the weapon to equip
      */
     protected fun validEquip(weapon: IWeapon) {
         _equippedWeapon = weapon

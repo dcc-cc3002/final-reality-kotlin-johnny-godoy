@@ -42,6 +42,7 @@ class Thief(name: String, maxHp: Int, defense: Int, turnsQueue: BlockingQueue<IG
         Objects.hash(Thief::class, name, maxHp, defense)
     /**
      * Equips a valid weapon to this thief.
+     * This overloads the equip method of [AbstractPlayerCharacter].
      */
     fun equip(weapon: EquippableByThief) {
         super.validEquip(weapon)

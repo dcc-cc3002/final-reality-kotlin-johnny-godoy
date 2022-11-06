@@ -47,6 +47,7 @@ class Knight(
         Objects.hash(Knight::class, name, maxHp, defense)
     /**
      * Equips a valid weapon to this knight.
+     * This overloads the equip method of [AbstractPlayerCharacter].
      */
     fun equip(weapon: EquippableByKnight) {
         super.validEquip(weapon)

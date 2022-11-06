@@ -48,6 +48,7 @@ class Engineer(
         Objects.hash(Engineer::class, name, maxHp, defense)
     /**
      * Equips a valid weapon to this engineer.
+     * This overloads the equip method of [AbstractPlayerCharacter].
      */
     fun equip(weapon: EquippableByEngineer) {
         super.validEquip(weapon)

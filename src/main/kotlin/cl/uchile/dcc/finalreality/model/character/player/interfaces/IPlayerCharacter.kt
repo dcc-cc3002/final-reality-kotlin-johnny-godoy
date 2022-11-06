@@ -21,8 +21,10 @@ import cl.uchile.dcc.finalreality.model.weapons.interfaces.IWeapon
 interface IPlayerCharacter : IGameCharacter {
     val equippedWeapon: IWeapon
     /**
-     * Equips a weapon to the character.
-     * It needs to be implemented by the subclasses, otherwise, it will throw an exception.
+     * This method just throws an exception,
+     * and is meant to be overloaded by the concrete subclasses with an appropriate weapon type.
+     * @param weapon IWeapon
+     * @throws UnequippableWeaponException always
      */
     fun equip(weapon: IWeapon)
 }

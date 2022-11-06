@@ -9,6 +9,7 @@ package cl.uchile.dcc.finalreality.model.character.player
 
 import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
 import cl.uchile.dcc.finalreality.model.character.player.abstract_classes.AbstractMagicWielder
+import cl.uchile.dcc.finalreality.model.character.player.abstract_classes.AbstractPlayerCharacter
 import cl.uchile.dcc.finalreality.model.weapons.interfaces.EquippableByWhiteMage
 import java.util.Objects
 import java.util.concurrent.BlockingQueue
@@ -50,6 +51,7 @@ class WhiteMage(
         Objects.hash(WhiteMage::class, name, maxHp, maxMp, defense)
     /**
      * Equips a valid weapon to this white mage.
+     * This overloads the equip method of [AbstractPlayerCharacter].
      */
     fun equip(weapon: EquippableByWhiteMage) {
         super.validEquip(weapon)
