@@ -1,4 +1,4 @@
-package cl.uchile.dcc.finalreality
+package cl.uchile.dcc.finalreality.controller
 
 import cl.uchile.dcc.finalreality.model.character.Enemy
 import java.util.concurrent.LinkedBlockingQueue
@@ -6,6 +6,16 @@ import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
 import cl.uchile.dcc.finalreality.model.character.player.interfaces.IPlayerCharacter
 import cl.uchile.dcc.finalreality.model.weapons.interfaces.IWeapon
 
+/**
+ * The controller class.
+ * @param turnsQueue the queue of characters that will be used to determine the order of the turns.
+ * @param playerCharacters the list of player characters.
+ * @param enemyCharacters the list of enemy characters.
+ *
+ * @constructor Creates a controller with all the lists and queues initialized.
+ *
+ * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
+ */
 class GameController {
     private val turnsQueue = LinkedBlockingQueue<IGameCharacter>()
     private val playerCharacters = mutableListOf<IPlayerCharacter>()
