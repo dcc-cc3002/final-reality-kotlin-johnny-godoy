@@ -3,14 +3,19 @@ package cl.uchile.dcc.finalreality.controller
 import cl.uchile.dcc.finalreality.model.character.Enemy
 import java.util.concurrent.LinkedBlockingQueue
 import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
+import cl.uchile.dcc.finalreality.model.character.player.BlackMage
+import cl.uchile.dcc.finalreality.model.character.player.Engineer
+import cl.uchile.dcc.finalreality.model.character.player.Knight
+import cl.uchile.dcc.finalreality.model.character.player.Thief
+import cl.uchile.dcc.finalreality.model.character.player.WhiteMage
 import cl.uchile.dcc.finalreality.model.character.player.interfaces.IPlayerCharacter
 import cl.uchile.dcc.finalreality.model.weapons.interfaces.IWeapon
 
 /**
  * The controller class.
- * @param turnsQueue the queue of characters that will be used to determine the order of the turns.
- * @param playerCharacters the list of player characters.
- * @param enemyCharacters the list of enemy characters.
+ * @property turnsQueue the queue of characters that will be used to determine the order of the turns.
+ * @property playerCharacters the list of player characters.
+ * @property enemyCharacters the list of enemy characters.
  *
  * @constructor Creates a controller with all the lists and queues initialized.
  *
@@ -20,15 +25,29 @@ class GameController {
     private val turnsQueue = LinkedBlockingQueue<IGameCharacter>()
     private val playerCharacters = mutableListOf<IPlayerCharacter>()
     private val enemyCharacters = mutableListOf<Enemy>()
-
     init {
-        for (i in 1..10) {
-            // TODO: Add enemies to the game
-            // TODO: Add players to the game
-            // TODO: Add characters to the turns queue
+        for (i in 1..5) { // Adding enemies to the game
+            enemyCharacters.add(Enemy("Enemy $i", 2*i, 10, 10, turnsQueue))
         }
+        // Adding players to the game
+        playerCharacters.add(Thief("Thief", 10, 10, turnsQueue))
+        playerCharacters.add(Knight("Knight", 10, 10, turnsQueue))
+        playerCharacters.add(BlackMage("Black Mage", 10, 10, 10, turnsQueue))
+        playerCharacters.add(WhiteMage("White Mage", 10, 10, 10, turnsQueue))
+        playerCharacters.add(Engineer("Engineer", 10, 10, turnsQueue))
     }
-
+    /**
+     * @return the list of player characters.
+     */
+    fun getPlayerCharacters(): List<IPlayerCharacter> {
+        return playerCharacters
+    }
+    /**
+     * @return the list of enemy characters.
+     */
+    fun getEnemyCharacters(): List<Enemy> {
+        return enemyCharacters
+    }
     fun createPlayer(name: String, hp: Int, defense: Int, weapon: IWeapon) {
         // TODO: Create a player character
     }
