@@ -2,6 +2,7 @@ package cl.uchile.dcc.finalreality.controller
 
 import cl.uchile.dcc.finalreality.model.character.Enemy
 import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
+import cl.uchile.dcc.finalreality.model.character.player.Knight
 import cl.uchile.dcc.finalreality.model.character.player.Thief
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -41,6 +42,12 @@ internal class GameControllerTest {
         val expectedThief = Thief("Test", 10, 10, controller.turnsQueue)
         controller.createThief("Test", 10, 10)
         testPlayerCreation(expectedThief)
+    }
+    @Test
+    fun createKnight() {
+        val expectedKnight = Knight("Test", 10, 10, controller.turnsQueue)
+        controller.createKnight("Test", 10, 10)
+        testPlayerCreation(expectedKnight)
     }
     @Test
     fun attack() {

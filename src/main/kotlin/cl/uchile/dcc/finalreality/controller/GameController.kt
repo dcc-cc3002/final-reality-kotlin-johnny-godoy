@@ -53,7 +53,8 @@ class GameController {
      * Creates a new knight character and adds it to the list of players.
      */
     fun createKnight(name: String, hp: Int, defense: Int) {
-        // TODO: Implement this method
+        val knight = Knight(name, hp, defense, turnsQueue)
+        playerCharacters.add(knight)
     }
     /**
      * Creates a new thief character and adds it to the list of players.
