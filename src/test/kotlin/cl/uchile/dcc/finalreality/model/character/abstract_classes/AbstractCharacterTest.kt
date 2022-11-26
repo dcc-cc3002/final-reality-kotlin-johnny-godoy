@@ -77,4 +77,27 @@ abstract class AbstractCharacterTest {
         assertEquals(sameCharacterTest, turns.take())
         assertEquals(differentCharacterTest, turns.take())
     }
+    @Test
+    fun receiveDamage() {
+        firstCharacterTest.receiveDamage(1)
+        assertEquals(4, firstCharacterTest.currentHp)
+        firstCharacterTest.receiveDamage(2)
+        assertEquals(2, firstCharacterTest.currentHp)
+        firstCharacterTest.receiveDamage(3)
+        assertEquals(0, firstCharacterTest.currentHp)
+        firstCharacterTest.receiveDamage(4)
+        assertEquals(0, firstCharacterTest.currentHp)
+    }
+    @Test
+    fun isAlive() {
+        assertEquals(true, firstCharacterTest.isAlive())
+        assertEquals(true, sameCharacterTest.isAlive())
+        assertEquals(true, differentCharacterTest.isAlive())
+        firstCharacterTest.currentHp = 0
+        assertEquals(false, firstCharacterTest.isAlive())
+        sameCharacterTest.currentHp = 0
+        assertEquals(false, sameCharacterTest.isAlive())
+        differentCharacterTest.currentHp = 0
+        assertEquals(false, differentCharacterTest.isAlive())
+    }
 }
