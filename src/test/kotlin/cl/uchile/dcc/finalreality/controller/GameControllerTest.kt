@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.*
 
 internal class GameControllerTest {
-    private var controller = GameController()
+    private var controller = GameController
     @Test
     fun constructorTest() {
         for ((index, enemy) in controller.enemyCharacters.withIndex()) {

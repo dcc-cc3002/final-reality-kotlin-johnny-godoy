@@ -12,7 +12,7 @@ import cl.uchile.dcc.finalreality.model.character.player.interfaces.IPlayerChara
 import cl.uchile.dcc.finalreality.model.weapons.interfaces.IWeapon
 
 /**
- * The controller class.
+ * The controller singleton class.
  * @property turnsQueue the queue of characters that will be used to determine the order of the turns.
  * @property playerCharacters the list of player characters.
  * @property enemyCharacters the list of enemy characters.
@@ -21,7 +21,7 @@ import cl.uchile.dcc.finalreality.model.weapons.interfaces.IWeapon
  *
  * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  */
-class GameController {
+object GameController {
     val turnsQueue: LinkedBlockingQueue<IGameCharacter> = LinkedBlockingQueue<IGameCharacter>()
     val playerCharacters: MutableList<IPlayerCharacter> = mutableListOf()
     val enemyCharacters: MutableList<Enemy> = mutableListOf()
