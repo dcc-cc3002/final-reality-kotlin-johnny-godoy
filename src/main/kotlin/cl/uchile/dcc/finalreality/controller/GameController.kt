@@ -22,7 +22,7 @@ import cl.uchile.dcc.finalreality.model.weapons.interfaces.IWeapon
  * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  */
 class GameController {
-    private val turnsQueue = LinkedBlockingQueue<IGameCharacter>()
+    val turnsQueue: LinkedBlockingQueue<IGameCharacter> = LinkedBlockingQueue<IGameCharacter>()
     val playerCharacters: MutableList<IPlayerCharacter> = mutableListOf()
     val enemyCharacters: MutableList<Enemy> = mutableListOf()
     init {
@@ -39,8 +39,12 @@ class GameController {
     fun createPlayer(name: String, hp: Int, defense: Int, weapon: IWeapon) {
         // TODO: Create a player character
     }
+    /**
+     * Creates a new enemy character and adds it to the list of enemies.
+     * */
     fun createEnemy(name: String, hp: Int, defense: Int, weight: Int) {
-        // TODO: Create an enemy character
+        val enemy = Enemy(name, hp, defense, weight, turnsQueue)
+        enemyCharacters.add(enemy)
     }
     fun attack(attacker: IGameCharacter, target: IGameCharacter) {
         // TODO: Attack a target

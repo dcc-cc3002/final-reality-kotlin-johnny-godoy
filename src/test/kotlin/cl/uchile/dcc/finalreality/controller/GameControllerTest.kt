@@ -1,5 +1,6 @@
 package cl.uchile.dcc.finalreality.controller
 
+import cl.uchile.dcc.finalreality.model.character.Enemy
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
@@ -28,6 +29,10 @@ internal class GameControllerTest {
 
     @Test
     fun createEnemy() {
+        val expectedEnemy = Enemy("Test", 10, 10, 10, controller.turnsQueue)
+        controller.createEnemy("Test", 10, 10, 10)
+        val lastIndex = controller.enemyCharacters.size - 1
+        assertEquals(controller.enemyCharacters[lastIndex], expectedEnemy)
     }
 
     @Test
