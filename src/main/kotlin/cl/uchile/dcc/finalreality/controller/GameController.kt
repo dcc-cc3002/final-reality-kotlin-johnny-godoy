@@ -47,7 +47,8 @@ class GameController {
      * Creates a new engineer character and adds it to the list of players.
      */
     fun createEngineer(name: String, hp: Int, defense: Int) {
-        // TODO: Implement this method
+        val engineer = Engineer(name, hp, defense, turnsQueue)
+        playerCharacters.add(engineer)
     }
     /**
      * Creates a new knight character and adds it to the list of players.
@@ -67,13 +68,15 @@ class GameController {
      * Creates a new black mage character and adds it to the list of players.
      */
     fun createBlackMage(name: String, hp: Int, defense: Int, mana: Int) {
-        // TODO: Implement this method
+        val blackMage = BlackMage(name, hp, defense, mana, turnsQueue)
+        playerCharacters.add(blackMage)
     }
     /**
      * Creates a new white mage character and adds it to the list of players.
      */
     fun createWhiteMage(name: String, hp: Int, defense: Int, mana: Int) {
-        // TODO: Implement this method
+        val whiteMage = WhiteMage(name, hp, defense, mana, turnsQueue)
+        playerCharacters.add(whiteMage)
     }
     fun attack(attacker: IGameCharacter, target: IGameCharacter) {
         // TODO: Attack a target
