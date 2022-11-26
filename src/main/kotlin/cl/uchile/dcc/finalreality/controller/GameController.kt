@@ -23,8 +23,8 @@ import cl.uchile.dcc.finalreality.model.weapons.interfaces.IWeapon
  */
 class GameController {
     private val turnsQueue = LinkedBlockingQueue<IGameCharacter>()
-    private val playerCharacters = mutableListOf<IPlayerCharacter>()
-    private val enemyCharacters = mutableListOf<Enemy>()
+    val playerCharacters: MutableList<IPlayerCharacter> = mutableListOf()
+    val enemyCharacters: MutableList<Enemy> = mutableListOf()
     init {
         for (i in 1..5) { // Adding enemies to the game
             enemyCharacters.add(Enemy("Enemy $i", 2*i, 10, 10, turnsQueue))
@@ -36,42 +36,29 @@ class GameController {
         playerCharacters.add(WhiteMage("White Mage", 10, 10, 10, turnsQueue))
         playerCharacters.add(Engineer("Engineer", 10, 10, turnsQueue))
     }
-    /**
-     * @return the list of player characters.
-     */
-    fun getPlayerCharacters(): List<IPlayerCharacter> {
-        return playerCharacters
-    }
-    /**
-     * @return the list of enemy characters.
-     */
-    fun getEnemyCharacters(): List<Enemy> {
-        return enemyCharacters
-    }
     fun createPlayer(name: String, hp: Int, defense: Int, weapon: IWeapon) {
         // TODO: Create a player character
     }
-
     fun createEnemy(name: String, hp: Int, defense: Int, weight: Int) {
         // TODO: Create an enemy character
     }
-
     fun attack(attacker: IGameCharacter, target: IGameCharacter) {
         // TODO: Attack a target
     }
-
     fun useMagic(attacker: IGameCharacter, target: IGameCharacter) {
         // TODO: Use magic on a target
     }
-
+    /**
+     * Calls the waitTurn method of the character.
+     * @param character the character that will wait its turn.
+     * @see IGameCharacter.waitTurn
+     */
     fun waitTurn(character: IGameCharacter) {
         // TODO: Call the waitTurn method of the character
     }
-
     fun onPlayerWin() {
         // TODO: Handle the player winning the game
     }
-
     fun onEnemyWin() {
         // TODO: Handle the enemy winning the game
     }

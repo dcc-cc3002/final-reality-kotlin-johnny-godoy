@@ -10,16 +10,17 @@ internal class GameControllerTest {
 
     @Test
     fun constructorTest() {
-        for ((index, enemy) in controller.getEnemyCharacters().withIndex()) {
+        for ((index, enemy) in controller.enemyCharacters.withIndex()) {
             assertEquals(enemy.weight, 2*(index + 1), "${enemy.name} has wrong weight")
         }
-        assertEquals(controller.getEnemyCharacters().size, 5)
-        assertEquals(controller.getPlayerCharacters().size, 5)
-        assertEquals(controller.getPlayerCharacters()[0].name, "Thief")
-        assertEquals(controller.getPlayerCharacters()[1].name, "Knight")
-        assertEquals(controller.getPlayerCharacters()[2].name, "Black Mage")
-        assertEquals(controller.getPlayerCharacters()[3].name, "White Mage")
-        assertEquals(controller.getPlayerCharacters()[4].name, "Engineer")
+        val playerCharacters = controller.playerCharacters
+        assertEquals(controller.enemyCharacters.size, 5)
+        assertEquals(playerCharacters.size, 5)
+        assertEquals(playerCharacters[0].name, "Thief")
+        assertEquals(playerCharacters[1].name, "Knight")
+        assertEquals(playerCharacters[2].name, "Black Mage")
+        assertEquals(playerCharacters[3].name, "White Mage")
+        assertEquals(playerCharacters[4].name, "Engineer")
     }
     @Test
     fun createPlayer() {
@@ -39,6 +40,7 @@ internal class GameControllerTest {
 
     @Test
     fun waitTurn() {
+
     }
 
     @Test
