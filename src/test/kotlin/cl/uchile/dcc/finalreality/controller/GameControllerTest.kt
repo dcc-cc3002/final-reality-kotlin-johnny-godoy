@@ -1,6 +1,8 @@
 package cl.uchile.dcc.finalreality.controller
 
 import cl.uchile.dcc.finalreality.model.character.Enemy
+import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
+import cl.uchile.dcc.finalreality.model.character.player.Thief
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
@@ -24,17 +26,22 @@ internal class GameControllerTest {
         assertEquals(playerCharacters[4].name, "Engineer")
     }
     @Test
-    fun createPlayer() {
-    }
-
-    @Test
     fun createEnemy() {
         val expectedEnemy = Enemy("Test", 10, 10, 10, controller.turnsQueue)
         controller.createEnemy("Test", 10, 10, 10)
         val lastIndex = controller.enemyCharacters.size - 1
         assertEquals(controller.enemyCharacters[lastIndex], expectedEnemy)
     }
-
+    private fun testPlayerCreation(expectedPlayer: IGameCharacter) {
+        val lastIndex = controller.playerCharacters.size - 1
+        assertEquals(controller.playerCharacters[lastIndex], expectedPlayer)
+    }
+    @Test
+    fun createThief() {
+        val expectedThief = Thief("Test", 10, 10, controller.turnsQueue)
+        controller.createThief("Test", 10, 10)
+        testPlayerCreation(expectedThief)
+    }
     @Test
     fun attack() {
     }

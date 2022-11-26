@@ -59,7 +59,8 @@ class GameController {
      * Creates a new thief character and adds it to the list of players.
      */
     fun createThief(name: String, hp: Int, defense: Int) {
-        // TODO: Implement this method
+        val thief = Thief(name, hp, defense, turnsQueue)
+        playerCharacters.add(thief)
     }
     /**
      * Creates a new black mage character and adds it to the list of players.
