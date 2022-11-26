@@ -13,6 +13,7 @@ import java.util.concurrent.BlockingQueue
 import java.util.concurrent.Executors
 import java.util.concurrent.ScheduledExecutorService
 import java.util.concurrent.TimeUnit
+import kotlin.math.min
 
 /**
  * An abstract class that holds the common behaviour of all the characters in the game.
@@ -56,5 +57,8 @@ abstract class AbstractCharacter(
     override fun toString(): String {
         val className = this.javaClass.simpleName
         return "$className(name='$name', maxHp=$maxHp, defense=$defense, currentHp=$currentHp)"
+    }
+    override fun receiveDamage(damage: Int) {
+        currentHp = min(currentHp - damage, 0)
     }
 }

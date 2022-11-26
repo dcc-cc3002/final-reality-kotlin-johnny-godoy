@@ -37,4 +37,12 @@ interface IGameCharacter {
      * Gets the correct delay for the character.
      */
     fun delay(): Long
+    /**
+     * Returns true if the character is alive, false otherwise.
+     */
+    fun isAlive(): Boolean = currentHp > 0
+    /**
+     * Reduces health points of the character.
+     */
+    fun receiveDamage(damage: Int)
 }
