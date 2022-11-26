@@ -36,15 +36,42 @@ class GameController {
         playerCharacters.add(WhiteMage("White Mage", 10, 10, 10, turnsQueue))
         playerCharacters.add(Engineer("Engineer", 10, 10, turnsQueue))
     }
-    fun createPlayer(name: String, hp: Int, defense: Int, weapon: IWeapon) {
-        // TODO: Create a player character
-    }
     /**
      * Creates a new enemy character and adds it to the list of enemies.
      * */
     fun createEnemy(name: String, hp: Int, defense: Int, weight: Int) {
         val enemy = Enemy(name, hp, defense, weight, turnsQueue)
         enemyCharacters.add(enemy)
+    }
+    /**
+     * Creates a new engineer character and adds it to the list of players.
+     */
+    fun createEngineer(name: String, hp: Int, defense: Int) {
+        // TODO: Implement this method
+    }
+    /**
+     * Creates a new knight character and adds it to the list of players.
+     */
+    fun createKnight(name: String, hp: Int, defense: Int) {
+        // TODO: Implement this method
+    }
+    /**
+     * Creates a new thief character and adds it to the list of players.
+     */
+    fun createThief(name: String, hp: Int, defense: Int) {
+        // TODO: Implement this method
+    }
+    /**
+     * Creates a new black mage character and adds it to the list of players.
+     */
+    fun createBlackMage(name: String, hp: Int, defense: Int, mana: Int) {
+        // TODO: Implement this method
+    }
+    /**
+     * Creates a new white mage character and adds it to the list of players.
+     */
+    fun createWhiteMage(name: String, hp: Int, defense: Int, mana: Int) {
+        // TODO: Implement this method
     }
     fun attack(attacker: IGameCharacter, target: IGameCharacter) {
         // TODO: Attack a target
