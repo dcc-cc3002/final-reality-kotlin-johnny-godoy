@@ -102,4 +102,11 @@ abstract class AbstractCharacterTest {
         differentCharacterTest.currentHp = 0
         assertEquals(false, differentCharacterTest.isAlive())
     }
+    @Test
+    fun recevePhysicalAttack() {
+        differentCharacterTest.receivePhysicalAttack(5)
+        assertEquals(10, differentCharacterTest.currentHp)
+        differentCharacterTest.receivePhysicalAttack(15)
+        assertEquals(5, differentCharacterTest.currentHp)
+    }
 }

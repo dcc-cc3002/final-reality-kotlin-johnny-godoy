@@ -61,4 +61,7 @@ abstract class AbstractCharacter(
     override fun receiveDamage(damage: Int) {
         currentHp = max(currentHp - damage, 0)
     }
+    override fun receivePhysicalAttack(damage: Int) {
+        receiveDamage(max(damage - defense, 0))
+    }
 }

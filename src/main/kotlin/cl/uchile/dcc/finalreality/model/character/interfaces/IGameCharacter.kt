@@ -45,4 +45,8 @@ interface IGameCharacter {
      * Reduces health points of the character.
      */
     fun receiveDamage(damage: Int)
+    /**
+     * Receives a physical attack, which is reduced by the defense of the character.
+     * */
+    fun receivePhysicalAttack(damage: Int)
 }
