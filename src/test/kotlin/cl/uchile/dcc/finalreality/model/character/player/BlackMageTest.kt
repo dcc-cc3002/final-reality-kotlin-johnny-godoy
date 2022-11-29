@@ -8,9 +8,9 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
 internal class BlackMageTest : AbstractMagicWielderTest() {
-    override val firstCharacterTest = BlackMage("Test", 5, 10, 0, turns)
-    override val sameCharacterTest = BlackMage("Test", 5, 10, 0, turns)
-    override val differentCharacterTest = BlackMage("Different", 10, 20, 10, turns)
+    override val firstCharacterTest = BlackMage("Test", 5, 10, 0, controller)
+    override val sameCharacterTest = BlackMage("Test", 5, 10, 0, controller)
+    override val differentCharacterTest = BlackMage("Different", 10, 20, 10, controller)
     override val lightWeapon = Staff("Light", 10, 20, 10)
     override val lightWeapon2 = Staff("Light", 10, 20, 10)
     override val heavyWeapon = Knife("Heavy", 10, 30)

@@ -18,13 +18,13 @@ internal class SwordTest : AbstractWeaponTest() {
     }
     @Test
     fun equipToKnight() {
-        val knight = Knight("Test", 10, 10, turns)
+        val knight = Knight("Test", 10, 10, controller)
         firstWeaponTest.equipToKnight(knight)
         assertEquals(firstWeaponTest, knight.equippedWeapon)
     }
     @Test
     fun equipToThief() {
-        val thief = Thief("Test", 10, 10, turns)
+        val thief = Thief("Test", 10, 10, controller)
         firstWeaponTest.equipToThief(thief)
         assertEquals(firstWeaponTest, thief.equippedWeapon)
     }

@@ -7,12 +7,11 @@
  */
 package cl.uchile.dcc.finalreality.model.character.player.abstract_classes
 
+import cl.uchile.dcc.finalreality.controller.GameController
 import cl.uchile.dcc.finalreality.exceptions.UnequippableWeaponException
 import cl.uchile.dcc.finalreality.model.character.abstract_classes.AbstractCharacter
-import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
 import cl.uchile.dcc.finalreality.model.character.player.interfaces.IPlayerCharacter
 import cl.uchile.dcc.finalreality.model.weapons.interfaces.IWeapon
-import java.util.concurrent.BlockingQueue
 
 /**
  * A class that holds all the information of a player-controlled character in the game.
@@ -30,8 +29,8 @@ abstract class AbstractPlayerCharacter(
     name: String,
     maxHp: Int,
     defense: Int,
-    turnsQueue: BlockingQueue<IGameCharacter>
-) : AbstractCharacter(name, maxHp, defense, turnsQueue), IPlayerCharacter {
+    controller: GameController
+) : AbstractCharacter(name, maxHp, defense, controller), IPlayerCharacter {
     private lateinit var _equippedWeapon: IWeapon
     override val equippedWeapon: IWeapon
         get() = _equippedWeapon

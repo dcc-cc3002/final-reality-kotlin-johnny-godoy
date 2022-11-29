@@ -24,13 +24,13 @@ internal class StaffTest : AbstractWeaponTest() {
     }
     @Test
     fun equipToBlackMage() {
-        val blackMage = BlackMage("Test", 10, 10, 10, turns)
+        val blackMage = BlackMage("Test", 10, 10, 10, controller)
         firstWeaponTest.equipToBlackMage(blackMage)
         assertEquals(firstWeaponTest, blackMage.equippedWeapon)
     }
     @Test
     fun equipToWhiteMage() {
-        val whiteMage = WhiteMage("Test", 10, 10, 10, turns)
+        val whiteMage = WhiteMage("Test", 10, 10, 10, controller)
         firstWeaponTest.equipToWhiteMage(whiteMage)
         assertEquals(firstWeaponTest, whiteMage.equippedWeapon)
     }

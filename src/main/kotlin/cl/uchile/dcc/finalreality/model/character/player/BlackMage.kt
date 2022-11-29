@@ -7,11 +7,10 @@
  */
 package cl.uchile.dcc.finalreality.model.character.player
 
-import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
+import cl.uchile.dcc.finalreality.controller.GameController
 import cl.uchile.dcc.finalreality.model.character.player.abstract_classes.AbstractMagicWielder
 import cl.uchile.dcc.finalreality.model.weapons.interfaces.EquippableByBlackMage
 import java.util.Objects
-import java.util.concurrent.BlockingQueue
 
 /**
  * A Black Mage is a type of player character that can cast black magic.
@@ -34,8 +33,8 @@ class BlackMage(
     maxHp: Int,
     maxMp: Int,
     defense: Int,
-    turnsQueue: BlockingQueue<IGameCharacter>
-) : AbstractMagicWielder(name, maxHp, maxMp, defense, turnsQueue) {
+    controller: GameController
+) : AbstractMagicWielder(name, maxHp, maxMp, defense, controller) {
     override fun equals(other: Any?): Boolean = when {
         this === other -> true
         other !is BlackMage -> false

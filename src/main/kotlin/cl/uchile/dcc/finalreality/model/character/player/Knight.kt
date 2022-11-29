@@ -7,11 +7,10 @@
  */
 package cl.uchile.dcc.finalreality.model.character.player
 
-import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
+import cl.uchile.dcc.finalreality.controller.GameController
 import cl.uchile.dcc.finalreality.model.character.player.abstract_classes.AbstractPlayerCharacter
 import cl.uchile.dcc.finalreality.model.weapons.interfaces.EquippableByKnight
 import java.util.Objects
-import java.util.concurrent.BlockingQueue
 
 /**
  * A `Knight` is a type of [IPlayerCharacter] that can equip `Sword`s, `Axe`s and
@@ -32,8 +31,8 @@ class Knight(
     name: String,
     maxHp: Int,
     defense: Int,
-    turnsQueue: BlockingQueue<IGameCharacter>
-) : AbstractPlayerCharacter(name, maxHp, defense, turnsQueue) {
+    controller: GameController
+) : AbstractPlayerCharacter(name, maxHp, defense, controller) {
     override fun equals(other: Any?): Boolean = when {
         this === other -> true
         other !is Knight -> false

@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
 internal class EnemyTest : AbstractCharacterTest() {
-    override val firstCharacterTest = Enemy("Test", 20, 5, 0, turns)
-    override val sameCharacterTest = Enemy("Test", 20, 5, 0, turns)
-    override val differentCharacterTest = Enemy("Different", 30, 10, 10, turns)
+    override val firstCharacterTest = Enemy("Test", 20, 5, 0, controller)
+    override val sameCharacterTest = Enemy("Test", 20, 5, 0, controller)
+    override val differentCharacterTest = Enemy("Different", 30, 10, 10, controller)
     @Test
     fun testToString() {
         assertEquals("Enemy(name='Test', maxHp=5, defense=0, currentHp=5, weight=20)", firstCharacterTest.toString())

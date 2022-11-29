@@ -7,9 +7,9 @@
  */
 package cl.uchile.dcc.finalreality.model.character.abstract_classes
 
+import cl.uchile.dcc.finalreality.controller.GameController
 import cl.uchile.dcc.finalreality.exceptions.Require
 import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
-import java.util.concurrent.BlockingQueue
 import java.util.concurrent.Executors
 import java.util.concurrent.ScheduledExecutorService
 import java.util.concurrent.TimeUnit
@@ -34,7 +34,7 @@ abstract class AbstractCharacter(
     override val name: String,
     maxHp: Int,
     defense: Int,
-    private val turnsQueue: BlockingQueue<IGameCharacter>,
+    private val controller: GameController
 ) : IGameCharacter {
     private lateinit var scheduledExecutor: ScheduledExecutorService
     override val maxHp: Int = Require.Stat(maxHp, "Max Hp") atLeast 1
@@ -51,7 +51,7 @@ abstract class AbstractCharacter(
      * Adds this character to the turns queue.
      */
     private fun addToQueue() {
-        turnsQueue.put(this)
+        controller.turnsQueue.put(this)
         scheduledExecutor.shutdown()
     }
     override fun toString(): String {

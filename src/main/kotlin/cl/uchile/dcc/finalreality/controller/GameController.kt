@@ -9,10 +9,9 @@ import cl.uchile.dcc.finalreality.model.character.player.Knight
 import cl.uchile.dcc.finalreality.model.character.player.Thief
 import cl.uchile.dcc.finalreality.model.character.player.WhiteMage
 import cl.uchile.dcc.finalreality.model.character.player.interfaces.IPlayerCharacter
-import cl.uchile.dcc.finalreality.model.weapons.interfaces.IWeapon
 
 /**
- * The controller singleton class.
+ * The controller class.
  * @property turnsQueue the queue of characters that will be used to determine the order of the turns.
  * @property playerCharacters the list of player characters.
  * @property enemyCharacters the list of enemy characters.
@@ -21,61 +20,61 @@ import cl.uchile.dcc.finalreality.model.weapons.interfaces.IWeapon
  *
  * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  */
-object GameController {
+class GameController {
     val turnsQueue: LinkedBlockingQueue<IGameCharacter> = LinkedBlockingQueue<IGameCharacter>()
     val playerCharacters: MutableList<IPlayerCharacter> = mutableListOf()
     val enemyCharacters: MutableList<Enemy> = mutableListOf()
     init {
         for (i in 1..5) { // Adding enemies to the game
-            enemyCharacters.add(Enemy("Enemy $i", 2*i, 10, 10, turnsQueue))
+            enemyCharacters.add(Enemy("Enemy $i", 2*i, 10, 10, this))
         }
         // Adding players to the game
-        playerCharacters.add(Thief("Thief", 10, 10, turnsQueue))
-        playerCharacters.add(Knight("Knight", 10, 10, turnsQueue))
-        playerCharacters.add(BlackMage("Black Mage", 10, 10, 10, turnsQueue))
-        playerCharacters.add(WhiteMage("White Mage", 10, 10, 10, turnsQueue))
-        playerCharacters.add(Engineer("Engineer", 10, 10, turnsQueue))
+        playerCharacters.add(Thief("Thief", 10, 10, this))
+        playerCharacters.add(Knight("Knight", 10, 10, this))
+        playerCharacters.add(BlackMage("Black Mage", 10, 10, 10, this))
+        playerCharacters.add(WhiteMage("White Mage", 10, 10, 10, this))
+        playerCharacters.add(Engineer("Engineer", 10, 10, this))
     }
     /**
      * Creates a new enemy character and adds it to the list of enemies.
      * */
     fun createEnemy(name: String, hp: Int, defense: Int, weight: Int) {
-        val enemy = Enemy(name, hp, defense, weight, turnsQueue)
+        val enemy = Enemy(name, hp, defense, weight, this)
         enemyCharacters.add(enemy)
     }
     /**
      * Creates a new engineer character and adds it to the list of players.
      */
     fun createEngineer(name: String, hp: Int, defense: Int) {
-        val engineer = Engineer(name, hp, defense, turnsQueue)
+        val engineer = Engineer(name, hp, defense, this)
         playerCharacters.add(engineer)
     }
     /**
      * Creates a new knight character and adds it to the list of players.
      */
     fun createKnight(name: String, hp: Int, defense: Int) {
-        val knight = Knight(name, hp, defense, turnsQueue)
+        val knight = Knight(name, hp, defense, this)
         playerCharacters.add(knight)
     }
     /**
      * Creates a new thief character and adds it to the list of players.
      */
     fun createThief(name: String, hp: Int, defense: Int) {
-        val thief = Thief(name, hp, defense, turnsQueue)
+        val thief = Thief(name, hp, defense, this)
         playerCharacters.add(thief)
     }
     /**
      * Creates a new black mage character and adds it to the list of players.
      */
     fun createBlackMage(name: String, hp: Int, defense: Int, mana: Int) {
-        val blackMage = BlackMage(name, hp, defense, mana, turnsQueue)
+        val blackMage = BlackMage(name, hp, defense, mana, this)
         playerCharacters.add(blackMage)
     }
     /**
      * Creates a new white mage character and adds it to the list of players.
      */
     fun createWhiteMage(name: String, hp: Int, defense: Int, mana: Int) {
-        val whiteMage = WhiteMage(name, hp, defense, mana, turnsQueue)
+        val whiteMage = WhiteMage(name, hp, defense, mana, this)
         playerCharacters.add(whiteMage)
     }
     fun attack(attacker: IGameCharacter, target: IGameCharacter) {

@@ -7,6 +7,7 @@
  */
 package cl.uchile.dcc.finalreality.model.character.player
 
+import cl.uchile.dcc.finalreality.controller.GameController
 import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
 import cl.uchile.dcc.finalreality.model.character.player.abstract_classes.AbstractPlayerCharacter
 import cl.uchile.dcc.finalreality.model.weapons.interfaces.EquippableByThief
@@ -27,8 +28,8 @@ import java.util.concurrent.BlockingQueue
  * @author <a href="https://www.github.com/r8vnhill">R8V</a>
  * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  */
-class Thief(name: String, maxHp: Int, defense: Int, turnsQueue: BlockingQueue<IGameCharacter>) :
-    AbstractPlayerCharacter(name, maxHp, defense, turnsQueue) {
+class Thief(name: String, maxHp: Int, defense: Int, controller: GameController) :
+    AbstractPlayerCharacter(name, maxHp, defense, controller) {
     override fun equals(other: Any?): Boolean = when {
         this === other -> true
         other !is Thief -> false

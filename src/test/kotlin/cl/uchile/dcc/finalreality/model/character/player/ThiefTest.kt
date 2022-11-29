@@ -9,9 +9,9 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
 internal class ThiefTest : AbstractPlayerCharacterTest() {
-    override val firstCharacterTest = Thief("Test", 5, 0, turns)
-    override val sameCharacterTest = Thief("Test", 5, 0, turns)
-    override val differentCharacterTest = Thief("Different", 10, 10, turns)
+    override val firstCharacterTest = Thief("Test", 5, 0, controller)
+    override val sameCharacterTest = Thief("Test", 5, 0, controller)
+    override val differentCharacterTest = Thief("Different", 10, 10, controller)
     override val lightWeapon = Sword("Light", 10, 20)
     override val lightWeapon2 = Knife("Light", 10, 20)
     override val heavyWeapon = Bow("Heavy", 10, 30)

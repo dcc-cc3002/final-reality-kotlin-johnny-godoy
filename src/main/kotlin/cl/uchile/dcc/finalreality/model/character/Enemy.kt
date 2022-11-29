@@ -7,6 +7,7 @@
  */
 package cl.uchile.dcc.finalreality.model.character
 
+import cl.uchile.dcc.finalreality.controller.GameController
 import cl.uchile.dcc.finalreality.exceptions.Require
 import cl.uchile.dcc.finalreality.model.character.abstract_classes.AbstractCharacter
 import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
@@ -33,8 +34,8 @@ class Enemy(
     weight: Int,
     maxHp: Int,
     defense: Int,
-    turnsQueue: BlockingQueue<IGameCharacter>
-) : AbstractCharacter(name, maxHp, defense, turnsQueue) {
+    controller: GameController
+) : AbstractCharacter(name, maxHp, defense, controller) {
     val weight: Int = Require.Stat(weight, "Weight") atLeast 1
     override fun equals(other: Any?): Boolean = when {
         this === other -> true

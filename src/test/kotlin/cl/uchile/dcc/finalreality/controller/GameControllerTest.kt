@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.*
 
 internal class GameControllerTest {
-    private var controller = GameController
+    private var controller = GameController()
     @Test
     fun constructorTest() {
         for ((index, enemy) in controller.enemyCharacters.withIndex()) {
@@ -30,7 +30,7 @@ internal class GameControllerTest {
     }
     @Test
     fun createEnemy() {
-        val expectedEnemy = Enemy("Test", 10, 10, 10, controller.turnsQueue)
+        val expectedEnemy = Enemy("Test", 10, 10, 10, controller)
         controller.createEnemy("Test", 10, 10, 10)
         val lastIndex = controller.enemyCharacters.size - 1
         assertEquals(controller.enemyCharacters[lastIndex], expectedEnemy)
@@ -41,31 +41,31 @@ internal class GameControllerTest {
     }
     @Test
     fun createThief() {
-        val expectedThief = Thief("Test", 10, 10, controller.turnsQueue)
+        val expectedThief = Thief("Test", 10, 10, controller)
         controller.createThief("Test", 10, 10)
         testPlayerCreation(expectedThief)
     }
     @Test
     fun createKnight() {
-        val expectedKnight = Knight("Test", 10, 10, controller.turnsQueue)
+        val expectedKnight = Knight("Test", 10, 10, controller)
         controller.createKnight("Test", 10, 10)
         testPlayerCreation(expectedKnight)
     }
     @Test
     fun createBlackMage() {
-        val expectedBlackMage = BlackMage("Test", 10, 10, 10, controller.turnsQueue)
+        val expectedBlackMage = BlackMage("Test", 10, 10, 10, controller)
         controller.createBlackMage("Test", 10, 10, 10)
         testPlayerCreation(expectedBlackMage)
     }
     @Test
     fun createWhiteMage() {
-        val expectedWhiteMage = WhiteMage("Test", 10, 10, 10, controller.turnsQueue)
+        val expectedWhiteMage = WhiteMage("Test", 10, 10, 10, controller)
         controller.createWhiteMage("Test", 10, 10, 10)
         testPlayerCreation(expectedWhiteMage)
     }
     @Test
     fun createEngineer() {
-        val expectedEngineer = Engineer("Test", 10, 10, controller.turnsQueue)
+        val expectedEngineer = Engineer("Test", 10, 10, controller)
         controller.createEngineer("Test", 10, 10)
         testPlayerCreation(expectedEngineer)
     }

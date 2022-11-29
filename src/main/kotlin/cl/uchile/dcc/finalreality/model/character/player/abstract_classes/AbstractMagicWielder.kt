@@ -7,10 +7,9 @@
  */
 package cl.uchile.dcc.finalreality.model.character.player.abstract_classes
 
+import cl.uchile.dcc.finalreality.controller.GameController
 import cl.uchile.dcc.finalreality.exceptions.Require
-import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
 import cl.uchile.dcc.finalreality.model.character.player.interfaces.IMagicWielder
-import java.util.concurrent.BlockingQueue
 
 /**
  * An abstract class that holds the information for a character that wields magic (and thus has Mana)
@@ -33,8 +32,8 @@ abstract class AbstractMagicWielder(
     maxHp: Int,
     maxMp: Int,
     defense: Int,
-    turnsQueue: BlockingQueue<IGameCharacter>
-) : AbstractPlayerCharacter(name, maxHp, defense, turnsQueue), IMagicWielder {
+    controller: GameController
+) : AbstractPlayerCharacter(name, maxHp, defense, controller), IMagicWielder {
     override val maxMp: Int = Require.Stat(maxMp, "Max MP") atLeast 0
     override var currentMp: Int = maxMp
         set(value) {

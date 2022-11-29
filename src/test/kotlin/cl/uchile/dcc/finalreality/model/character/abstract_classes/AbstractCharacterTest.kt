@@ -1,13 +1,15 @@
 package cl.uchile.dcc.cl.uchile.dcc.finalreality.model.character.abstract_classes
 
+import cl.uchile.dcc.finalreality.controller.GameController
 import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotEquals
 import org.junit.jupiter.api.Test
-import java.util.concurrent.LinkedBlockingDeque
+import java.util.concurrent.LinkedBlockingQueue
 
 abstract class AbstractCharacterTest {
-    val turns: LinkedBlockingDeque<IGameCharacter> = LinkedBlockingDeque<IGameCharacter>()
+    val controller: GameController = GameController()
+    val turns: LinkedBlockingQueue<IGameCharacter> = controller.turnsQueue
     abstract val firstCharacterTest: IGameCharacter
     abstract val sameCharacterTest: IGameCharacter
     abstract val differentCharacterTest: IGameCharacter
