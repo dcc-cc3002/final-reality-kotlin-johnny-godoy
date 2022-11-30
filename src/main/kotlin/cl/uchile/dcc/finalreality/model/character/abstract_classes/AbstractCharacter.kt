@@ -66,10 +66,4 @@ abstract class AbstractCharacter(
     override fun receivePhysicalAttack(damage: Int) {
         receiveDamage(max(damage - defense, 0))
     }
-    override fun attackedByPlayer(attacker: IPlayerCharacter) {
-        this.receivePhysicalAttack(attacker.equippedWeapon.damage)
-    }
-    override fun attackedByEnemy(attacker: Enemy) {
-        this.receivePhysicalAttack(attacker.attackStat)
-    }
 }

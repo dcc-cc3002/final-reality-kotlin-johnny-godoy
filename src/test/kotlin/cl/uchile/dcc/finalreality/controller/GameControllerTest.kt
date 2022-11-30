@@ -1,5 +1,7 @@
 package cl.uchile.dcc.finalreality.controller
 
+import cl.uchile.dcc.finalreality.exceptions.FriendlyFireException
+import cl.uchile.dcc.finalreality.exceptions.UnequippableWeaponException
 import cl.uchile.dcc.finalreality.model.character.Enemy
 import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
 import cl.uchile.dcc.finalreality.model.character.player.BlackMage
@@ -39,6 +41,8 @@ internal class GameControllerTest {
         assertEquals(5, enemy.currentHp)
         controller.attack(enemy, thief)
         assertEquals(0, thief.currentHp)
+        assertThrows(FriendlyFireException::class.java, {controller.attack(enemy, enemy)},"An enemy can't attack another enemy")
+        assertThrows(FriendlyFireException::class.java, {controller.attack(thief, thief)},"A player character can't attack another player character")
     }
 
     @Test

@@ -51,14 +51,8 @@ interface IGameCharacter {
     fun receiveDamage(damage: Int)
     /**
      * Receives a physical attack, which is reduced by the defense of the character.
-     * */
+     */
     fun receivePhysicalAttack(damage: Int)
-    /**
-     * Gets attacked by another character
-     * */
-    fun getAttacked(attacker: IGameCharacter){
-        throw NotImplementedError("This method should be implemented in a subclass")
-    }
     /**
      * Get attacked by a player character.
      */

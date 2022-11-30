@@ -8,6 +8,7 @@
 package cl.uchile.dcc.finalreality.model.character.player.abstract_classes
 
 import cl.uchile.dcc.finalreality.controller.GameController
+import cl.uchile.dcc.finalreality.exceptions.FriendlyFireException
 import cl.uchile.dcc.finalreality.exceptions.UnequippableWeaponException
 import cl.uchile.dcc.finalreality.model.character.Enemy
 import cl.uchile.dcc.finalreality.model.character.abstract_classes.AbstractCharacter
@@ -51,5 +52,11 @@ abstract class AbstractPlayerCharacter(
         (equippedWeapon.weight / 10).toLong()
     override fun attack(target: IGameCharacter){
         target.attackedByPlayer(this)
+    }
+    override fun attackedByPlayer(attacker: IPlayerCharacter) {
+        throw FriendlyFireException("Player $attacker cannot attack another player $this")
+    }
+    override fun attackedByEnemy(attacker: Enemy) {
+        this.receivePhysicalAttack(attacker.attackStat)
     }
 }

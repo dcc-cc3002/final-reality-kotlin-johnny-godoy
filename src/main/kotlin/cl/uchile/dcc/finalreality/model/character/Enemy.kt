@@ -8,9 +8,11 @@
 package cl.uchile.dcc.finalreality.model.character
 
 import cl.uchile.dcc.finalreality.controller.GameController
+import cl.uchile.dcc.finalreality.exceptions.FriendlyFireException
 import cl.uchile.dcc.finalreality.exceptions.Require
 import cl.uchile.dcc.finalreality.model.character.abstract_classes.AbstractCharacter
 import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
+import cl.uchile.dcc.finalreality.model.character.player.interfaces.IPlayerCharacter
 import cl.uchile.dcc.finalreality.model.status.NullState
 import cl.uchile.dcc.finalreality.model.status.interfaces.IState
 import java.util.Objects
@@ -70,5 +72,11 @@ class Enemy(
     override fun waitTurn() {
         super.waitTurn()
         status.turnEffect()
+    }
+    override fun attackedByPlayer(attacker: IPlayerCharacter) {
+        this.receivePhysicalAttack(attacker.equippedWeapon.damage)
+    }
+    override fun attackedByEnemy(attacker: Enemy) {
+        throw FriendlyFireException("Enemy $attacker cannot attack another enemy $this")
     }
 }
