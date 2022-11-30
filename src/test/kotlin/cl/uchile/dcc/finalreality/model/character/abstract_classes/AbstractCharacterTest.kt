@@ -1,4 +1,4 @@
-package cl.uchile.dcc.cl.uchile.dcc.finalreality.model.character.abstract_classes
+package cl.uchile.dcc.finalreality.model.character.abstract_classes
 
 import cl.uchile.dcc.finalreality.controller.GameController
 import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter

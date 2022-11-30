@@ -6,10 +6,12 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.*
 
 internal class ParalyzedTest : StatusTest() {
-
+    override val firstStatus = Paralyzed(enemy)
+    override val sameStatus = Paralyzed(enemy)
+    override val differentEnemy = Paralyzed(controller.enemyCharacters[1])
     @Test
     fun turnEffect() {
-        enemy.status = Paralyzed(enemy)
+        enemy.status = firstStatus
         val player = controller.playerCharacters[0]
         controller.attack(enemy, player)
         assertEquals(10, player.currentHp)
