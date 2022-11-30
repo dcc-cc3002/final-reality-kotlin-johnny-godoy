@@ -11,8 +11,4 @@ import cl.uchile.dcc.finalreality.model.status.interfaces.IState
  * */
 interface IEnemy : IGameCharacter {
     var status: IState
-    /**
-     * Gets attacked by a PlayerCharacter.
-     * */
-    fun getAttacked(attacker: IPlayerCharacter)
 }

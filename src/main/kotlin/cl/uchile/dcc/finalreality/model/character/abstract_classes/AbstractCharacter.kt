@@ -9,7 +9,9 @@ package cl.uchile.dcc.finalreality.model.character.abstract_classes
 
 import cl.uchile.dcc.finalreality.controller.GameController
 import cl.uchile.dcc.finalreality.exceptions.Require
+import cl.uchile.dcc.finalreality.model.character.Enemy
 import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
+import cl.uchile.dcc.finalreality.model.character.player.interfaces.IPlayerCharacter
 import java.util.concurrent.Executors
 import java.util.concurrent.ScheduledExecutorService
 import java.util.concurrent.TimeUnit
@@ -63,5 +65,11 @@ abstract class AbstractCharacter(
     }
     override fun receivePhysicalAttack(damage: Int) {
         receiveDamage(max(damage - defense, 0))
+    }
+    override fun attackedByPlayer(attacker: IPlayerCharacter) {
+        this.receivePhysicalAttack(attacker.equippedWeapon.damage)
+    }
+    override fun attackedByEnemy(attacker: Enemy) {
+        this.receivePhysicalAttack(attacker.attack)
     }
 }

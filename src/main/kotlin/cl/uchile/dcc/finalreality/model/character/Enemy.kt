@@ -16,7 +16,6 @@ import cl.uchile.dcc.finalreality.model.character.player.interfaces.IPlayerChara
 import cl.uchile.dcc.finalreality.model.status.NullState
 import cl.uchile.dcc.finalreality.model.status.interfaces.IState
 import java.util.Objects
-import java.util.concurrent.BlockingQueue
 
 /**
  * A class that holds all the information of a single enemy of the game.
@@ -64,7 +63,7 @@ class Enemy(
     }
     override fun delay(): Long =
         (weight / 10).toLong()
-    override fun getAttacked(attacker: IPlayerCharacter) {
-        this.receivePhysicalAttack(attacker.equippedWeapon.damage)
+    override fun attack(target: IGameCharacter){
+        target.attackedByEnemy(this)
     }
 }

@@ -7,6 +7,10 @@
  */
 package cl.uchile.dcc.finalreality.model.character.interfaces
 
+import cl.uchile.dcc.finalreality.exceptions.FriendlyFireException
+import cl.uchile.dcc.finalreality.model.character.Enemy
+import cl.uchile.dcc.finalreality.model.character.player.interfaces.IPlayerCharacter
+
 /**
  * This represents a character from the game.
  * A character can be controlled by the player or by the CPU (an enemy).
@@ -49,4 +53,22 @@ interface IGameCharacter {
      * Receives a physical attack, which is reduced by the defense of the character.
      * */
     fun receivePhysicalAttack(damage: Int)
+    /**
+     * Gets attacked by another character
+     * */
+    fun getAttacked(attacker: IGameCharacter){
+        throw NotImplementedError("This method should be implemented in a subclass")
+    }
+    /**
+     * Get attacked by a player character.
+     */
+    fun attackedByPlayer(attacker: IPlayerCharacter)
+    /**
+     * Get attacked by an enemy character.
+     */
+    fun attackedByEnemy(attacker: Enemy)
+    /**
+     * Attack another character.
+     */
+    fun attack(target: IGameCharacter)
 }

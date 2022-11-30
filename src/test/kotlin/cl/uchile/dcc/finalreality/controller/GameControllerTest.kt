@@ -7,6 +7,7 @@ import cl.uchile.dcc.finalreality.model.character.player.Engineer
 import cl.uchile.dcc.finalreality.model.character.player.Knight
 import cl.uchile.dcc.finalreality.model.character.player.Thief
 import cl.uchile.dcc.finalreality.model.character.player.WhiteMage
+import cl.uchile.dcc.finalreality.model.weapons.Knife
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
@@ -71,6 +72,13 @@ internal class GameControllerTest {
     }
     @Test
     fun attack() {
+        val enemy = Enemy("Test", 10, 10, 10, 100, controller)
+        val thief = Thief("Test", 10, 10, controller)
+        thief.equip(Knife("Test", 15, 10))
+        controller.attack(thief, enemy)
+        assertEquals(5, enemy.currentHp)
+        controller.attack(enemy, thief)
+        assertEquals(0, thief.currentHp)
     }
 
     @Test

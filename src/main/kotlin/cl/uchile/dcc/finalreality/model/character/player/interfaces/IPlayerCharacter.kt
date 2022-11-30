@@ -28,8 +28,4 @@ interface IPlayerCharacter : IGameCharacter {
      * @throws UnequippableWeaponException always
      */
     fun equip(weapon: IWeapon)
-    /**
-     * Get attacked by an enemy.
-     */
-    fun getAttacked(attacker: Enemy)
 }

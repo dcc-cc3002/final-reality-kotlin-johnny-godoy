@@ -77,8 +77,11 @@ class GameController {
         val whiteMage = WhiteMage(name, hp, defense, mana, this)
         playerCharacters.add(whiteMage)
     }
+    /**
+     * Makes the attacker character attack the target character.
+     */
     fun attack(attacker: IGameCharacter, target: IGameCharacter) {
-        // TODO: Attack a target
+        attacker.attack(target)
     }
     fun useMagic(attacker: IGameCharacter, target: IGameCharacter) {
         // TODO: Use magic on a target

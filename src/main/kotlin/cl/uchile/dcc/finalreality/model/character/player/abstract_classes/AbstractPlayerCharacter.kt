@@ -11,6 +11,7 @@ import cl.uchile.dcc.finalreality.controller.GameController
 import cl.uchile.dcc.finalreality.exceptions.UnequippableWeaponException
 import cl.uchile.dcc.finalreality.model.character.Enemy
 import cl.uchile.dcc.finalreality.model.character.abstract_classes.AbstractCharacter
+import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
 import cl.uchile.dcc.finalreality.model.character.player.interfaces.IPlayerCharacter
 import cl.uchile.dcc.finalreality.model.weapons.interfaces.IWeapon
 
@@ -48,8 +49,7 @@ abstract class AbstractPlayerCharacter(
     }
     override fun delay(): Long =
         (equippedWeapon.weight / 10).toLong()
-
-    override fun getAttacked(attacker: Enemy) {
-        // TODO: Implement this
+    override fun attack(target: IGameCharacter){
+        target.attackedByPlayer(this)
     }
 }
