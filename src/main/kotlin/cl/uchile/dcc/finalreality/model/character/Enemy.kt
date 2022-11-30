@@ -12,6 +12,8 @@ import cl.uchile.dcc.finalreality.exceptions.Require
 import cl.uchile.dcc.finalreality.model.character.abstract_classes.AbstractCharacter
 import cl.uchile.dcc.finalreality.model.character.interfaces.IEnemy
 import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
+import cl.uchile.dcc.finalreality.model.status.NullState
+import cl.uchile.dcc.finalreality.model.status.interfaces.IState
 import java.util.Objects
 import java.util.concurrent.BlockingQueue
 
@@ -38,6 +40,7 @@ class Enemy(
     controller: GameController
 ) : AbstractCharacter(name, maxHp, defense, controller), IEnemy {
     val weight: Int = Require.Stat(weight, "Weight") atLeast 1
+    override var status: IState = NullState(this)
     override fun equals(other: Any?): Boolean = when {
         this === other -> true
         other !is Enemy -> false

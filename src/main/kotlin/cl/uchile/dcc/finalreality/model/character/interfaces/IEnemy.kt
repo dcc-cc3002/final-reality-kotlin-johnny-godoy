@@ -1,6 +1,6 @@
 package cl.uchile.dcc.finalreality.model.character.interfaces
 
-import cl.uchile.dcc.finalreality.model.status.interfaces.IStatus
+import cl.uchile.dcc.finalreality.model.status.interfaces.IState
 
 /**
  * Class that models an enemy, which has a status.
@@ -9,5 +9,5 @@ import cl.uchile.dcc.finalreality.model.status.interfaces.IStatus
  * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  * */
 interface IEnemy : IGameCharacter {
-    var status: IStatus
+    var status: IState
 }

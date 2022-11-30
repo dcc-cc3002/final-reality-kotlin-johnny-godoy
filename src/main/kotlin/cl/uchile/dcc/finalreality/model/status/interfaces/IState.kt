@@ -13,7 +13,7 @@ import cl.uchile.dcc.finalreality.model.character.interfaces.IEnemy
  *
  * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  * */
-interface IStatus {
+interface IState {
     val attackerMagicDamage: Int
     val character: IEnemy
     var turnsLeft: Int
@@ -21,4 +21,10 @@ interface IStatus {
      * The effect applied every turn.
      * */
     fun turnEffect()
+    /**
+     * Passes a turn.
+     * */
+    fun passTurn() {
+        turnsLeft--
+    }
 }
