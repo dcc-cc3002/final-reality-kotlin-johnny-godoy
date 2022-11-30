@@ -23,9 +23,10 @@ import java.util.concurrent.BlockingQueue
  *
  * @param name The name of this enemy.
  * @property weight The weight of this enemy.
- * @param turnsQueue The queue with the characters waiting for their turn.
+ * @param controller The game controller.
  * @param maxHp The maximum health points of this enemy.
  * @param defense The defense of this enemy.
+ * @property attack The attack of this enemy.
  *
  * @constructor Creates a new enemy with a name, a weight and the queue with the characters ready to
  *  play.
@@ -38,9 +39,11 @@ class Enemy(
     weight: Int,
     maxHp: Int,
     defense: Int,
+    attack: Int,
     controller: GameController
 ) : AbstractCharacter(name, maxHp, defense, controller), IEnemy {
     val weight: Int = Require.Stat(weight, "Weight") atLeast 1
+    val attack: Int = Require.Stat(attack, "Attack") atLeast 1
     override var status: IState = NullState(this)
     override fun equals(other: Any?): Boolean = when {
         this === other -> true
@@ -50,13 +53,14 @@ class Enemy(
         weight != other.weight -> false
         maxHp != other.maxHp -> false
         defense != other.defense -> false
+        attack != other.attack -> false
         else -> true
     }
     override fun hashCode(): Int =
         Objects.hash(Enemy::class, name, weight, maxHp, defense)
     override fun toString(): String {
         val superString = super.toString().dropLast(1)
-        return "$superString, weight=$weight)"
+        return "$superString, weight=$weight, attack=$attack)"
     }
     override fun delay(): Long =
         (weight / 10).toLong()

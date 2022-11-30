@@ -30,7 +30,7 @@ internal class GameControllerTest {
     }
     @Test
     fun createEnemy() {
-        val expectedEnemy = Enemy("Test", 10, 10, 10, controller)
+        val expectedEnemy = Enemy("Test", 10, 10, 10, 1, controller)
         controller.createEnemy("Test", 10, 10, 10)
         val lastIndex = controller.enemyCharacters.size - 1
         assertEquals(controller.enemyCharacters[lastIndex], expectedEnemy)

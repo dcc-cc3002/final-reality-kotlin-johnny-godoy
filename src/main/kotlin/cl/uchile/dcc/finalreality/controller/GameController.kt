@@ -26,7 +26,7 @@ class GameController {
     val enemyCharacters: MutableList<Enemy> = mutableListOf()
     init {
         for (i in 1..5) { // Adding enemies to the game
-            enemyCharacters.add(Enemy("Enemy $i", 2*i, 10, 10, this))
+            enemyCharacters.add(Enemy("Enemy $i", 2*i, 10, 10, 1, this))
         }
         // Adding players to the game
         playerCharacters.add(Thief("Thief", 10, 10, this))
@@ -39,7 +39,7 @@ class GameController {
      * Creates a new enemy character and adds it to the list of enemies.
      * */
     fun createEnemy(name: String, hp: Int, defense: Int, weight: Int) {
-        val enemy = Enemy(name, hp, defense, weight, this)
+        val enemy = Enemy(name, hp, defense, weight, 1, this)
         enemyCharacters.add(enemy)
     }
     /**
