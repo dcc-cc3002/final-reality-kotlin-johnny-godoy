@@ -10,6 +10,7 @@ package cl.uchile.dcc.finalreality.model.character
 import cl.uchile.dcc.finalreality.controller.GameController
 import cl.uchile.dcc.finalreality.exceptions.Require
 import cl.uchile.dcc.finalreality.model.character.abstract_classes.AbstractCharacter
+import cl.uchile.dcc.finalreality.model.character.interfaces.IEnemy
 import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
 import java.util.Objects
 import java.util.concurrent.BlockingQueue
@@ -35,7 +36,7 @@ class Enemy(
     maxHp: Int,
     defense: Int,
     controller: GameController
-) : AbstractCharacter(name, maxHp, defense, controller) {
+) : AbstractCharacter(name, maxHp, defense, controller), IEnemy {
     val weight: Int = Require.Stat(weight, "Weight") atLeast 1
     override fun equals(other: Any?): Boolean = when {
         this === other -> true
