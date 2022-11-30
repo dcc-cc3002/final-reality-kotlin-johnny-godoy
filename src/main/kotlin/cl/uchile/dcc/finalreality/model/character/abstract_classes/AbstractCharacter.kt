@@ -16,6 +16,7 @@ import java.util.concurrent.Executors
 import java.util.concurrent.ScheduledExecutorService
 import java.util.concurrent.TimeUnit
 import kotlin.math.max
+import kotlin.math.min
 
 /**
  * An abstract class that holds the common behaviour of all the characters in the game.

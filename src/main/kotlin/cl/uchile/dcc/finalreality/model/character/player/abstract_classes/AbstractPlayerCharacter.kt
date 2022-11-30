@@ -15,6 +15,7 @@ import cl.uchile.dcc.finalreality.model.character.abstract_classes.AbstractChara
 import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
 import cl.uchile.dcc.finalreality.model.character.player.interfaces.IPlayerCharacter
 import cl.uchile.dcc.finalreality.model.weapons.interfaces.IWeapon
+import kotlin.math.min
 
 /**
  * A class that holds all the information of a player-controlled character in the game.
@@ -58,5 +59,8 @@ abstract class AbstractPlayerCharacter(
     }
     override fun attackedByEnemy(attacker: Enemy) {
         this.receivePhysicalAttack(attacker.attackStat)
+    }
+    override fun heal() {
+        currentHp = min((currentHp + 0.3*maxHp).toInt(), maxHp)
     }
 }

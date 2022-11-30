@@ -28,4 +28,8 @@ interface IPlayerCharacter : IGameCharacter {
      * @throws UnequippableWeaponException always
      */
     fun equip(weapon: IWeapon)
+    /**
+     * Heals 30% of the character's maximum health points.
+     */
+    fun heal()
 }

@@ -44,20 +44,15 @@ internal class GameControllerTest {
         assertThrows(FriendlyFireException::class.java, {controller.attack(enemy, enemy)},"An enemy can't attack another enemy")
         assertThrows(FriendlyFireException::class.java, {controller.attack(thief, thief)},"A player character can't attack another player character")
     }
-
     @Test
     fun useMagic() {
     }
-
     @Test
     fun waitTurn() {
-
     }
-
     @Test
     fun onPlayerWin() {
     }
-
     @Test
     fun onEnemyWin() {
     }
