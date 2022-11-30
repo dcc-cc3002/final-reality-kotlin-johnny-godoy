@@ -7,6 +7,7 @@
  */
 package cl.uchile.dcc.finalreality.model.character.player.interfaces
 
+import cl.uchile.dcc.finalreality.model.character.Enemy
 import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
 import cl.uchile.dcc.finalreality.model.weapons.interfaces.IWeapon
 
@@ -27,4 +28,8 @@ interface IPlayerCharacter : IGameCharacter {
      * @throws UnequippableWeaponException always
      */
     fun equip(weapon: IWeapon)
+    /**
+     * Get attacked by an enemy.
+     */
+    fun getAttacked(attacker: Enemy)
 }
