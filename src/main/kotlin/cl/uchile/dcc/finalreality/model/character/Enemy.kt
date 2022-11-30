@@ -10,12 +10,12 @@ package cl.uchile.dcc.finalreality.model.character
 import cl.uchile.dcc.finalreality.controller.GameController
 import cl.uchile.dcc.finalreality.exceptions.Require
 import cl.uchile.dcc.finalreality.model.character.abstract_classes.AbstractCharacter
-import cl.uchile.dcc.finalreality.model.character.interfaces.IEnemy
 import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
-import cl.uchile.dcc.finalreality.model.character.player.interfaces.IPlayerCharacter
 import cl.uchile.dcc.finalreality.model.status.NullState
 import cl.uchile.dcc.finalreality.model.status.interfaces.IState
 import java.util.Objects
+import java.util.concurrent.Executors
+import java.util.concurrent.TimeUnit
 
 /**
  * A class that holds all the information of a single enemy of the game.
@@ -25,7 +25,8 @@ import java.util.Objects
  * @param controller The game controller.
  * @param maxHp The maximum health points of this enemy.
  * @param defense The defense of this enemy.
- * @property attack The attack of this enemy.
+ * @property attackStat The attack of this enemy.
+ * @property status The status of this enemy.
  *
  * @constructor Creates a new enemy with a name, a weight and the queue with the characters ready to
  *  play.
@@ -38,12 +39,12 @@ class Enemy(
     weight: Int,
     maxHp: Int,
     defense: Int,
-    attack: Int,
+    attackStat: Int,
     controller: GameController
-) : AbstractCharacter(name, maxHp, defense, controller), IEnemy {
+) : AbstractCharacter(name, maxHp, defense, controller) {
     val weight: Int = Require.Stat(weight, "Weight") atLeast 1
-    val attack: Int = Require.Stat(attack, "Attack") atLeast 1
-    override var status: IState = NullState(this)
+    val attackStat: Int = Require.Stat(attackStat, "Attack") atLeast 1
+    var status: IState = NullState(this)
     override fun equals(other: Any?): Boolean = when {
         this === other -> true
         other !is Enemy -> false
@@ -52,18 +53,22 @@ class Enemy(
         weight != other.weight -> false
         maxHp != other.maxHp -> false
         defense != other.defense -> false
-        attack != other.attack -> false
+        attackStat != other.attackStat -> false
         else -> true
     }
     override fun hashCode(): Int =
         Objects.hash(Enemy::class, name, weight, maxHp, defense)
     override fun toString(): String {
         val superString = super.toString().dropLast(1)
-        return "$superString, weight=$weight, attack=$attack)"
+        return "$superString, weight=$weight, attack=$attackStat)"
     }
     override fun delay(): Long =
         (weight / 10).toLong()
     override fun attack(target: IGameCharacter){
-        target.attackedByEnemy(this)
+        status.attack(target)
+    }
+    override fun waitTurn() {
+        super.waitTurn()
+        status.turnEffect()
     }
 }

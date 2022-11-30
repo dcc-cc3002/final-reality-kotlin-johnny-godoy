@@ -70,6 +70,6 @@ abstract class AbstractCharacter(
         this.receivePhysicalAttack(attacker.equippedWeapon.damage)
     }
     override fun attackedByEnemy(attacker: Enemy) {
-        this.receivePhysicalAttack(attacker.attack)
+        this.receivePhysicalAttack(attacker.attackStat)
     }
 }

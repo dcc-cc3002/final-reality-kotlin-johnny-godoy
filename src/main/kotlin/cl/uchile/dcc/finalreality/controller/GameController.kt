@@ -8,6 +8,7 @@ import cl.uchile.dcc.finalreality.model.character.player.Engineer
 import cl.uchile.dcc.finalreality.model.character.player.Knight
 import cl.uchile.dcc.finalreality.model.character.player.Thief
 import cl.uchile.dcc.finalreality.model.character.player.WhiteMage
+import cl.uchile.dcc.finalreality.model.character.player.interfaces.IMagicWielder
 import cl.uchile.dcc.finalreality.model.character.player.interfaces.IPlayerCharacter
 import cl.uchile.dcc.finalreality.model.weapons.Bow
 import cl.uchile.dcc.finalreality.model.weapons.Knife
@@ -48,14 +49,14 @@ class GameController {
     /**
      * Creates a new enemy character and adds it to the list of enemies.
      * */
-    fun createEnemy(name: String, hp: Int, defense: Int, weight: Int) {
+    private fun createEnemy(name: String, hp: Int, defense: Int, weight: Int) {
         val enemy = Enemy(name, hp, defense, weight, 1, this)
         enemyCharacters.add(enemy)
     }
     /**
      * Creates a new engineer character and adds it to the list of players.
      */
-    fun createEngineer(name: String, hp: Int, defense: Int, weapon: EquippableByEngineer) {
+    private fun createEngineer(name: String, hp: Int, defense: Int, weapon: EquippableByEngineer) {
         val engineer = Engineer(name, hp, defense, this)
         engineer.equip(weapon)
         playerCharacters.add(engineer)
@@ -63,7 +64,7 @@ class GameController {
     /**
      * Creates a new knight character and adds it to the list of players.
      */
-    fun createKnight(name: String, hp: Int, defense: Int, weapon: EquippableByKnight) {
+    private fun createKnight(name: String, hp: Int, defense: Int, weapon: EquippableByKnight) {
         val knight = Knight(name, hp, defense, this)
         knight.equip(weapon)
         playerCharacters.add(knight)
@@ -71,7 +72,7 @@ class GameController {
     /**
      * Creates a new thief character and adds it to the list of players.
      */
-    fun createThief(name: String, hp: Int, defense: Int, weapon: EquippableByThief) {
+    private fun createThief(name: String, hp: Int, defense: Int, weapon: EquippableByThief) {
         val thief = Thief(name, hp, defense, this)
         thief.equip(weapon)
         playerCharacters.add(thief)
@@ -79,7 +80,7 @@ class GameController {
     /**
      * Creates a new black mage character and adds it to the list of players.
      */
-    fun createBlackMage(name: String, hp: Int, defense: Int, mana: Int, weapon: EquippableByBlackMage) {
+    private fun createBlackMage(name: String, hp: Int, defense: Int, mana: Int, weapon: EquippableByBlackMage) {
         val blackMage = BlackMage(name, hp, defense, mana, this)
         blackMage.equip(weapon)
         playerCharacters.add(blackMage)
@@ -87,7 +88,7 @@ class GameController {
     /**
      * Creates a new white mage character and adds it to the list of players.
      */
-    fun createWhiteMage(name: String, hp: Int, defense: Int, mana: Int, weapon: EquippableByWhiteMage) {
+    private fun createWhiteMage(name: String, hp: Int, defense: Int, mana: Int, weapon: EquippableByWhiteMage) {
         val whiteMage = WhiteMage(name, hp, defense, mana, this)
         whiteMage.equip(weapon)
         playerCharacters.add(whiteMage)
@@ -98,7 +99,7 @@ class GameController {
     fun attack(attacker: IGameCharacter, target: IGameCharacter) {
         attacker.attack(target)
     }
-    fun useMagic(attacker: IGameCharacter, target: IGameCharacter) {
+    fun useMagic(attacker: IMagicWielder, target: Enemy) {
         // TODO: Use magic on a target
     }
     /**

@@ -1,6 +1,7 @@
 package cl.uchile.dcc.finalreality.model.status.interfaces
 
-import cl.uchile.dcc.finalreality.model.character.interfaces.IEnemy
+import cl.uchile.dcc.finalreality.model.character.Enemy
+import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
 
 /**
  * Class that models a status: Burnt, Poisoned, Paralyzed or Null.
@@ -8,23 +9,22 @@ import cl.uchile.dcc.finalreality.model.character.interfaces.IEnemy
  *     The attacker's magic damage.
  * @property character
  *    The character that has this status.
- * @property turnsLeft
- *    The turns left for the status to end.
  *
  * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  * */
 interface IState {
     val attackerMagicDamage: Int
-    val character: IEnemy
-    var turnsLeft: Int
+    val character: Enemy
     /**
-     * The effect applied every turn.
+     * The effect applied every turn. By default, it does nothing.
      * */
-    fun turnEffect()
+    fun turnEffect(){
+        // Does nothing.
+    }
     /**
-     * Passes a turn.
+     * Modifies the attack method from the character. By default, it does nothing.
      * */
-    fun passTurn() {
-        turnsLeft--
+    fun attack(target: IGameCharacter){
+        target.attackedByEnemy(character)
     }
 }

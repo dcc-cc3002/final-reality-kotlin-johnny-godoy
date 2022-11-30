@@ -17,6 +17,7 @@ internal class GameControllerTest {
     private var controller = GameController()
     @Test
     fun constructorTest() {
+        // Test all character creators by transitivity
         for ((index, enemy) in controller.enemyCharacters.withIndex()) {
             assertEquals(enemy.weight, 2*(index + 1), "${enemy.name} has wrong weight")
         }
@@ -28,17 +29,6 @@ internal class GameControllerTest {
         assertEquals(playerCharacters[2].name, "Engineer")
         assertEquals(playerCharacters[3].name, "Black Mage")
         assertEquals(playerCharacters[4].name, "White Mage")
-    }
-    @Test
-    fun createEnemy() {
-        val expectedEnemy = Enemy("Test", 10, 10, 10, 1, controller)
-        controller.createEnemy("Test", 10, 10, 10)
-        val lastIndex = controller.enemyCharacters.size - 1
-        assertEquals(controller.enemyCharacters[lastIndex], expectedEnemy)
-    }
-    private fun testPlayerCreation(expectedPlayer: IGameCharacter) {
-        val lastIndex = controller.playerCharacters.size - 1
-        assertEquals(controller.playerCharacters[lastIndex], expectedPlayer)
     }
     @Test
     fun attack() {
