@@ -126,7 +126,7 @@ class GameController {
      * @see IGameCharacter.waitTurn
      */
     fun waitTurn(character: IGameCharacter) {
-        // TODO: Call the waitTurn method of the character
+        character.waitTurn()
     }
     /**
      * Determines if the player has won the game.

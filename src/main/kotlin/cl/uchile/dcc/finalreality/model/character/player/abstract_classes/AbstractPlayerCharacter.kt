@@ -13,6 +13,7 @@ import cl.uchile.dcc.finalreality.exceptions.UnequippableWeaponException
 import cl.uchile.dcc.finalreality.model.character.Enemy
 import cl.uchile.dcc.finalreality.model.character.abstract_classes.AbstractCharacter
 import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
+import cl.uchile.dcc.finalreality.model.character.player.WhiteMage
 import cl.uchile.dcc.finalreality.model.character.player.interfaces.IPlayerCharacter
 import cl.uchile.dcc.finalreality.model.weapons.interfaces.IWeapon
 import kotlin.math.min
@@ -61,7 +62,7 @@ abstract class AbstractPlayerCharacter(
         this.receivePhysicalAttack(attacker.attackStat)
         notifyDeathToController()
     }
-    override fun heal() {
+    override fun heal(whiteMage: WhiteMage) {
         currentHp = min((currentHp + 0.3*maxHp).toInt(), maxHp)
     }
     override fun notifyDeathToController(){

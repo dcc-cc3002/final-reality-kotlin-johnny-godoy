@@ -12,6 +12,8 @@ import cl.uchile.dcc.finalreality.exceptions.FriendlyFireException
 import cl.uchile.dcc.finalreality.exceptions.Require
 import cl.uchile.dcc.finalreality.model.character.abstract_classes.AbstractCharacter
 import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
+import cl.uchile.dcc.finalreality.model.character.player.BlackMage
+import cl.uchile.dcc.finalreality.model.character.player.WhiteMage
 import cl.uchile.dcc.finalreality.model.character.player.interfaces.IMagicWielder
 import cl.uchile.dcc.finalreality.model.character.player.interfaces.IPlayerCharacter
 import cl.uchile.dcc.finalreality.model.status.Burnt
@@ -89,8 +91,8 @@ class Enemy(
     /**
      * Damages this enemy, and with a probability of 30%, it will be paralyzed.
      */
-    fun receiveThunder(staff: Staff){
-        receiveDamage(staff.magicDamage)
+    fun receiveThunder(blackMage: BlackMage){
+        receiveDamage(blackMage.equippedWeapon.magicDamage)
         if (Math.random() < 0.3) {
             status = Paralyzed(this)
         }
@@ -98,22 +100,22 @@ class Enemy(
     /**
      * Damages this enemy, and with a probability of 20%, it will be burnt.
      */
-    fun receiveFire(staff: Staff) {
-        receiveDamage(staff.magicDamage)
+    fun receiveFire(blackMage: BlackMage) {
+        receiveDamage(blackMage.equippedWeapon.magicDamage)
         if (Math.random() < 0.2) {
-            status = Burnt(staff.magicDamage, this)
+            status = Burnt(blackMage.equippedWeapon.magicDamage, this)
         }
     }
     /**
      * Poisons this enemy
      */
-    fun receivePoison(staff: Staff) {
-        status = Poisoned(staff.magicDamage, this)
+    fun receivePoison(whiteMage: WhiteMage) {
+        status = Poisoned(whiteMage.equippedWeapon.magicDamage, this)
     }
     /**
      * Paralyzes this enemy
      */
-    fun receiveParalysis() {
+    fun receiveParalysis(whiteMage: WhiteMage) {
         status = Paralyzed(this)
     }
     override fun notifyDeathToController(){

@@ -37,7 +37,7 @@ class Staff(
     weight: Int,
     magicDamage: Int
 ) : AbstractWeapon(name, damage, weight), EquippableByWhiteMage, EquippableByBlackMage {
-    val magicDamage: Int = Require.Stat(magicDamage, "Magic Damage") atLeast 0
+    override val magicDamage: Int = Require.Stat(magicDamage, "Magic Damage") atLeast 0
     override fun equals(other: Any?): Boolean = when {
         this === other -> true
         other !is Staff -> false

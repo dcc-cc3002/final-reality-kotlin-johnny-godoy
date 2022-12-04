@@ -27,6 +27,7 @@ import cl.uchile.dcc.finalreality.model.weapons.interfaces.IWeapon
 abstract class AbstractWeapon(override val name: String, damage: Int, weight: Int) : IWeapon {
     override val damage: Int = Require.Stat(damage, "Damage") atLeast 0
     override val weight: Int = Require.Stat(weight, "Weight") atLeast 0
+    override val magicDamage: Int = 0
     override fun toString(): String {
         val className = this.javaClass.simpleName
         return "$className(name='$name', damage=$damage, weight=$weight)"

@@ -9,6 +9,7 @@ package cl.uchile.dcc.finalreality.model.character.player.interfaces
 
 import cl.uchile.dcc.finalreality.model.character.Enemy
 import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
+import cl.uchile.dcc.finalreality.model.character.player.WhiteMage
 import cl.uchile.dcc.finalreality.model.weapons.interfaces.IWeapon
 
 /**
@@ -31,5 +32,5 @@ interface IPlayerCharacter : IGameCharacter {
     /**
      * Heals 30% of the character's maximum health points.
      */
-    fun heal()
+    fun heal(whiteMage: WhiteMage)
 }

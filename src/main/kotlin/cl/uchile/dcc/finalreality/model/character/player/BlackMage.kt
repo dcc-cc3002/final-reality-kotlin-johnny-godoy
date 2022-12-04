@@ -8,6 +8,8 @@
 package cl.uchile.dcc.finalreality.model.character.player
 
 import cl.uchile.dcc.finalreality.controller.GameController
+import cl.uchile.dcc.finalreality.model.character.Enemy
+import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
 import cl.uchile.dcc.finalreality.model.character.player.abstract_classes.AbstractMagicWielder
 import cl.uchile.dcc.finalreality.model.weapons.interfaces.EquippableByBlackMage
 import java.util.Objects
@@ -53,5 +55,11 @@ class BlackMage(
      */
     fun equip(weapon: EquippableByBlackMage) {
         super.validEquip(weapon)
+    }
+    /**
+     * Attacks an enemy with a thunder spell.
+     */
+    fun thunderSpell(enemy: Enemy) {
+        enemy.receiveThunder(this)
     }
 }

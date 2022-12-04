@@ -57,4 +57,5 @@ class WhiteMage(
     fun equip(weapon: EquippableByWhiteMage) {
         super.validEquip(weapon)
     }
+
 }

@@ -16,6 +16,8 @@ package cl.uchile.dcc.finalreality.model.weapons.interfaces
  *     The weapon's base damage
  * @property weight Int
  *     The weapon's weight
+ * @property magicDamage Int
+ *    The weapon's magic damage. It is 0 by default.
  *
  * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  */
@@ -23,4 +25,5 @@ interface IWeapon {
     val name: String
     val damage: Int
     val weight: Int
+    val magicDamage: Int
 }
