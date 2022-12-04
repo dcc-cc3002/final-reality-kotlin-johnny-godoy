@@ -59,8 +59,14 @@ abstract class AbstractPlayerCharacter(
     }
     override fun attackedByEnemy(attacker: Enemy) {
         this.receivePhysicalAttack(attacker.attackStat)
+        notifyDeathToController()
     }
     override fun heal() {
         currentHp = min((currentHp + 0.3*maxHp).toInt(), maxHp)
+    }
+    override fun notifyDeathToController(){
+        if (!isAlive()) {
+            controller.removePlayer(this)
+        }
     }
 }

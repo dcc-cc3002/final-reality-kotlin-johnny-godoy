@@ -37,7 +37,7 @@ class GameController {
     val enemyCharacters: MutableList<Enemy> = mutableListOf()
     init {
         for (i in 1..5) { // Adding enemies to the game
-            createEnemy("Enemy $i", 2*i, 10, 10)
+            createEnemy("Enemy $i", 2*i, 10, 10, 1)
         }
         // Adding players to the game
         createThief("Thief", 10, 10, Sword("Knife", 10, 10))
@@ -49,14 +49,14 @@ class GameController {
     /**
      * Creates a new enemy character and adds it to the list of enemies.
      * */
-    private fun createEnemy(name: String, hp: Int, defense: Int, weight: Int) {
-        val enemy = Enemy(name, hp, defense, weight, 1, this)
+    fun createEnemy(name: String, hp: Int, defense: Int, weight: Int, attackStat: Int) {
+        val enemy = Enemy(name, hp, defense, weight, attackStat, this)
         enemyCharacters.add(enemy)
     }
     /**
      * Creates a new engineer character and adds it to the list of players.
      */
-    private fun createEngineer(name: String, hp: Int, defense: Int, weapon: EquippableByEngineer) {
+    fun createEngineer(name: String, hp: Int, defense: Int, weapon: EquippableByEngineer) {
         val engineer = Engineer(name, hp, defense, this)
         engineer.equip(weapon)
         playerCharacters.add(engineer)
@@ -64,7 +64,7 @@ class GameController {
     /**
      * Creates a new knight character and adds it to the list of players.
      */
-    private fun createKnight(name: String, hp: Int, defense: Int, weapon: EquippableByKnight) {
+    fun createKnight(name: String, hp: Int, defense: Int, weapon: EquippableByKnight) {
         val knight = Knight(name, hp, defense, this)
         knight.equip(weapon)
         playerCharacters.add(knight)
@@ -72,7 +72,7 @@ class GameController {
     /**
      * Creates a new thief character and adds it to the list of players.
      */
-    private fun createThief(name: String, hp: Int, defense: Int, weapon: EquippableByThief) {
+    fun createThief(name: String, hp: Int, defense: Int, weapon: EquippableByThief) {
         val thief = Thief(name, hp, defense, this)
         thief.equip(weapon)
         playerCharacters.add(thief)
@@ -80,7 +80,7 @@ class GameController {
     /**
      * Creates a new black mage character and adds it to the list of players.
      */
-    private fun createBlackMage(name: String, hp: Int, defense: Int, mana: Int, weapon: EquippableByBlackMage) {
+    fun createBlackMage(name: String, hp: Int, defense: Int, mana: Int, weapon: EquippableByBlackMage) {
         val blackMage = BlackMage(name, hp, defense, mana, this)
         blackMage.equip(weapon)
         playerCharacters.add(blackMage)
@@ -88,16 +88,34 @@ class GameController {
     /**
      * Creates a new white mage character and adds it to the list of players.
      */
-    private fun createWhiteMage(name: String, hp: Int, defense: Int, mana: Int, weapon: EquippableByWhiteMage) {
+    fun createWhiteMage(name: String, hp: Int, defense: Int, mana: Int, weapon: EquippableByWhiteMage) {
         val whiteMage = WhiteMage(name, hp, defense, mana, this)
         whiteMage.equip(weapon)
         playerCharacters.add(whiteMage)
+    }
+    /**
+     * Removes dead enemies from the list of enemies.
+     */
+    fun removeEnemy(enemy: Enemy) {
+        enemyCharacters.remove(enemy)
+    }
+    /**
+     * Removes dead players from the list of players.
+     */
+    fun removePlayer(player: IPlayerCharacter) {
+        playerCharacters.remove(player)
     }
     /**
      * Makes the attacker character attack the target character.
      */
     fun attack(attacker: IGameCharacter, target: IGameCharacter) {
         attacker.attack(target)
+    }
+    /**
+     * Makes a chosen enemy attack a random player.
+     */
+    fun enemyAttackRandomPlayer(enemyIndex: Int) {
+        attack(enemyCharacters[enemyIndex], playerCharacters.random())
     }
     fun useMagic(attacker: IMagicWielder, target: Enemy) {
         // TODO: Use magic on a target
@@ -110,10 +128,28 @@ class GameController {
     fun waitTurn(character: IGameCharacter) {
         // TODO: Call the waitTurn method of the character
     }
-    fun onPlayerWin() {
-        // TODO: Handle the player winning the game
+    /**
+     * Determines if the player has won the game.
+     */
+    fun playerWon(): Boolean {
+        return enemyCharacters.isEmpty()
     }
+    /**
+     * Determines if the player has lost the game.
+     */
+    fun enemyWon(): Boolean {
+        return playerCharacters.isEmpty()
+    }
+    /**
+     * Finalizes the game if the player has won.
+     */
+    fun onPlayerWin() {
+        println("You won!")
+    }
+    /**
+     * Finalizes the game if the player has lost.
+     */
     fun onEnemyWin() {
-        // TODO: Handle the enemy winning the game
+        println("You lost!")
     }
 }

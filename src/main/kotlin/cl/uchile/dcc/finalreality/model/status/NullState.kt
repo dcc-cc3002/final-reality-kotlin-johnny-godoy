@@ -7,7 +7,8 @@ import cl.uchile.dcc.finalreality.model.status.interfaces.IState
 /**
  * A state that does nothing, it's the default state.
  * It lasts forever, so passTurn() does nothing.
- * */
+ * It follows the Null Object pattern.
+ */
 class NullState(override val character: Enemy) : IState {
     override val attackerMagicDamage: Int = 0
     override fun turnEffect() {

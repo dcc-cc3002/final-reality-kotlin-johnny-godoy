@@ -64,7 +64,7 @@ class Enemy(
         else -> true
     }
     override fun hashCode(): Int =
-        Objects.hash(Enemy::class, name, weight, maxHp, defense)
+        Objects.hash(Enemy::class, name, weight, maxHp, defense, attackStat)
     override fun toString(): String {
         val superString = super.toString().dropLast(1)
         return "$superString, weight=$weight, attack=$attackStat)"
@@ -77,9 +77,11 @@ class Enemy(
     override fun waitTurn() {
         super.waitTurn()
         status.turnEffect()
+        notifyDeathToController() // In case the enemy died from the status effect
     }
     override fun attackedByPlayer(attacker: IPlayerCharacter) {
         this.receivePhysicalAttack(attacker.equippedWeapon.damage)
+        notifyDeathToController()
     }
     override fun attackedByEnemy(attacker: Enemy) {
         throw FriendlyFireException("Enemy $attacker cannot attack another enemy $this")
@@ -113,5 +115,10 @@ class Enemy(
      */
     fun receiveParalysis() {
         status = Paralyzed(this)
+    }
+    override fun notifyDeathToController(){
+        if (!isAlive()) {
+            controller.removeEnemy(this)
+        }
     }
 }

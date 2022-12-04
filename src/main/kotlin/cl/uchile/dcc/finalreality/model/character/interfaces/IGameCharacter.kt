@@ -65,4 +65,8 @@ interface IGameCharacter {
      * Attack another character.
      */
     fun attack(target: IGameCharacter)
+    /**
+     * Tells the controller to remove this character from the game if it is dead.
+     */
+    fun notifyDeathToController()
 }

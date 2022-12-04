@@ -16,7 +16,11 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.*
 
 internal class GameControllerTest {
-    private var controller = GameController()
+    private lateinit var controller: GameController
+    @BeforeEach
+    fun setUp() {
+        controller = GameController()
+    }
     @Test
     fun constructorTest() {
         // Test all character creators by transitivity
@@ -45,15 +49,42 @@ internal class GameControllerTest {
         assertThrows(FriendlyFireException::class.java, {controller.attack(thief, thief)},"A player character can't attack another player character")
     }
     @Test
+    fun removeEnemy() {
+        val enemy = Enemy("Test", 10, 10, 10, 100, controller)
+        controller.createEnemy("Test", 10, 10, 10, 100)
+        assertTrue(controller.enemyCharacters.contains(enemy))
+        controller.removeEnemy(enemy)
+        assertFalse(controller.enemyCharacters.contains(enemy))
+    }
+    @Test
+    fun removePlayer() {
+        val thief = Thief("Test", 10, 10, controller)
+        controller.createThief("Test", 10, 10, Knife("Test", 10, 10))
+        assertTrue(controller.playerCharacters.contains(thief))
+        controller.removePlayer(thief)
+        assertFalse(controller.playerCharacters.contains(thief))
+    }
+    @Test
     fun useMagic() {
     }
     @Test
     fun waitTurn() {
     }
     @Test
-    fun onPlayerWin() {
+    fun playerWon() {
+        controller.createKnight("Test", 10, 10, Knife("Super Knife", 10000, 10))
+        val enemyCharactersCopy = controller.enemyCharacters.toMutableList()
+        for (enemy in enemyCharactersCopy) {
+            controller.attack(controller.playerCharacters[5], enemy)
+        }
+        assertTrue(controller.playerWon())
     }
     @Test
-    fun onEnemyWin() {
+    fun enemyWon() {
+        controller.createEnemy("Super enemy", 10, 10, 10, 10000)
+        for (_id in 1..5) {
+            controller.enemyAttackRandomPlayer(5)
+        }
+        assertTrue(controller.enemyWon())
     }
 }

@@ -27,8 +27,8 @@ import kotlin.math.min
  *    The maximum health points of the character.
  * @param defense
  *    The defense of the character.
- * @property turnsQueue
- *    The queue with the characters waiting for their turn.
+ * @property controller
+ *    The game controller.
  *
  * @author <a href="https://www.github.com/r8vnhill">R8V</a>
  * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
@@ -37,7 +37,7 @@ abstract class AbstractCharacter(
     override val name: String,
     maxHp: Int,
     defense: Int,
-    private val controller: GameController
+    val controller: GameController
 ) : IGameCharacter {
     private lateinit var scheduledExecutor: ScheduledExecutorService
     override val maxHp: Int = Require.Stat(maxHp, "Max Hp") atLeast 1
