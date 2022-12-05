@@ -20,7 +20,7 @@ import java.util.concurrent.BlockingQueue
  * @param name        the character's name
  * @param maxHp       the character's maximum health points
  * @param defense     the character's defense
- * @param turnsQueue  the queue with the characters waiting for their turn
+ * @param controller The game controller.
  * @constructor Creates a new Thief.
  *
  * @property currentHp The current HP of the character.

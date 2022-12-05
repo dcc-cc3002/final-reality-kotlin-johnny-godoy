@@ -21,7 +21,7 @@ import java.util.Objects
  * @param maxHp       the character's maximum health points
  * @param maxMp       the character's maximum magic points
  * @param defense     the character's defense
- * @param turnsQueue  the queue with the characters waiting for their turn
+ * @param controller The game controller.
  * @constructor Creates a new Black Mage.
  *
  * @property currentMp The current MP of the character.

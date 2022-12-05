@@ -7,6 +7,7 @@
  */
 package cl.uchile.dcc.finalreality.model.character.interfaces
 
+import cl.uchile.dcc.finalreality.controller.GameController
 import cl.uchile.dcc.finalreality.exceptions.FriendlyFireException
 import cl.uchile.dcc.finalreality.model.character.Enemy
 import cl.uchile.dcc.finalreality.model.character.player.interfaces.IPlayerCharacter
@@ -23,6 +24,8 @@ import cl.uchile.dcc.finalreality.model.character.player.interfaces.IPlayerChara
  *    The defense of the character.
  * @property currentHp
  *    The current health points of the character.
+ * @property controller
+ *    The game controller.
  *
  * @author <a href="https://github.com/r8vnhill">R8V</a>
  * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
@@ -32,6 +35,7 @@ interface IGameCharacter {
     val maxHp: Int
     var currentHp: Int
     val defense: Int
+    val controller: GameController
     /**
      * Sets a scheduled executor to make this character (thread) wait for `speed / 10`
      * seconds before adding the character to the queue.

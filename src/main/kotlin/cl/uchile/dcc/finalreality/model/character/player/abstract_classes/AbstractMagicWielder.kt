@@ -18,7 +18,7 @@ import cl.uchile.dcc.finalreality.model.character.player.interfaces.IMagicWielde
  * @param maxHp       the character's maximum health points
  * @param maxMp       the character's maximum mana points
  * @param defense     the character's defense
- * @param turnsQueue  the queue with the characters waiting for their turn
+ * @param controller The game controller.
  * @constructor Creates a new magic wielder.
  *
  * @property maxMp the character's maximum mana points

@@ -24,7 +24,7 @@ import kotlin.math.min
  * @param name        the character's name
  * @param maxHp       the character's maximum health points
  * @param defense     the character's defense
- * @param turnsQueue  the queue with the characters waiting for their turn
+ * @param controller The game controller.
  * @constructor Creates a new playable character.
  *
  * @author <a href="https://www.github.com/r8vnhill">R8V</a>
