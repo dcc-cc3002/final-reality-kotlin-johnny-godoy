@@ -8,6 +8,8 @@
 package cl.uchile.dcc.finalreality.model.character.player
 
 import cl.uchile.dcc.finalreality.controller.GameController
+import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException
+import cl.uchile.dcc.finalreality.exceptions.SpellFailException
 import cl.uchile.dcc.finalreality.model.character.Enemy
 import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
 import cl.uchile.dcc.finalreality.model.character.player.abstract_classes.AbstractMagicWielder
@@ -57,9 +59,23 @@ class BlackMage(
         super.validEquip(weapon)
     }
     /**
-     * Attacks an enemy with a thunder spell.
+     * Attacks an enemy with a thunder spell. It drains 15 MP.
      */
     fun thunderSpell(enemy: Enemy) {
+        if (currentMp < 15) {
+            throw SpellFailException("$this has $currentMp MP, but needs at least 15 MP to cast Thunder Spell.")
+        }
+        currentMp -= 15
         enemy.receiveThunder(this)
+    }
+    /**
+     * Attacks an enemy with a fire spell. It drains 15 MP.
+     */
+    fun fireSpell(enemy: Enemy) {
+        if (currentMp < 15) {
+            throw SpellFailException("$this has $currentMp MP, but needs at least 15 MP to cast Fire Spell.")
+        }
+        currentMp -= 15
+        enemy.receiveFire(this)
     }
 }

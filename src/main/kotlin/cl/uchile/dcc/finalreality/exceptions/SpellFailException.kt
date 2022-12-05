@@ -8,12 +8,13 @@
 package cl.uchile.dcc.finalreality.exceptions
 
 /**
- * This error is used if a character tries to attack another character that is on the same team.
+ * This error is used if a mage cannot perform a spell.
+ * It doesn't find the missspells in this project.
  *
- * @constructor Creates a new `FriendlyFireException` with a `description` of the
+ * @constructor Creates a new `SpellFailException` with a `description` of the
  * error.
  *
  * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  */
-class FriendlyFireException(description: String) :
+class SpellFailException(description: String) :
     Exception(description)

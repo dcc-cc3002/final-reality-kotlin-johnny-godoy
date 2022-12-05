@@ -37,7 +37,7 @@ abstract class AbstractCharacter(
     override val name: String,
     maxHp: Int,
     defense: Int,
-    val controller: GameController
+    override val controller: GameController
 ) : IGameCharacter {
     private lateinit var scheduledExecutor: ScheduledExecutorService
     override val maxHp: Int = Require.Stat(maxHp, "Max Hp") atLeast 1

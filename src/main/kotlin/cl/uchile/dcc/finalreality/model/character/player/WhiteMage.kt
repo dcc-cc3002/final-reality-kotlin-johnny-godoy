@@ -8,12 +8,14 @@
 package cl.uchile.dcc.finalreality.model.character.player
 
 import cl.uchile.dcc.finalreality.controller.GameController
-import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
+import cl.uchile.dcc.finalreality.exceptions.SpellFailException
+import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException
+import cl.uchile.dcc.finalreality.model.character.Enemy
 import cl.uchile.dcc.finalreality.model.character.player.abstract_classes.AbstractMagicWielder
 import cl.uchile.dcc.finalreality.model.character.player.abstract_classes.AbstractPlayerCharacter
+import cl.uchile.dcc.finalreality.model.character.player.interfaces.IPlayerCharacter
 import cl.uchile.dcc.finalreality.model.weapons.interfaces.EquippableByWhiteMage
 import java.util.Objects
-import java.util.concurrent.BlockingQueue
 
 /**
  * A White Mage is a type of [IPlayerCharacter] that can cast white magic.
@@ -57,5 +59,37 @@ class WhiteMage(
     fun equip(weapon: EquippableByWhiteMage) {
         super.validEquip(weapon)
     }
-
+    /**
+     * Heals an ally character. It costs 15 MP.
+     */
+    fun heal(target: IPlayerCharacter) {
+        if (currentMp < 15) {
+            throw SpellFailException("$this has $currentMp MP, but needs at least 15 MP to cast Heal Spell.")
+        }
+        if (!target.isAlive()){
+            throw SpellFailException("$target is already dead, it cannot be healed.")
+        }
+        currentMp -= 15
+        target.heal(this)
+    }
+    /**
+     * Poison an enemy character. It costs 40 MP.
+     */
+    fun poison(target: Enemy) {
+        if (currentMp < 40) {
+            throw SpellFailException("$this has $currentMp MP, but needs at least 40 MP to cast Poison Spell.")
+        }
+        currentMp -= 40
+        target.receivePoison(this)
+    }
+    /**
+     * Paralyze an enemy character. It costs 25 MP.
+     */
+    fun paralyze(target: Enemy) {
+        if (currentMp < 25) {
+            throw SpellFailException("$this has $currentMp MP, but needs at least 25 MP to cast Paralyze Spell.")
+        }
+        currentMp -= 25
+        target.receiveParalysis(this)
+    }
 }

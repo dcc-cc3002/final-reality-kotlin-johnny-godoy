@@ -115,7 +115,7 @@ class Enemy(
     /**
      * Paralyzes this enemy
      */
-    fun receiveParalysis(whiteMage: WhiteMage) {
+    fun receiveParalysis(@Suppress("UNUSED_PARAMETER") whiteMage: WhiteMage) {
         status = Paralyzed(this)
     }
     override fun notifyDeathToController(){
