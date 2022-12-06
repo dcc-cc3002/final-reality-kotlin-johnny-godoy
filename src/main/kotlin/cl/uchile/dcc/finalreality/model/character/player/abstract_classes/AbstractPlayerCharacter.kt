@@ -62,7 +62,7 @@ abstract class AbstractPlayerCharacter(
         this.receivePhysicalAttack(attacker.attackStat)
         notifyDeathToController()
     }
-    override fun heal(@Suppress("UNUSED_PARAMETER") whiteMage: WhiteMage) {
+    override fun receiveHeal(@Suppress("UNUSED_PARAMETER") whiteMage: WhiteMage) {
         currentHp = min((currentHp + 0.3*maxHp).toInt(), maxHp)
     }
     override fun notifyDeathToController(){

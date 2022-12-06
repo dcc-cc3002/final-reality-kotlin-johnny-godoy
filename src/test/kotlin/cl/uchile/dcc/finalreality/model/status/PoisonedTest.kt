@@ -7,14 +7,15 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.*
 
 internal class PoisonedTest : PassiveDamageTest() {
-    override val firstStatus = Poisoned(6, enemy)
-    override val sameStatus = Poisoned(6, enemy)
-    override val differentDamage = Poisoned(5, enemy)
+    override val firstStatus = Poisoned(6, controller.enemyCharacters[0])
+    override val sameStatus = Poisoned(6, controller.enemyCharacters[0])
+    override val differentDamage = Poisoned(5, controller.enemyCharacters[0])
     override val differentEnemy = Poisoned(6, controller.enemyCharacters[1])
     @Test
     fun turnEffect() {
+        val enemy =  controller.enemyCharacters[0]
         enemy.status = firstStatus
-        enemy.waitTurn()
+        controller.waitTurn(enemy)
         assertEquals(8, enemy.currentHp)
     }
 }

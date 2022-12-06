@@ -9,7 +9,6 @@ package cl.uchile.dcc.finalreality.model.character.player
 
 import cl.uchile.dcc.finalreality.controller.GameController
 import cl.uchile.dcc.finalreality.exceptions.SpellFailException
-import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException
 import cl.uchile.dcc.finalreality.model.character.Enemy
 import cl.uchile.dcc.finalreality.model.character.player.abstract_classes.AbstractMagicWielder
 import cl.uchile.dcc.finalreality.model.character.player.abstract_classes.AbstractPlayerCharacter
@@ -60,7 +59,7 @@ class WhiteMage(
         super.validEquip(weapon)
     }
     /**
-     * Heals an ally character. It costs 15 MP.
+     * Heals an ally character. The ally must be alive. It costs 15 MP.
      */
     fun heal(target: IPlayerCharacter) {
         if (currentMp < 15) {
@@ -70,7 +69,7 @@ class WhiteMage(
             throw SpellFailException("$target is already dead, it cannot be healed.")
         }
         currentMp -= 15
-        target.heal(this)
+        target.receiveHeal(this)
     }
     /**
      * Poison an enemy character. It costs 40 MP.

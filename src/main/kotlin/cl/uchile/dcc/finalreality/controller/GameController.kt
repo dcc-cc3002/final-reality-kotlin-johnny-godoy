@@ -31,21 +31,9 @@ import cl.uchile.dcc.finalreality.model.weapons.interfaces.IWeapon
  *
  * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  */
-class GameController {
-    val turnsQueue: LinkedBlockingQueue<IGameCharacter> = LinkedBlockingQueue<IGameCharacter>()
-    val playerCharacters: MutableList<IPlayerCharacter> = mutableListOf()
-    val enemyCharacters: MutableList<Enemy> = mutableListOf()
-    init {
-        for (i in 1..5) { // Adding enemies to the game
-            createEnemy("Enemy $i", 2*i, 10, 10, 1)
-        }
-        // Adding players to the game
-        createThief("Thief", 10, 10, Sword("Knife", 10, 10))
-        createKnight("Knight", 10, 10, Knife("Knife", 10, 10))
-        createEngineer("Engineer", 10, 10, Bow("Bow", 10, 10))
-        createBlackMage("Black Mage", 10, 10, 10, Knife("Knife", 10, 10))
-        createWhiteMage("White Mage", 10, 10, 10, Staff("Staff", 10, 10, 4))
-    }
+class GameController(val turnsQueue: LinkedBlockingQueue<IGameCharacter> = LinkedBlockingQueue<IGameCharacter>(),
+                     val playerCharacters: MutableList<IPlayerCharacter> = mutableListOf(),
+                     val enemyCharacters: MutableList<Enemy> = mutableListOf()) {
     /**
      * Creates a new enemy character and adds it to the list of enemies.
      * */
@@ -80,16 +68,16 @@ class GameController {
     /**
      * Creates a new black mage character and adds it to the list of players.
      */
-    fun createBlackMage(name: String, hp: Int, defense: Int, mana: Int, weapon: EquippableByBlackMage) {
-        val blackMage = BlackMage(name, hp, defense, mana, this)
+    fun createBlackMage(name: String, hp: Int, mana: Int, defense: Int, weapon: EquippableByBlackMage) {
+        val blackMage = BlackMage(name, hp, mana, defense, this)
         blackMage.equip(weapon)
         playerCharacters.add(blackMage)
     }
     /**
      * Creates a new white mage character and adds it to the list of players.
      */
-    fun createWhiteMage(name: String, hp: Int, defense: Int, mana: Int, weapon: EquippableByWhiteMage) {
-        val whiteMage = WhiteMage(name, hp, defense, mana, this)
+    fun createWhiteMage(name: String, hp: Int, mana: Int, defense: Int, weapon: EquippableByWhiteMage) {
+        val whiteMage = WhiteMage(name, hp, mana, defense, this)
         whiteMage.equip(weapon)
         playerCharacters.add(whiteMage)
     }
@@ -117,8 +105,35 @@ class GameController {
     fun enemyAttackRandomPlayer(enemyIndex: Int) {
         attack(enemyCharacters[enemyIndex], playerCharacters.random())
     }
-    fun useMagic(attacker: IMagicWielder, target: Enemy) {
-        // TODO: Use magic on a target
+    /**
+     * Uses a thunder spell on a target enemy.
+     */
+    fun useThunder(mage: BlackMage, target: Enemy){
+        mage.thunderSpell(target)
+    }
+    /**
+     * Uses a fire spell on a target enemy.
+     */
+    fun useFire(mage: BlackMage, target: Enemy){
+        mage.fireSpell(target)
+    }
+    /**
+     * Uses a heal-spell on a target player.
+     */
+    fun useHeal(mage: WhiteMage, target: IPlayerCharacter){
+        mage.heal(target)
+    }
+    /**
+     * Uses a paralysis spell on a target player.
+     */
+    fun useParalysis(mage: WhiteMage, target: Enemy){
+        mage.paralyze(target)
+    }
+    /**
+     * Uses a poison spell on a target player.
+     */
+    fun usePoison(mage: WhiteMage, target: Enemy){
+        mage.poison(target)
     }
     /**
      * Calls the waitTurn method of the character.

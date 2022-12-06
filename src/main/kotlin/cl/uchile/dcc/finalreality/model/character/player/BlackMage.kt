@@ -59,7 +59,7 @@ class BlackMage(
         super.validEquip(weapon)
     }
     /**
-     * Attacks an enemy with a thunder spell. It drains 15 MP.
+     * Attacks an enemy with a thunder spell. It costs 15 MP.
      */
     fun thunderSpell(enemy: Enemy) {
         if (currentMp < 15) {
@@ -69,7 +69,7 @@ class BlackMage(
         enemy.receiveThunder(this)
     }
     /**
-     * Attacks an enemy with a fire spell. It drains 15 MP.
+     * Attacks an enemy with a fire spell. It costs 15 MP.
      */
     fun fireSpell(enemy: Enemy) {
         if (currentMp < 15) {
