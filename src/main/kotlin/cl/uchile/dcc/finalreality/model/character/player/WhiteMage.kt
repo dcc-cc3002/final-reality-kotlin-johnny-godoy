@@ -65,7 +65,7 @@ class WhiteMage(
         if (currentMp < 15) {
             throw SpellFailException("$this has $currentMp MP, but needs at least 15 MP to cast Heal Spell.")
         }
-        if (!target.isAlive()){
+        if (!target.isAlive()) {
             throw SpellFailException("$target is already dead, it cannot be healed.")
         }
         currentMp -= 15

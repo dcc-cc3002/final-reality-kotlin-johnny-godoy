@@ -1,25 +1,19 @@
 package cl.uchile.dcc.finalreality.controller
 
 import cl.uchile.dcc.finalreality.model.character.Enemy
-import java.util.concurrent.LinkedBlockingQueue
 import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
 import cl.uchile.dcc.finalreality.model.character.player.BlackMage
 import cl.uchile.dcc.finalreality.model.character.player.Engineer
 import cl.uchile.dcc.finalreality.model.character.player.Knight
 import cl.uchile.dcc.finalreality.model.character.player.Thief
 import cl.uchile.dcc.finalreality.model.character.player.WhiteMage
-import cl.uchile.dcc.finalreality.model.character.player.interfaces.IMagicWielder
 import cl.uchile.dcc.finalreality.model.character.player.interfaces.IPlayerCharacter
-import cl.uchile.dcc.finalreality.model.weapons.Bow
-import cl.uchile.dcc.finalreality.model.weapons.Knife
-import cl.uchile.dcc.finalreality.model.weapons.Staff
-import cl.uchile.dcc.finalreality.model.weapons.Sword
 import cl.uchile.dcc.finalreality.model.weapons.interfaces.EquippableByBlackMage
 import cl.uchile.dcc.finalreality.model.weapons.interfaces.EquippableByEngineer
 import cl.uchile.dcc.finalreality.model.weapons.interfaces.EquippableByKnight
 import cl.uchile.dcc.finalreality.model.weapons.interfaces.EquippableByThief
 import cl.uchile.dcc.finalreality.model.weapons.interfaces.EquippableByWhiteMage
-import cl.uchile.dcc.finalreality.model.weapons.interfaces.IWeapon
+import java.util.concurrent.LinkedBlockingQueue
 
 /**
  * The controller class.
@@ -31,9 +25,11 @@ import cl.uchile.dcc.finalreality.model.weapons.interfaces.IWeapon
  *
  * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  */
-class GameController(val turnsQueue: LinkedBlockingQueue<IGameCharacter> = LinkedBlockingQueue<IGameCharacter>(),
-                     val playerCharacters: MutableList<IPlayerCharacter> = mutableListOf(),
-                     val enemyCharacters: MutableList<Enemy> = mutableListOf()) {
+class GameController(
+    val turnsQueue: LinkedBlockingQueue<IGameCharacter> = LinkedBlockingQueue<IGameCharacter>(),
+    val playerCharacters: MutableList<IPlayerCharacter> = mutableListOf(),
+    val enemyCharacters: MutableList<Enemy> = mutableListOf()
+) {
     /**
      * Creates a new enemy character and adds it to the list of enemies.
      * */
@@ -108,31 +104,31 @@ class GameController(val turnsQueue: LinkedBlockingQueue<IGameCharacter> = Linke
     /**
      * Uses a thunder spell on a target enemy.
      */
-    fun useThunder(mage: BlackMage, target: Enemy){
+    fun useThunder(mage: BlackMage, target: Enemy) {
         mage.thunderSpell(target)
     }
     /**
      * Uses a fire spell on a target enemy.
      */
-    fun useFire(mage: BlackMage, target: Enemy){
+    fun useFire(mage: BlackMage, target: Enemy) {
         mage.fireSpell(target)
     }
     /**
      * Uses a heal-spell on a target player.
      */
-    fun useHeal(mage: WhiteMage, target: IPlayerCharacter){
+    fun useHeal(mage: WhiteMage, target: IPlayerCharacter) {
         mage.heal(target)
     }
     /**
      * Uses a paralysis spell on a target player.
      */
-    fun useParalysis(mage: WhiteMage, target: Enemy){
+    fun useParalysis(mage: WhiteMage, target: Enemy) {
         mage.paralyze(target)
     }
     /**
      * Uses a poison spell on a target player.
      */
-    fun usePoison(mage: WhiteMage, target: Enemy){
+    fun usePoison(mage: WhiteMage, target: Enemy) {
         mage.poison(target)
     }
     /**

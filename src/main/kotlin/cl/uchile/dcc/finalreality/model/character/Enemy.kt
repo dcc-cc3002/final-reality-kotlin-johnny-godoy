@@ -14,17 +14,13 @@ import cl.uchile.dcc.finalreality.model.character.abstract_classes.AbstractChara
 import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
 import cl.uchile.dcc.finalreality.model.character.player.BlackMage
 import cl.uchile.dcc.finalreality.model.character.player.WhiteMage
-import cl.uchile.dcc.finalreality.model.character.player.interfaces.IMagicWielder
 import cl.uchile.dcc.finalreality.model.character.player.interfaces.IPlayerCharacter
 import cl.uchile.dcc.finalreality.model.status.Burnt
 import cl.uchile.dcc.finalreality.model.status.NullState
 import cl.uchile.dcc.finalreality.model.status.Paralyzed
 import cl.uchile.dcc.finalreality.model.status.Poisoned
 import cl.uchile.dcc.finalreality.model.status.interfaces.IState
-import cl.uchile.dcc.finalreality.model.weapons.Staff
 import java.util.Objects
-import java.util.concurrent.Executors
-import java.util.concurrent.TimeUnit
 
 /**
  * A class that holds all the information of a single enemy of the game.
@@ -73,7 +69,7 @@ class Enemy(
     }
     override fun delay(): Long =
         (weight / 10).toLong()
-    override fun attack(target: IGameCharacter){
+    override fun attack(target: IGameCharacter) {
         status.attack(target)
     }
     override fun waitTurn() {
@@ -91,7 +87,7 @@ class Enemy(
     /**
      * Damages this enemy, and with a probability of 30%, it will be paralyzed.
      */
-    fun receiveThunder(blackMage: BlackMage){
+    fun receiveThunder(blackMage: BlackMage) {
         receiveDamage(blackMage.equippedWeapon.magicDamage)
         if (Math.random() < 0.3) {
             status = Paralyzed(this)
@@ -118,7 +114,7 @@ class Enemy(
     fun receiveParalysis(@Suppress("UNUSED_PARAMETER") whiteMage: WhiteMage) {
         status = Paralyzed(this)
     }
-    override fun notifyDeathToController(){
+    override fun notifyDeathToController() {
         if (!isAlive()) {
             controller.removeEnemy(this)
         }

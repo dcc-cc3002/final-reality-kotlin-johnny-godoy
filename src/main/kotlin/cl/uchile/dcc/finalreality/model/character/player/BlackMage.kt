@@ -8,10 +8,8 @@
 package cl.uchile.dcc.finalreality.model.character.player
 
 import cl.uchile.dcc.finalreality.controller.GameController
-import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException
 import cl.uchile.dcc.finalreality.exceptions.SpellFailException
 import cl.uchile.dcc.finalreality.model.character.Enemy
-import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
 import cl.uchile.dcc.finalreality.model.character.player.abstract_classes.AbstractMagicWielder
 import cl.uchile.dcc.finalreality.model.weapons.interfaces.EquippableByBlackMage
 import java.util.Objects

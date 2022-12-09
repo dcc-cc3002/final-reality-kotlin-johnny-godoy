@@ -1,7 +1,6 @@
 package cl.uchile.dcc.finalreality.model.status
 
 import cl.uchile.dcc.finalreality.model.character.Enemy
-import cl.uchile.dcc.finalreality.model.character.player.BlackMage
 import cl.uchile.dcc.finalreality.model.status.interfaces.IState
 
 /**

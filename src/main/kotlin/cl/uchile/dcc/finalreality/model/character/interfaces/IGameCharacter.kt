@@ -8,7 +8,6 @@
 package cl.uchile.dcc.finalreality.model.character.interfaces
 
 import cl.uchile.dcc.finalreality.controller.GameController
-import cl.uchile.dcc.finalreality.exceptions.FriendlyFireException
 import cl.uchile.dcc.finalreality.model.character.Enemy
 import cl.uchile.dcc.finalreality.model.character.player.interfaces.IPlayerCharacter
 

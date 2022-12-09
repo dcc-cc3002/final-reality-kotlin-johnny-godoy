@@ -18,13 +18,13 @@ interface IState {
     /**
      * The effect applied every turn. By default, it does nothing.
      * */
-    fun turnEffect(){
+    fun turnEffect() {
         // Does nothing.
     }
     /**
      * Modifies the attack method from the character. By default, it does nothing.
      * */
-    fun attack(target: IGameCharacter){
+    fun attack(target: IGameCharacter) {
         target.attackedByEnemy(character)
     }
 }

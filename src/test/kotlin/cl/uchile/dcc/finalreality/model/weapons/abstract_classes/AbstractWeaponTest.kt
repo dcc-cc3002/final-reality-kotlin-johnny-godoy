@@ -1,12 +1,10 @@
 package cl.uchile.dcc.cl.uchile.dcc.finalreality.model.weapons.abstract_classes
 
 import cl.uchile.dcc.finalreality.controller.GameController
-import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
 import cl.uchile.dcc.finalreality.model.weapons.interfaces.IWeapon
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotEquals
 import org.junit.jupiter.api.Test
-import java.util.concurrent.LinkedBlockingDeque
 
 abstract class AbstractWeaponTest {
     val controller: GameController = GameController()

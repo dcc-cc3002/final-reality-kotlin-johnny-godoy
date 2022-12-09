@@ -1,7 +1,6 @@
 package cl.uchile.dcc.finalreality.exceptions
 
 import cl.uchile.dcc.finalreality.controller.GameController
-import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
 import cl.uchile.dcc.finalreality.model.character.player.BlackMage
 import cl.uchile.dcc.finalreality.model.character.player.Engineer
 import cl.uchile.dcc.finalreality.model.character.player.Knight
@@ -12,9 +11,8 @@ import cl.uchile.dcc.finalreality.model.weapons.Bow
 import cl.uchile.dcc.finalreality.model.weapons.Knife
 import cl.uchile.dcc.finalreality.model.weapons.Staff
 import cl.uchile.dcc.finalreality.model.weapons.Sword
-import org.junit.jupiter.api.Test
-import java.util.concurrent.LinkedBlockingDeque
 import org.junit.jupiter.api.Assertions.assertThrows
+import org.junit.jupiter.api.Test
 
 internal class UnequippableWeaponExceptionTest {
     private val controller = GameController()

@@ -8,11 +8,9 @@
 package cl.uchile.dcc.finalreality.model.character.player
 
 import cl.uchile.dcc.finalreality.controller.GameController
-import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
 import cl.uchile.dcc.finalreality.model.character.player.abstract_classes.AbstractPlayerCharacter
 import cl.uchile.dcc.finalreality.model.weapons.interfaces.EquippableByThief
 import java.util.Objects
-import java.util.concurrent.BlockingQueue
 
 /**
  * A `Thief` is a type of [IPlayerCharacter] that can equip `Sword`s, `Knife`s and `Bow`s.

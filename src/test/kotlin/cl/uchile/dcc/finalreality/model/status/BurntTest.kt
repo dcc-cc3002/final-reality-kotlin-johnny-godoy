@@ -1,9 +1,8 @@
 package cl.uchile.dcc.finalreality.model.status
 
 import cl.uchile.dcc.finalreality.model.status.abstract_classes.PassiveDamageTest
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-
-import org.junit.jupiter.api.Assertions.*
 
 internal class BurntTest : PassiveDamageTest() {
     override val firstStatus = Burnt(4, controller.enemyCharacters[0])

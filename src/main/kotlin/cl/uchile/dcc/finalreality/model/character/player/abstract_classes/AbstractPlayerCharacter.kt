@@ -52,7 +52,7 @@ abstract class AbstractPlayerCharacter(
     }
     override fun delay(): Long =
         (equippedWeapon.weight / 10).toLong()
-    override fun attack(target: IGameCharacter){
+    override fun attack(target: IGameCharacter) {
         target.attackedByPlayer(this)
     }
     override fun attackedByPlayer(attacker: IPlayerCharacter) {
@@ -63,9 +63,9 @@ abstract class AbstractPlayerCharacter(
         notifyDeathToController()
     }
     override fun receiveHeal(@Suppress("UNUSED_PARAMETER") whiteMage: WhiteMage) {
-        currentHp = min((currentHp + 0.3*maxHp).toInt(), maxHp)
+        currentHp = min((currentHp + 0.3 * maxHp).toInt(), maxHp)
     }
-    override fun notifyDeathToController(){
+    override fun notifyDeathToController() {
         if (!isAlive()) {
             controller.removePlayer(this)
         }
