@@ -9,7 +9,6 @@ package cl.uchile.dcc.finalreality.model.character.player.abstract_classes
 
 import cl.uchile.dcc.finalreality.controller.GameController
 import cl.uchile.dcc.finalreality.exceptions.Require
-import cl.uchile.dcc.finalreality.model.character.player.interfaces.IMagicWielder
 
 /**
  * An abstract class that holds the information for a character that wields magic (and thus has Mana)
@@ -33,9 +32,9 @@ abstract class AbstractMagicWielder(
     maxMp: Int,
     defense: Int,
     controller: GameController
-) : AbstractPlayerCharacter(name, maxHp, defense, controller), IMagicWielder {
-    override val maxMp: Int = Require.Stat(maxMp, "Max MP") atLeast 0
-    override var currentMp: Int = maxMp
+) : AbstractPlayerCharacter(name, maxHp, defense, controller) {
+    val maxMp: Int = Require.Stat(maxMp, "Max MP") atLeast 0
+    var currentMp: Int = maxMp
         set(value) {
             field = Require.Stat(value, "Current MP") inRange 0..maxMp
         }

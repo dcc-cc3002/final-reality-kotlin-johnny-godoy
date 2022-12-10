@@ -24,7 +24,7 @@ import kotlin.math.min
  * @param name        the character's name
  * @param maxHp       the character's maximum health points
  * @param defense     the character's defense
- * @param controller The game controller.
+ * @param controller  the game controller.
  * @constructor Creates a new playable character.
  *
  * @author <a href="https://www.github.com/r8vnhill">R8V</a>
@@ -47,9 +47,6 @@ abstract class AbstractPlayerCharacter(
     protected fun validEquip(weapon: IWeapon) {
         _equippedWeapon = weapon
     }
-    override fun equip(weapon: IWeapon) {
-        throw UnequippableWeaponException("$this cannot equip $weapon.")
-    }
     override fun delay(): Long =
         (equippedWeapon.weight / 10).toLong()
     override fun attack(target: IGameCharacter) {
@@ -61,9 +58,6 @@ abstract class AbstractPlayerCharacter(
     override fun attackedByEnemy(attacker: Enemy) {
         this.receivePhysicalAttack(attacker.attackStat)
         notifyDeathToController()
-    }
-    override fun receiveHeal(@Suppress("UNUSED_PARAMETER") whiteMage: WhiteMage) {
-        currentHp = min((currentHp + 0.3 * maxHp).toInt(), maxHp)
     }
     override fun notifyDeathToController() {
         if (!isAlive()) {

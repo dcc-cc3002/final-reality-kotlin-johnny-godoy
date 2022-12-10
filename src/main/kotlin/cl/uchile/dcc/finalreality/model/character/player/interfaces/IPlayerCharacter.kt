@@ -7,9 +7,11 @@
  */
 package cl.uchile.dcc.finalreality.model.character.player.interfaces
 
+import cl.uchile.dcc.finalreality.exceptions.UnequippableWeaponException
 import cl.uchile.dcc.finalreality.model.character.interfaces.IGameCharacter
 import cl.uchile.dcc.finalreality.model.character.player.WhiteMage
 import cl.uchile.dcc.finalreality.model.weapons.interfaces.IWeapon
+import kotlin.math.min
 
 /**
  * A character controlled by the user.
@@ -27,9 +29,13 @@ interface IPlayerCharacter : IGameCharacter {
      * @param weapon IWeapon
      * @throws UnequippableWeaponException always
      */
-    fun equip(weapon: IWeapon)
+    fun equip(weapon: IWeapon){
+        throw UnequippableWeaponException("$this cannot equip $weapon.")
+    }
     /**
      * Heals 30% of the character's maximum health points.
      */
-    fun receiveHeal(whiteMage: WhiteMage)
+    fun receiveHeal(@Suppress("UNUSED_PARAMETER") whiteMage: WhiteMage) {
+        currentHp = min((currentHp + 0.3 * maxHp).toInt(), maxHp)
+    }
 }

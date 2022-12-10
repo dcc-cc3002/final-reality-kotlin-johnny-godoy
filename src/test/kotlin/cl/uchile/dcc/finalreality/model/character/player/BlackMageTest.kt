@@ -1,6 +1,6 @@
 package cl.uchile.dcc.finalreality.model.character.player
 
-import cl.uchile.dcc.cl.uchile.dcc.finalreality.model.character.player.abstract_classes.AbstractMagicWielderTest
+import cl.uchile.dcc.finalreality.model.character.player.abstract_classes.AbstractMagicWielderTest
 import cl.uchile.dcc.finalreality.model.weapons.Knife
 import cl.uchile.dcc.finalreality.model.weapons.Staff
 import org.junit.jupiter.api.Assertions.assertEquals
