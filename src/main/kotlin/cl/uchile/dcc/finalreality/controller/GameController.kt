@@ -78,16 +78,18 @@ class GameController(
         playerCharacters.add(whiteMage)
     }
     /**
-     * Removes dead enemies from the list of enemies.
+     * Removes dead enemies from the list of enemies and the turns queue.
      */
     fun removeEnemy(enemy: Enemy) {
         enemyCharacters.remove(enemy)
+        turnsQueue.remove(enemy)
     }
     /**
-     * Removes dead players from the list of players.
+     * Removes dead players from the list of players and the turns queue.
      */
     fun removePlayer(player: IPlayerCharacter) {
         playerCharacters.remove(player)
+        turnsQueue.remove(player)
     }
     /**
      * Makes the attacker character attack the target character.
