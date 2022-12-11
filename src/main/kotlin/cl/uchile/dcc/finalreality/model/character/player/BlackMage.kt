@@ -8,7 +8,7 @@
 package cl.uchile.dcc.finalreality.model.character.player
 
 import cl.uchile.dcc.finalreality.controller.GameController
-import cl.uchile.dcc.finalreality.exceptions.SpellFailException
+import cl.uchile.dcc.finalreality.exceptions.NotEnoughManaException
 import cl.uchile.dcc.finalreality.model.character.Enemy
 import cl.uchile.dcc.finalreality.model.character.player.abstract_classes.AbstractMagicWielder
 import cl.uchile.dcc.finalreality.model.weapons.interfaces.EquippableByBlackMage
@@ -61,7 +61,7 @@ class BlackMage(
      */
     fun thunderSpell(enemy: Enemy) {
         if (currentMp < 15) {
-            throw SpellFailException("$this has $currentMp MP, but needs at least 15 MP to cast Thunder Spell.")
+            throw NotEnoughManaException("$this has $currentMp MP, but needs at least 15 MP to cast Thunder Spell.")
         }
         currentMp -= 15
         enemy.receiveThunder(this)
@@ -71,7 +71,7 @@ class BlackMage(
      */
     fun fireSpell(enemy: Enemy) {
         if (currentMp < 15) {
-            throw SpellFailException("$this has $currentMp MP, but needs at least 15 MP to cast Fire Spell.")
+            throw NotEnoughManaException("$this has $currentMp MP, but needs at least 15 MP to cast Fire Spell.")
         }
         currentMp -= 15
         enemy.receiveFire(this)

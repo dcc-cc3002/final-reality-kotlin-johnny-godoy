@@ -1,7 +1,7 @@
 package cl.uchile.dcc.finalreality.controller
 
 import cl.uchile.dcc.finalreality.exceptions.FriendlyFireException
-import cl.uchile.dcc.finalreality.exceptions.SpellFailException
+import cl.uchile.dcc.finalreality.exceptions.NotEnoughManaException
 import cl.uchile.dcc.finalreality.model.character.Enemy
 import cl.uchile.dcc.finalreality.model.character.player.BlackMage
 import cl.uchile.dcc.finalreality.model.character.player.Thief
@@ -109,10 +109,7 @@ internal class GameControllerTest {
         val mage = controller.playerCharacters[0] as BlackMage
         controller.useThunder(mage, enemy)
         assertEquals(6, enemy.currentHp) // 10 - 4 (note: Defense doesn't affect magic damage)
-        enemy.currentHp = 0 // Kill enemy
-        assertThrows(SpellFailException::class.java, { controller.useThunder(mage, enemy) }, "Used a spell on a dead enemy")
-        enemy.currentHp = 10 // Revive enemy
-        assertThrows(SpellFailException::class.java, { controller.useThunder(mage, enemy) }, "Used thunder twice without enough mana to do so")
+        assertThrows(NotEnoughManaException::class.java, { controller.useThunder(mage, enemy) }, "Used thunder twice without enough mana to do so")
     }
     @Test
     fun useFire() {
@@ -122,10 +119,7 @@ internal class GameControllerTest {
         val mage = controller.playerCharacters[0] as BlackMage
         controller.useFire(mage, enemy)
         assertEquals(6, enemy.currentHp) // 10 - 4 (note: Defense doesn't affect magic damage)
-        enemy.currentHp = 0 // Kill enemy
-        assertThrows(SpellFailException::class.java, { controller.useFire(mage, enemy) }, "Used a spell on a dead enemy")
-        enemy.currentHp = 10 // Revive enemy
-        assertThrows(SpellFailException::class.java, { controller.useFire(mage, enemy) }, "Used fire twice without enough mana to do so")
+        assertThrows(NotEnoughManaException::class.java, { controller.useFire(mage, enemy) }, "Used fire twice without enough mana to do so")
     }
     @Test
     fun useHeal() {
@@ -134,10 +128,7 @@ internal class GameControllerTest {
         mage.currentHp = 10 // Taking some damage
         controller.useHeal(mage, mage)
         assertEquals(14, mage.currentHp) // 10 + 4
-        mage.currentHp = 0 // Kill mage
-        assertThrows(SpellFailException::class.java, { controller.useHeal(mage, mage) }, "Used a spell on a dead character")
-        mage.currentHp = 10 // Revive mage
-        assertThrows(SpellFailException::class.java, { controller.useHeal(mage, mage) }, "Used heal twice without enough mana to do so")
+        assertThrows(NotEnoughManaException::class.java, { controller.useHeal(mage, mage) }, "Used heal twice without enough mana to do so")
     }
     @Test
     fun useParalysis() {
@@ -147,10 +138,7 @@ internal class GameControllerTest {
         val mage = controller.playerCharacters[0] as WhiteMage
         controller.useParalysis(mage, enemy)
         assertEquals(Paralyzed(enemy), enemy.status)
-        enemy.currentHp = 0 // Kill enemy
-        assertThrows(SpellFailException::class.java, { controller.useParalysis(mage, enemy) }, "Used a spell on a dead enemy")
-        enemy.currentHp = 10 // Revive enemy
-        assertThrows(SpellFailException::class.java, { controller.useParalysis(mage, enemy) }, "Used paralysis twice without enough mana to do so")
+        assertThrows(NotEnoughManaException::class.java, { controller.useParalysis(mage, enemy) }, "Used paralysis twice without enough mana to do so")
     }
     @Test
     fun usePoison() {
@@ -162,9 +150,6 @@ internal class GameControllerTest {
         assertEquals(Poisoned(10, enemy), enemy.status)
         controller.waitTurn(enemy) // Passing a turn for poison to take effect
         assertEquals(7, enemy.currentHp) // 10 - 3 (note: Defense doesn't affect magic damage)
-        enemy.currentHp = 0 // Kill enemy
-        assertThrows(SpellFailException::class.java, { controller.usePoison(mage, enemy) }, "Used a spell on a dead enemy")
-        enemy.currentHp = 10 // Revive enemy
-        assertThrows(SpellFailException::class.java, { controller.usePoison(mage, enemy) }, "Used poison twice without enough mana to do so")
+        assertThrows(NotEnoughManaException::class.java, { controller.usePoison(mage, enemy) }, "Used poison twice without enough mana to do so")
     }
 }

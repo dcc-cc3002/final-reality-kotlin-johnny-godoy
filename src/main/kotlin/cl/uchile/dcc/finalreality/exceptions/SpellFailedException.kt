@@ -11,10 +11,10 @@ package cl.uchile.dcc.finalreality.exceptions
  * This error is used if a mage cannot perform a spell.
  * It doesn't find the missspells in this project.
  *
- * @constructor Creates a new `SpellFailException` with a `description` of the
+ * @constructor Creates a new `SpellFailedException` with a `description` of the
  * error.
  *
  * @author <a href="https://www.github.com/johnny-godoy">Johnny</a>
  */
-class SpellFailException(description: String) :
-    Exception(description)
+open class SpellFailedException(description: String) :
+    Exception("The spell failed: $description")

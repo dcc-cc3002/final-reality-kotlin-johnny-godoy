@@ -8,7 +8,7 @@
 package cl.uchile.dcc.finalreality.model.character.player
 
 import cl.uchile.dcc.finalreality.controller.GameController
-import cl.uchile.dcc.finalreality.exceptions.SpellFailException
+import cl.uchile.dcc.finalreality.exceptions.NotEnoughManaException
 import cl.uchile.dcc.finalreality.model.character.Enemy
 import cl.uchile.dcc.finalreality.model.character.player.abstract_classes.AbstractMagicWielder
 import cl.uchile.dcc.finalreality.model.character.player.abstract_classes.AbstractPlayerCharacter
@@ -63,10 +63,7 @@ class WhiteMage(
      */
     fun heal(target: IPlayerCharacter) {
         if (currentMp < 15) {
-            throw SpellFailException("$this has $currentMp MP, but needs at least 15 MP to cast Heal Spell.")
-        }
-        if (!target.isAlive()) {
-            throw SpellFailException("$target is already dead, it cannot be healed.")
+            throw NotEnoughManaException("$this has $currentMp MP, but needs at least 15 MP to cast Heal Spell.")
         }
         currentMp -= 15
         target.receiveHeal(this)
@@ -76,7 +73,7 @@ class WhiteMage(
      */
     fun poison(target: Enemy) {
         if (currentMp < 40) {
-            throw SpellFailException("$this has $currentMp MP, but needs at least 40 MP to cast Poison Spell.")
+            throw NotEnoughManaException("$this has $currentMp MP, but needs at least 40 MP to cast Poison Spell.")
         }
         currentMp -= 40
         target.receivePoison(this)
@@ -86,7 +83,7 @@ class WhiteMage(
      */
     fun paralyze(target: Enemy) {
         if (currentMp < 25) {
-            throw SpellFailException("$this has $currentMp MP, but needs at least 25 MP to cast Paralyze Spell.")
+            throw NotEnoughManaException("$this has $currentMp MP, but needs at least 25 MP to cast Paralyze Spell.")
         }
         currentMp -= 25
         target.receiveParalysis(this)
