@@ -98,7 +98,7 @@ while white mages can cast cure, paralyze and poison spells.
 This is done with double dispatch, where the spell receiver implement `receiveX(magicWielder)` method for each `castX(enemy)` the magic wielder implements.
 For attacks, the receiver is an `Enemy`, whereas for the healing spell, the receiver is a `PlayerCharacter`.
 
-Spells can't be used if the wielder doesn't have enough mana, a `SpellFailedException` is thrown if attempted. It can't target dead enemies either, but that will be handled by the controller.
+Spells can't be used if the wielder doesn't have enough mana, a `SpellFailedException` is thrown if attempted. It can't target dead enemies either, but that will be handled by the controller. Mages are able to use spells when not wielding a staff, but their `magicDamage` attribute is set to 0, meaning they cannot inflict damage, but can inflict a status or heal an ally.
 
 For thunder, fire and poison spells, we need to implement status effects (paralyze, poison and burn).
 This are implemented as States, where the `Enemy` is the context, and the status effect is the state.
