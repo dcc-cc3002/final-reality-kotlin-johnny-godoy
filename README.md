@@ -88,15 +88,17 @@ It is responsible for:
 
 In order to do this, the controller must know when characters die, to remove them from the queue and the list of living characters.
 To do this, we implement an Observer pattern, where the `GameController` is the observer, and the `IGameCharacter` is the subject.
-When a character dies, it notifies the controller, which removes it from the queue and the list of living characters.
+When a character dies, it notifies the controller, which removes the character from the queue and the list of living characters.
 
 Note that the `GameController` could also be a singleton, but I decided to make it a normal class to avoid coupling.
-It also determines victory (resp. loss) conditions for the player, by determining if the list of alive enemies (resp. players) is empty.
+It also determines victory (resp. loss) conditions for the player, by checking if the list of alive enemies (resp. players) is empty.
 
 To make magicians cast spells, we added new methods. Black mages can cast fire and thunder spells,
 while white mages can cast cure, paralyze and poison spells. 
 This is done with double dispatch, where the spell receiver implement `receiveX(magicWielder)` method for each `castX(enemy)` the magic wielder implements.
 For attacks, the receiver is an `Enemy`, whereas for the healing spell, the receiver is a `PlayerCharacter`.
+
+Spells can't be used if the wielder doesn't have enough mana or if the target is dead, a `SpellFailedException` is thrown if attempted.
 
 For thunder, fire and poison spells, we need to implement status effects (paralyze, poison and burn).
 This are implemented as States, where the `Enemy` is the context, and the status effect is the state.
