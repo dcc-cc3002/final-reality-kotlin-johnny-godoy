@@ -80,7 +80,7 @@ Licensed Material available under these terms and conditions.
    Licensor. For purposes of this Public License, where the Licensed
    Material is a musical work, performance, or sound recording,
    Adapted Material is always produced where the Licensed Material is
-   synched in timed relation with a moving image.
+   synced in timed relation with a moving image.
 
 2. Adapter's License means the license You apply to Your Copyright
    and Similar Rights in Your contributions to Adapted Material in

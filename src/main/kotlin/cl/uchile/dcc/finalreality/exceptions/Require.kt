@@ -1,5 +1,5 @@
 /*
- * "Final Reality" (c) by R8V and ~Your name~
+ * "Final Reality" (c) by R8V and Johnny Godoy
  * "Final Reality" is licensed under a
  * Creative Commons Attribution 4.0 International License.
  * You should have received a copy of the license along with this
@@ -13,7 +13,6 @@ package cl.uchile.dcc.finalreality.exceptions
  * If the condition is not met, an exception is thrown.
  *
  * @author <a href="https://github.com/r8vnhill">R8V</a>
- * @author ~Your name~
  */
 object Require {
 
@@ -32,7 +31,7 @@ object Require {
          * Checks if the stat is greater than or equal to the given value.
          * If the condition is met, the stat value is returned.
          */
-        infix fun atLeast(i: Int) = if (stat >= i) {
+        infix fun atLeast(i: Int): Int = if (stat >= i) {
             stat
         } else {
             throw InvalidStatValueException("'$name' ($stat must be at least $i)")
@@ -42,7 +41,7 @@ object Require {
          * Checks if the stat is in the given range.
          * If the condition is met, the stat value is returned.
          */
-        infix fun inRange(range: IntRange) = if (stat in range) {
+        infix fun inRange(range: IntRange): Int = if (stat in range) {
             stat
         } else {
             throw InvalidStatValueException("'$name' ($stat must be in range $range)")
