@@ -101,7 +101,7 @@ For attacks, the receiver is an `Enemy`, whereas for the healing spell, the rece
 Spells can't be used if the wielder doesn't have enough mana, a `SpellFailedException` is thrown if attempted. It can't target dead enemies either, but that will be handled by the controller. Mages are able to use spells when not wielding a staff, but their `magicDamage` attribute is set to 0, meaning they cannot inflict damage, but can inflict a status or heal an ally.
 
 For thunder, fire and poison spells, we need to implement status effects (paralyze, poison and burn).
-This are implemented as States, where the `Enemy` is the context, and the status effect is the state.
+These are implemented as States, where the `Enemy` is the context, and the status effect is the state.
 The enemy has a `status` field, which is an implementation of `IState`, and every turn, the enemy calls `status.turnEffect` to apply the effect of the status.
 It also calls `status.attack` every time the enemy attacks, to apply damage reductions or cancellations (for example, if the enemy is paralyzed, it cannot attack).
 To deal with enemies without a status, we create a Null Object pattern, where the `NullState` is the null object, and the `Enemy` has a `NullState` as a status by default.
